@@ -7,6 +7,9 @@ namespace MapImporter
     /// </summary>
     public class TerrainTypes
     {
+        /// <summary>
+        /// Array of Terrains to define the types
+        /// </summary>
         public Terrain[] Terrains { set; get; }
     }
 }

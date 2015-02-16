@@ -4,6 +4,8 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Xml;
 
 namespace MapImporter
 {
@@ -171,6 +173,9 @@ namespace MapImporter
                             // add terraintypes
                         }
 
+
+
+
                         tileset.Tiles = new List<Tile>(); //List of all tiles in this Tileset
                         int id = 0; //Keeps track of the local id for the tiles
                         for (int y = 0; y < (tileset.Image.Height / tileset.TileHeight); y++)
@@ -185,6 +190,11 @@ namespace MapImporter
                                 id++;
                                 gid++;
                             }
+
+
+
+
+
                         }
 
                         if (tilesets["tileproperties"] != null)
@@ -277,7 +287,6 @@ namespace MapImporter
         /// <returns>A new Map object</returns>
         private static Map ReadMapAsTmx(string fileText)
         {
-            // Support for Tmx files is coming
             return null;
         }
 

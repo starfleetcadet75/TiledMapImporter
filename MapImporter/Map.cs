@@ -9,11 +9,45 @@ namespace MapImporter
     /// <summary>
     /// The different kinds of orientation types that Tiled supports
     /// </summary>
-    public enum Orientation { Orthogonal, Isometric, Staggered }
+    public enum Orientation
+    {
+        /// <summary>
+        /// The Tiled map has an orthogonal orientation
+        /// </summary>
+        Orthogonal,
+        /// <summary>
+        /// The Tiled map has an isometric orientation
+        /// </summary>
+        Isometric,
+        /// <summary>
+        /// The Tiled map has a staggered orientation
+        /// </summary>
+        Staggered
+    }
+
     /// <summary>
     /// The different render orders possible
     /// </summary>
-    public enum RenderOrder { RightDown, RightUp, LeftDown, LeftUp }
+    public enum RenderOrder
+    {
+        /// <summary>
+        /// The Tiled map should be rendered right and down
+        /// </summary>
+        RightDown,
+        /// <summary>
+        /// The Tiled map should be rendered right and up
+        /// </summary>
+        RightUp,
+        /// <summary>
+        /// The Tiled map should be rendered left and down
+        /// </summary>
+        LeftDown,
+        /// <summary>
+        /// The Tiled map should be rendered left and up
+        /// </summary>
+        LeftUp
+    }
+
     /// <summary>
     /// A map object created using the Tiled Map Editor
     /// http://www.mapeditor.org/
@@ -244,45 +278,17 @@ namespace MapImporter
                 {
                     for (int i = 0; i < width; i++)
                     {
-                        //This if statement keeps the code from throwing an out of range exception depending on where the start indices are.
-                        //There is an explanation along with comments on how to prevent this from happening in the documentation.
-                        if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
-                            && iStartIndex > 0 && jStartIndex > 0)
-                        {
-                            int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j); //The global id of the tile in the layer at this point
-
-                            //If a gid of 0 occurs, it means that for this layer there is no tile placed in that location
-                            if (gid != 0)
-                            {
-                                Tileset tileset = GetTilesetWithGid(gid); //Find the tileset with the tile that we want to draw
-                                Tile tile = tileset.GetTileByGid(gid); //Find the tile in that tilset
-                                spriteBatch.Draw(tileset.Image.Texture, new Rectangle(i * TileWidth, j * TileHeight, TileWidth, TileHeight),
-                                    tile.Location, Color.White);
-                            }
-                        }
+                        Draw(spriteBatch, i, j, iStartIndex, jStartIndex, layer);
                     }
                 }
             }
-            // The following statements just change the order in which the tiles are rendered. Mostly the same code.
             else if (RenderOrder == RenderOrder.RightUp)
             {
                 for (int j = height; 0 <= j; j--)
                 {
                     for (int i = 0; i < width; i++)
                     {
-                        if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
-                            && iStartIndex > 0 && jStartIndex > 0)
-                        {
-                            int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j);
-
-                            if (gid != 0)
-                            {
-                                Tileset tileset = GetTilesetWithGid(gid);
-                                Tile tile = tileset.GetTileByGid(gid);
-                                spriteBatch.Draw(tileset.Image.Texture, new Rectangle(i * TileWidth, j * TileHeight, TileWidth, TileHeight),
-                                    tile.Location, Color.White);
-                            }
-                        }
+                        Draw(spriteBatch, i, j, iStartIndex, jStartIndex, layer);
                     }
                 }
             }
@@ -292,19 +298,7 @@ namespace MapImporter
                 {
                     for (int i = 0; i < width; i++)
                     {
-                        if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
-                            && iStartIndex > 0 && jStartIndex > 0)
-                        {
-                            int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j);
-
-                            if (gid != 0)
-                            {
-                                Tileset tileset = GetTilesetWithGid(gid);
-                                Tile tile = tileset.GetTileByGid(gid);
-                                spriteBatch.Draw(tileset.Image.Texture, new Rectangle(i * TileWidth, j * TileHeight, TileWidth, TileHeight),
-                                    tile.Location, Color.White);
-                            }
-                        }
+                        Draw(spriteBatch, i, j, iStartIndex, jStartIndex, layer);
                     }
                 }
             }
@@ -314,20 +308,63 @@ namespace MapImporter
                 {
                     for (int i = width; 0 <= i; i--)
                     {
-                        if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
-                            && iStartIndex > 0 && jStartIndex > 0)
-                        {
-                            int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j);
+                        Draw(spriteBatch, i, j, iStartIndex, jStartIndex, layer);
+                    }
+                }
+            }
+        }
 
-                            if (gid != 0)
-                            {
-                                Tileset tileset = GetTilesetWithGid(gid);
-                                Tile tile = tileset.GetTileByGid(gid);
-                                spriteBatch.Draw(tileset.Image.Texture, new Rectangle(i * TileWidth, j * TileHeight, TileWidth, TileHeight),
-                                    tile.Location, Color.White);
-                            }
+        /// <summary>
+        /// Performs the actual drawing. Above Draw method tells it what render order to use.
+        /// </summary>
+        /// <param name="spriteBatch">A spritebatch object for drawing</param>
+        /// <param name="i">The i index for drawwing in the i direction</param>
+        /// <param name="j">The j index for drawwing in the i direction</param>
+        /// <param name="iStartIndex">The i index of the first tile to draw</param>
+        /// <param name="jStartIndex">The j index of the first tile to draw</param>
+        /// <param name="layer">The layer to be drawn</param>
+        private void Draw(SpriteBatch spriteBatch, int i, int j, int iStartIndex, int jStartIndex, Layer layer)
+        {
+            int tileOffsetX = 0;
+            int tileOffsetY = 0;
+
+            //This if statement keeps the code from throwing an out of range exception depending on where the start indices are.
+            //There is an explanation along with comments on how to prevent this from happening in the documentation.
+            if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
+                && iStartIndex > 0 && jStartIndex > 0)
+            {
+                int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j); //The global id of the tile in the layer at this point
+
+                //If a gid of 0 occurs, it means that for this layer there is no tile placed in that location
+                if (gid != 0)
+                {
+                    Tileset tileset = GetTilesetWithGid(gid); //Find the tileset with the tile that we want to draw
+
+                    //If the tileset has drawing offsets applied
+                    if (tileset.TileOffset != null)
+                    {
+                        if (tileset.TileOffset.X != 0)
+                        {
+                            tileOffsetX = tileset.TileOffset.X;
+                        }
+                        else
+                        {
+                            tileOffsetX = 0;
+                        }
+
+                        if (tileset.TileOffset.Y != 0)
+                        {
+                            tileOffsetY = tileset.TileOffset.Y;
+                        }
+                        else
+                        {
+                            tileOffsetY = 0;
                         }
                     }
+
+                    Tile tile = tileset.GetTileByGid(gid); //Find the tile in that tilset
+                    spriteBatch.Draw(tileset.Image.Texture, new Rectangle((i * TileWidth) + tileOffsetX, (j * TileHeight) + tileOffsetY, TileWidth, TileHeight),
+                        tile.Location, Color.White);
                 }
             }
         }

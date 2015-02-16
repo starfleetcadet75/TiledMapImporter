@@ -231,9 +231,44 @@
             The different kinds of orientation types that Tiled supports
             </summary>
         </member>
+        <member name="F:MapImporter.Orientation.Orthogonal">
+            <summary>
+            The Tiled map has an orthogonal orientation
+            </summary>
+        </member>
+        <member name="F:MapImporter.Orientation.Isometric">
+            <summary>
+            The Tiled map has an isometric orientation
+            </summary>
+        </member>
+        <member name="F:MapImporter.Orientation.Staggered">
+            <summary>
+            The Tiled map has a staggered orientation
+            </summary>
+        </member>
         <member name="T:MapImporter.RenderOrder">
             <summary>
             The different render orders possible
+            </summary>
+        </member>
+        <member name="F:MapImporter.RenderOrder.RightDown">
+            <summary>
+            The Tiled map should be rendered right and down
+            </summary>
+        </member>
+        <member name="F:MapImporter.RenderOrder.RightUp">
+            <summary>
+            The Tiled map should be rendered right and up
+            </summary>
+        </member>
+        <member name="F:MapImporter.RenderOrder.LeftDown">
+            <summary>
+            The Tiled map should be rendered left and down
+            </summary>
+        </member>
+        <member name="F:MapImporter.RenderOrder.LeftUp">
+            <summary>
+            The Tiled map should be rendered left and up
             </summary>
         </member>
         <member name="T:MapImporter.Map">
@@ -327,6 +362,17 @@
             <param name="layer">The layer to be drawn</param>
             <param name="location">The location to draw the layers</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
+        </member>
+        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.Int32,System.Int32,MapImporter.Layer)">
+            <summary>
+            Performs the actual drawing. Above Draw method tells it what render order to use.
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="i">The i index for drawwing in the i direction</param>
+            <param name="j">The j index for drawwing in the i direction</param>
+            <param name="iStartIndex">The i index of the first tile to draw</param>
+            <param name="jStartIndex">The j index of the first tile to draw</param>
+            <param name="layer">The layer to be drawn</param>
         </member>
         <member name="P:MapImporter.Map.Version">
             <summary>
@@ -567,6 +613,11 @@
             <summary>
             This element defines an array of terrain types, which can be referenced
             from the terrain attribute of the tile element.
+            </summary>
+        </member>
+        <member name="P:MapImporter.TerrainTypes.Terrains">
+            <summary>
+            Array of Terrains to define the types
             </summary>
         </member>
         <member name="T:MapImporter.Tile">
