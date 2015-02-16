@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="tileset_newbarktown" tilewidth="32" tileheight="32">
+  <image source="tileset_newbarktown.png" width="224" height="224"/>
+ </tileset>
+ <tileset firstgid="50" name="triggers" tilewidth="32" tileheight="32">
+  <image source="triggers.png" width="160" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="entry" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="water" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="headbutt" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="sign" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="GroundLayer" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1LENACAIBVGmsLTSSvefTxewIDHwjVe8mktAi5kVAAAgrx5kd6n3nbo82tYdovvGNh1uzPy5L+oe1d+L4r9C31v7fa0PQK4FM9lwCQ==
+  </data>
+ </layer>
+ <layer name="BuildingLayer" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1ckOgjAYReHigCPiGEcSdw7v/4AeFmwaTGlt6Z/Ym3xr6gnFTCmVCTYVLnaf1C/1kyx2nxD9BhhihDFyTAT1m2GOBZYosBLQr9kaG2yxwx4HrW/uqavNb6lX4ogTzrjgipvWt/DU1aWfafcvXfvoZ1rTt26rd5XSz+d895O4MvYBIs7m/XvgiRfeDs+qLJ9ne3/1e+lyvhD3t+tMfUP167K2717b+SR//0K/f5XG5Xwh+8Xwy39jH2L3Sf3+u98HFEkVkA==
+  </data>
+ </layer>
+ <layer name="TriggerLayer" width="40" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1N0KgCAMBWCfqcz3f7Rukka4bOp+gvPBwBv1ONGUAADg7/JVEWVmHEXNVNLdx42MaXmQ7OuR8euetb/WvV219i6s1hm58si3QgmeT0Lzfmfv+xg8Uw/NRN+llEY+6b/31l/PfK1/70n7fmdp5aPr0xqZb8nizQMA7wQG7Bzn
+  </data>
+ </layer>
+</map>
