@@ -173,14 +173,11 @@ namespace MapImporter
                             // add terraintypes
                         }
 
-
-
-
                         tileset.Tiles = new List<Tile>(); //List of all tiles in this Tileset
                         int id = 0; //Keeps track of the local id for the tiles
-                        for (int y = 0; y < (tileset.Image.Height / tileset.TileHeight); y++)
+                        for (int y = (tileset.Margin / tileset.TileHeight); y < ((tileset.Image.Height - tileset.Margin) / tileset.TileHeight); y++)
                         {
-                            for (int x = 0; x < (tileset.Image.Width / tileset.TileWidth); x++)
+                            for (int x = (tileset.Margin / tileset.TileWidth); x < ((tileset.Image.Width - tileset.Margin) / tileset.TileWidth); x++)
                             {
                                 Tile tile = new Tile();
                                 tile.Id = id;
@@ -190,11 +187,6 @@ namespace MapImporter
                                 id++;
                                 gid++;
                             }
-
-
-
-
-
                         }
 
                         if (tilesets["tileproperties"] != null)
