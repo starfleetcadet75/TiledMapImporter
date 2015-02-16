@@ -13,8 +13,10 @@ This project is written in C# and is designed to be used in MonoGame (http://www
 Quick Start
 ------------
 To use this library in MonoGame, add every file from a folder in this project called MapImporter (https://github.com/starfleetcadet75/TiledMapImporter/tree/master/TiledMapImporter/MapImporter) to a new folder in your project. 
+
   1) Add a using statement for the folder:
     using TiledMapImporter.MapImporter;
+
   2) Create a new Map object by calling this line:
     Map map = Importer.ImportMap(@"Content/NewBarkTown.json");
 
