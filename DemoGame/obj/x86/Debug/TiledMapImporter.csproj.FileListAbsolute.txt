@@ -1,0 +1,35 @@
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\SDL.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\SDL_Mixer.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\TiledMapImporter.exe
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\TiledMapImporter.pdb
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Lidgren.Network.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\MonoGame.Framework.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\OpenTK.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Tao.Sdl.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.csprojResolveAssemblyReference.cache
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.exe
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.pdb
+C:\Users\Alex\documents\visual studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Content\tileset_newbarktown.xnb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Content\triggers.xnb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Content\NewBarkTown.json
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\TiledMapImporter\TiledMapImporter\bin\Debug\Content\NewBarkTown.tmx
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.exe
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.pdb
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Content\tileset_newbarktown.xnb
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Content\triggers.xnb
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Content\NewBarkTown.tmx
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Content\NewBarkTown.json
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\SDL.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\SDL_Mixer.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\TiledMapImporter.exe
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\TiledMapImporter.pdb
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Lidgren.Network.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\MonoGame.Framework.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\OpenTK.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Tao.Sdl.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\obj\x86\Debug\TiledMapImporter.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Source\Repos\TiledMapImporter\TiledMapImporter\bin\Debug\TiledMapImporter.XML
