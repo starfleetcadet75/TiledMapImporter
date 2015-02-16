@@ -72,7 +72,7 @@
     <Compile Include="Image.cs" />
     <Compile Include="ImageLayer.cs" />
     <Compile Include="Importer.cs" />
-    <Compile Include="Layer.cs" />
+    <Compile Include="TileLayer.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="ObjectGroup.cs" />

@@ -6,7 +6,7 @@ namespace MapImporter
     /// <summary>
     /// A single layer of tiles in the map
     /// </summary>
-    public class Layer
+    public class TileLayer
     {
         /// <summary>
         /// The name of the layer

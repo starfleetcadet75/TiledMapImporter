@@ -210,64 +210,81 @@ namespace MapImporter
                 }
 
                 // Create and add the layers
-                m.Layers = new List<Layer>();
+                m.TileLayers = new List<TileLayer>();
+                m.ObjectGroups = new List<ObjectGroup>();
+                m.ImageLayers = new List<ImageLayer>();
+                m.LayerDataList = new List<LayerData>();
+                int indexInLayerList = 0;
                 foreach (JObject layerJson in mapJSON["layers"])
                 {
-                    Layer l = new Layer();
-                    l.Name = layerJson["name"].ToString();
-                    l.X = (int)layerJson["x"];
-                    l.Y = (int)layerJson["y"];
-                    l.Width = (int)layerJson["width"];
-                    l.Height = (int)layerJson["height"];
-                    l.Opacity = (int)layerJson["opacity"];
-
-                    //Put the data from the layer into the Data object
-                    JArray dataJson = (JArray)layerJson["data"];
-                    l.Data = new Data(l.Width, l.Height);
-                    List<int> nums = new List<int>();
-
-                    foreach (int num in dataJson)
+                    if (layerJson["type"].ToString() == "tilelayer")
                     {
-                        nums.Add(num);
-                    }
+                        LayerData ld = new LayerData();
+                        ld.Index = indexInLayerList;
+                        ld.LayerType = LayerType.TileLayer;
+                        m.LayerDataList.Add(ld);
 
-                    int k = 0;
-                    for (int j = 0; j < l.Height; j++)
-                    {
-                        for (int i = 0; i < l.Width; i++)
+                        TileLayer l = new TileLayer();
+                        l.Name = layerJson["name"].ToString();
+                        l.X = (int)layerJson["x"];
+                        l.Y = (int)layerJson["y"];
+                        l.Width = (int)layerJson["width"];
+                        l.Height = (int)layerJson["height"];
+                        l.Opacity = (int)layerJson["opacity"];
+
+                        //Put the data from the layer into the Data object
+                        JArray dataJson = (JArray)layerJson["data"];
+                        l.Data = new Data(l.Width, l.Height);
+                        List<int> nums = new List<int>();
+
+                        foreach (int num in dataJson)
                         {
-                            l.Data.TileData[i, j] = nums[k];
-                            k++;
+                            nums.Add(num);
                         }
-                    }
 
-                    string s = layerJson["visible"].ToString();
-                    if (s.Equals("true") || s.Equals("True"))
+                        int k = 0;
+                        for (int j = 0; j < l.Height; j++)
+                        {
+                            for (int i = 0; i < l.Width; i++)
+                            {
+                                l.Data.TileData[i, j] = nums[k];
+                                k++;
+                            }
+                        }
+
+                        string s = layerJson["visible"].ToString();
+                        if (s.Equals("true") || s.Equals("True"))
+                        {
+                            l.Visible = true;
+                        }
+                        else
+                        {
+                            l.Visible = false;
+                        }
+
+                        if (layerJson["properties"] != null)
+                        {
+                            l.Props = new Properties();
+                            l.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(layerJson["properties"].ToString());
+                        }
+
+                        m.TileLayers.Add(l); // Add the new layer to the list of Layers
+                    }
+                    else if (layerJson["type"].ToString() == "objectgroup")
                     {
-                        l.Visible = true;
+                        LayerData ld = new LayerData();
+                        ld.Index = indexInLayerList;
+                        ld.LayerType = LayerType.ObjectGroup;
+                        m.LayerDataList.Add(ld);
                     }
-                    else
+                    else if (layerJson["type"].ToString() == "imagelayer")
                     {
-                        l.Visible = false;
+                        LayerData ld = new LayerData();
+                        ld.Index = indexInLayerList;
+                        ld.LayerType = LayerType.ImageLayer;
+                        m.LayerDataList.Add(ld);
                     }
-
-                    if (layerJson["properties"] != null)
-                    {
-                        l.Props = new Properties();
-                        l.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(layerJson["properties"].ToString());
-                    }
-
-                    m.Layers.Add(l); // Add the new layer to the list of Layers
-                }
-
-                if (mapJSON["objectgroups"] != null)
-                {
-                    //Add object groups
-                }
-
-                if (mapJSON["imagelayers"] != null)
-                {
-                    //Add image layers
+                    indexInLayerList++;
                 }
             }
             return m;

@@ -172,56 +172,56 @@
             <param name="hexString">The RGB string to parse.</param>
             <returns>The color created from the hex string.</returns>
         </member>
-        <member name="T:MapImporter.Layer">
+        <member name="T:MapImporter.TileLayer">
             <summary>
             A single layer of tiles in the map
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Name">
+        <member name="P:MapImporter.TileLayer.Name">
             <summary>
             The name of the layer
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.X">
+        <member name="P:MapImporter.TileLayer.X">
             <summary>
             The x coordinate of the layer in tiles.
             Defaults to 0 and can no longer be changed in Tiled Qt.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Y">
+        <member name="P:MapImporter.TileLayer.Y">
             <summary>
             The y coordinate of the layer in tiles.
             Defaults to 0 and can no longer be changed in Tiled Qt.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Width">
+        <member name="P:MapImporter.TileLayer.Width">
             <summary>
             The width of the layer in tiles. Traditionally required,
             but as of Tiled Qt always the same as the map width.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Height">
+        <member name="P:MapImporter.TileLayer.Height">
             <summary>
             The height of the layer in tiles. Traditionally required,
             but as of Tiled Qt always the same as the map width.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Opacity">
+        <member name="P:MapImporter.TileLayer.Opacity">
             <summary>
             The opacity of the layer as a value from 0 to 1. Defaults to 1.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Visible">
+        <member name="P:MapImporter.TileLayer.Visible">
             <summary>
             Whether the layer is shown (1) or hidden (0). Defaults to 1.
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Data">
+        <member name="P:MapImporter.TileLayer.Data">
             <summary>
             Contains the gids for the layer
             </summary>
         </member>
-        <member name="P:MapImporter.Layer.Props">
+        <member name="P:MapImporter.TileLayer.Props">
             <summary>
             Custom properties for the layer object
             </summary>
@@ -271,6 +271,41 @@
             The Tiled map should be rendered left and up
             </summary>
         </member>
+        <member name="T:MapImporter.LayerType">
+            <summary>
+            The different types of Layers possible in a Tiled map
+            </summary>
+        </member>
+        <member name="F:MapImporter.LayerType.TileLayer">
+            <summary>
+            A layer of tiles from a tileset
+            </summary>
+        </member>
+        <member name="F:MapImporter.LayerType.ObjectGroup">
+            <summary>
+            A layer of objects
+            </summary>
+        </member>
+        <member name="F:MapImporter.LayerType.ImageLayer">
+            <summary>
+            A layer of images
+            </summary>
+        </member>
+        <member name="T:MapImporter.LayerData">
+            <summary>
+            Holds layer specific information for each layer
+            </summary>
+        </member>
+        <member name="F:MapImporter.LayerData.Index">
+            <summary>
+            The Layer's index in the overall layer list
+            </summary>
+        </member>
+        <member name="F:MapImporter.LayerData.LayerType">
+            <summary>
+            The type of this specific layer
+            </summary>
+        </member>
         <member name="T:MapImporter.Map">
             <summary>
             A map object created using the Tiled Map Editor
@@ -291,48 +326,12 @@
             <param name="gid">The global id to search for</param>
             <returns>The tileset that contains the tile with the given gid</returns>
         </member>
-        <member name="M:MapImporter.Map.GetLayerByName(System.String)">
+        <member name="M:MapImporter.Map.GetTileLayerByName(System.String)">
             <summary>
-            Returns the layer with the given name
+            Returns the tile layer with the given name
             </summary>
-            <param name="name">The name of the layer to search for</param>
-            <returns>The layer with the given name</returns>
-        </member>
-        <member name="M:MapImporter.Map.LayerToTop(System.Int32)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the top.
-            </summary>
-            <param name="layerIndex">The index of the layer object's current position in the layers list</param>
-        </member>
-        <member name="M:MapImporter.Map.LayerToTop(System.String)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the top.
-            </summary>
-            <param name="layerName">The name of the layer object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.LayerToTop(MapImporter.Layer)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the top.
-            </summary>
-            <param name="layer">The layer object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.LayerToBottom(System.Int32)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the bottom.
-            </summary>
-            <param name="layerIndex">The index of the layer object's current position in the layers list</param>
-        </member>
-        <member name="M:MapImporter.Map.LayerToBottom(System.String)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the bottom.
-            </summary>
-            <param name="layerName">The name of the layer object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.LayerToBottom(MapImporter.Layer)">
-            <summary>
-            Moves the given layer in the layer list from its current index to the bottom.
-            </summary>
-            <param name="layer">The layer object to be moved</param>
+            <param name="name">The name of the tile layer to search for</param>
+            <returns>The tile layer with the given name</returns>
         </member>
         <member name="M:MapImporter.Map.GetObjectGroupByName(System.String)">
             <summary>
@@ -347,6 +346,42 @@
             </summary>
             <param name="name">The name of the image layer to search for</param>
             <returns>The image layer with the given name</returns>
+        </member>
+        <member name="M:MapImporter.Map.LayerToTop(System.Int32)">
+            <summary>
+            Moves the given layer in the TileLayer list from its current index to the top.
+            </summary>
+            <param name="layerIndex">The index of the layer object's current position in the TileLayers list</param>
+        </member>
+        <member name="M:MapImporter.Map.TileLayerToTop(System.String)">
+            <summary>
+            Moves the given layer in the TileLayer list from its current index to the top.
+            </summary>
+            <param name="layerName">The name of the layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.TileLayerToTop(MapImporter.TileLayer)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the top.
+            </summary>
+            <param name="layer">The layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToBottom(System.Int32)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the bottom.
+            </summary>
+            <param name="layerIndex">The index of the layer object's current position in the TileLayer list</param>
+        </member>
+        <member name="M:MapImporter.Map.TileLayerToBottom(System.String)">
+            <summary>
+            Moves the given layer in the TileLayer list from its current index to the bottom.
+            </summary>
+            <param name="layerName">The name of the layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.TileLayerToBottom(MapImporter.TileLayer)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the bottom.
+            </summary>
+            <param name="layer">The layer object to be moved</param>
         </member>
         <member name="M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)">
             <summary>
@@ -364,23 +399,23 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified tile layer to the screen
+            Draws the specified layer from the overall layer list to the screen
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="layerId">The id of the layer to be drawn in the Layers list</param>
+            <param name="layerId">The id of the layer to be drawn in the LayerDataList list</param>
             <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified tile layer to the screen
+            Draws the specified layer to the screen
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="layerName">The name of the layer to be drawn</param>
             <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
-        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.Layer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
             Draws the specified tile layer to the screen
             </summary>
@@ -389,17 +424,52 @@
             <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
-        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.Layer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            The only Draw function here that actually does the drawing.
-            Use any of the above methods to use it.
+            Draws the specified object group to the screen
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="layer">The layer to be drawn</param>
+            <param name="objectGroup">The object group object to be drawn</param>
+            <param name="location">The location to draw the layer</param>
+            <param name="startIndex">The i and j indices of the first tile to draw</param>
+        </member>
+        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ImageLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Draws the specified image layer to the screen
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="imageLayer">The Image Layer object to be drawn</param>
+            <param name="location">The location to draw the layer</param>
+            <param name="startIndex">The i and j indices of the first tile to draw</param>
+        </member>
+        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Performs all the math for the tile layer and then makes the call to render it
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="tileLayer">The tile layer to be drawn</param>
             <param name="location">The location to draw the layers</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
-        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.Int32,System.Int32,MapImporter.Layer)">
+        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Performs the actual rendering for the object group
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="objectGroup">The object group to be drawn</param>
+            <param name="location">The location to draw the layers</param>
+            <param name="startIndex">The i and j indices of the first tile to draw</param>
+        </member>
+        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ImageLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Performs the actual rendering for the image layer
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="imageLayer">The image layer to be drawn</param>
+            <param name="location">The location to draw the layers</param>
+            <param name="startIndex">The i and j indices of the first tile to draw</param>
+        </member>
+        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.Int32,System.Int32,MapImporter.TileLayer)">
             <summary>
             Performs the actual drawing. Above Draw method tells it what render order to use.
             </summary>
@@ -460,7 +530,7 @@
             List of all tilesets used in this map
             </summary>
         </member>
-        <member name="P:MapImporter.Map.Layers">
+        <member name="P:MapImporter.Map.TileLayers">
             <summary>
             List of all layers(regular tile layers) in this map
             </summary>
@@ -473,6 +543,11 @@
         <member name="P:MapImporter.Map.ImageLayers">
             <summary>
             List of all image layers in this map
+            </summary>
+        </member>
+        <member name="P:MapImporter.Map.LayerDataList">
+            <summary>
+            The list of every layer regardless of layer type
             </summary>
         </member>
         <member name="T:MapImporter.Object">
