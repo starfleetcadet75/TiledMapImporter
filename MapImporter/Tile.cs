@@ -2,7 +2,6 @@
 
 namespace MapImporter
 {
-
     /// <summary>
     /// An individual tile object
     /// </summary>

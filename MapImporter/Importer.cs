@@ -182,7 +182,8 @@ namespace MapImporter
                                 Tile tile = new Tile();
                                 tile.Id = id;
                                 tile.Gid = gid;
-                                tile.Location = new Rectangle(x * tileset.TileWidth, y * tileset.TileHeight, tileset.TileWidth, tileset.TileHeight);
+                                tile.Location = new Rectangle((x * tileset.TileWidth) + tileset.Spacing, (y * tileset.TileHeight) + tileset.Spacing,
+                                    tileset.TileWidth, tileset.TileHeight);
                                 tileset.Tiles.Add(tile);
                                 id++;
                                 gid++;
