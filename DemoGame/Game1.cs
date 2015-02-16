@@ -106,6 +106,16 @@ namespace DemoGame
                 startIndex.Y += 1;
             }
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                map.LayerToTop("GroundLayer");
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                map.LayerToBottom("GroundLayer");
+            }
+
             base.Update(gameTime);
         }
 

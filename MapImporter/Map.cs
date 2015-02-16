@@ -159,6 +159,78 @@ namespace MapImporter
         }
 
         /// <summary>
+        /// Moves the given layer in the layer list from its current index to the top.
+        /// </summary>
+        /// <param name="layerIndex">The index of the layer object's current position in the layers list</param>
+        public void LayerToTop(int layerIndex)
+        {
+            LayerToTop(Layers[layerIndex]);
+        }
+
+        /// <summary>
+        /// Moves the given layer in the layer list from its current index to the top.
+        /// </summary>
+        /// <param name="layerName">The name of the layer object to be moved</param>
+        public void LayerToTop(string layerName)
+        {
+            LayerToTop(GetLayerByName(layerName));
+        }
+
+        /// <summary>
+        /// Moves the given layer in the layer list from its current index to the top.
+        /// </summary>
+        /// <param name="layer">The layer object to be moved</param>
+        public void LayerToTop(Layer layer)
+        {
+            foreach (Layer l in Layers)
+            {
+                if (l.Name == layer.Name)
+                {
+                    Layer temp = l;
+                    Layers.Remove(l);
+                    Layers.Add(temp);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Moves the given layer in the layer list from its current index to the bottom.
+        /// </summary>
+        /// <param name="layerIndex">The index of the layer object's current position in the layers list</param>
+        public void LayerToBottom(int layerIndex)
+        {
+            LayerToBottom(Layers[layerIndex]);
+        }
+
+        /// <summary>
+        /// Moves the given layer in the layer list from its current index to the bottom.
+        /// </summary>
+        /// <param name="layerName">The name of the layer object to be moved</param>
+        public void LayerToBottom(string layerName)
+        {
+            LayerToBottom(GetLayerByName(layerName));
+        }
+
+        /// <summary>
+        /// Moves the given layer in the layer list from its current index to the bottom.
+        /// </summary>
+        /// <param name="layer">The layer object to be moved</param>
+        public void LayerToBottom(Layer layer)
+        {
+            foreach (Layer l in Layers)
+            {
+                if (l.Name == layer.Name)
+                {
+                    Layer temp = l;
+                    Layers.Remove(l);
+                    Layers.Insert(0, l);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
         /// Returns the object group with the given name
         /// </summary>
         /// <param name="name">The name of the object group to search for</param>

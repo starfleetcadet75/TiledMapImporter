@@ -298,6 +298,42 @@
             <param name="name">The name of the layer to search for</param>
             <returns>The layer with the given name</returns>
         </member>
+        <member name="M:MapImporter.Map.LayerToTop(System.Int32)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the top.
+            </summary>
+            <param name="layerIndex">The index of the layer object's current position in the layers list</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToTop(System.String)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the top.
+            </summary>
+            <param name="layerName">The name of the layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToTop(MapImporter.Layer)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the top.
+            </summary>
+            <param name="layer">The layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToBottom(System.Int32)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the bottom.
+            </summary>
+            <param name="layerIndex">The index of the layer object's current position in the layers list</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToBottom(System.String)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the bottom.
+            </summary>
+            <param name="layerName">The name of the layer object to be moved</param>
+        </member>
+        <member name="M:MapImporter.Map.LayerToBottom(MapImporter.Layer)">
+            <summary>
+            Moves the given layer in the layer list from its current index to the bottom.
+            </summary>
+            <param name="layer">The layer object to be moved</param>
+        </member>
         <member name="M:MapImporter.Map.GetObjectGroupByName(System.String)">
             <summary>
             Returns the object group with the given name
