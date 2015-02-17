@@ -108,12 +108,12 @@ namespace DemoGame
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                //map.LayerToTop("GroundLayer");
+                map.LayerToTop(0);
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
             {
-                //map.LayerToBottom("GroundLayer");
+                map.LayerToBottom(1);
             }
 
             base.Update(gameTime);

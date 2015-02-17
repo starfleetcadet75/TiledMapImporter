@@ -231,75 +231,57 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Moves the given layer in the TileLayer list from its current index to the top.
+        /// Moves the given layer in the layer list from its current index to the top.
         /// </summary>
-        /// <param name="layerIndex">The index of the layer object's current position in the TileLayers list</param>
+        /// <param name="layerIndex">The index of layerdata in the layer list</param>
         public void LayerToTop(int layerIndex)
         {
-            TileLayerToTop(TileLayers[layerIndex]);
-        }
-
-        /// <summary>
-        /// Moves the given layer in the TileLayer list from its current index to the top.
-        /// </summary>
-        /// <param name="layerName">The name of the layer object to be moved</param>
-        public void TileLayerToTop(string layerName)
-        {
-            TileLayerToTop(GetTileLayerByName(layerName));
+            foreach (LayerData data in LayerDataList)
+            {
+                if (data.Index == layerIndex)
+                {
+                    LayerToTop(data);
+                    break;
+                }
+            }
         }
 
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the top.
         /// </summary>
-        /// <param name="layer">The layer object to be moved</param>
-        public void TileLayerToTop(TileLayer layer)
+        /// <param name="layerData">The layerData object to be moved</param>
+        public void LayerToTop(LayerData layerData)
         {
-            foreach (TileLayer l in TileLayers)
-            {
-                if (l.Name == layer.Name)
-                {
-                    TileLayer temp = l;
-                    TileLayers.Remove(l);
-                    TileLayers.Add(temp);
-                    break;
-                }
-            }
+            LayerData temp = layerData;
+            LayerDataList.Remove(layerData);
+            LayerDataList.Add(temp);
         }
 
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the bottom.
         /// </summary>
-        /// <param name="layerIndex">The index of the layer object's current position in the TileLayer list</param>
+        /// <param name="layerIndex">The index of the layer object's current position in the layer list</param>
         public void LayerToBottom(int layerIndex)
         {
-            TileLayerToBottom(TileLayers[layerIndex]);
-        }
-
-        /// <summary>
-        /// Moves the given layer in the TileLayer list from its current index to the bottom.
-        /// </summary>
-        /// <param name="layerName">The name of the layer object to be moved</param>
-        public void TileLayerToBottom(string layerName)
-        {
-            TileLayerToBottom(GetTileLayerByName(layerName));
+            foreach (LayerData data in LayerDataList)
+            {
+                if (data.Index == layerIndex)
+                {
+                    LayerToBottom(data);
+                    break;
+                }
+            }
         }
 
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the bottom.
         /// </summary>
-        /// <param name="layer">The layer object to be moved</param>
-        public void TileLayerToBottom(TileLayer layer)
+        /// <param name="layerData">The layerData object to be moved</param>
+        public void LayerToBottom(LayerData layerData)
         {
-            foreach (TileLayer l in TileLayers)
-            {
-                if (l.Name == layer.Name)
-                {
-                    TileLayer temp = l;
-                    TileLayers.Remove(l);
-                    TileLayers.Insert(0, l);
-                    break;
-                }
-            }
+            LayerData temp = layerData;
+            LayerDataList.Remove(layerData);
+            LayerDataList.Insert(0, temp);
         }
 
         /// <summary>

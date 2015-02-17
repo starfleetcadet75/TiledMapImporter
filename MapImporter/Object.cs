@@ -21,38 +21,56 @@ namespace MapImporter
         /// </summary>
         public string Type { set; get; }
         /// <summary>
+        /// The Id of the object
+        /// </summary>
+        public int Id { set; get; }
+        /// <summary>
         /// The x coordinate of the object in pixels.
         /// </summary>
-        public int X { set; get; }
+        public double X { set; get; }
         /// <summary>
         /// The y coordinate of the object in pixels.
         /// </summary>
-        public int Y { set; get; }
+        public double Y { set; get; }
         /// <summary>
         /// The width of the object in pixels (defaults to 0).
         /// </summary>
-        public int Width { set; get; }
+        public double Width { set; get; }
         /// <summary>
         /// The height of the object in pixels (defaults to 0).
         /// </summary>
-        public int Height { set; get; }
+        public double Height { set; get; }
         /// <summary>
         /// The rotation of the object in degrees clockwise (defaults to 0).
         /// </summary>
-        public int Rotation { set; get; }
+        public double Rotation { set; get; }
         /// <summary>
-        /// An reference to a tile (optional).
+        /// A reference to a tile (optional).
         /// </summary>
         public int Gid { set; get; }
         /// <summary>
         /// Whether the object is shown (1) or hidden (0). Defaults to 1. (since 0.9.0)
         /// </summary>
         public bool Visible { set; get; }
-
-        //Can contain properties
-        //ellipse
-        //polygon
-        //polyline
-        //image
+        /// <summary>
+        /// Custom properties for this object
+        /// </summary>
+        public Properties Props { set; get; }
+        /// <summary>
+        /// An Ellipse object
+        /// </summary>
+        public Ellipse Ellipse { set; get; }
+        /// <summary>
+        /// A Polygon object
+        /// </summary>
+        public Polygon Polygon { set; get; }
+        /// <summary>
+        /// A Polyline object
+        /// </summary>
+        public Polyline Polyline { set; get; }
+        /// <summary>
+        /// An image object
+        /// </summary>
+        public Image Image { set; get; }
     }
 }

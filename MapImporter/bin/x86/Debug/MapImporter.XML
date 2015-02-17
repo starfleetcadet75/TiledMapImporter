@@ -349,39 +349,27 @@
         </member>
         <member name="M:MapImporter.Map.LayerToTop(System.Int32)">
             <summary>
-            Moves the given layer in the TileLayer list from its current index to the top.
+            Moves the given layer in the layer list from its current index to the top.
             </summary>
-            <param name="layerIndex">The index of the layer object's current position in the TileLayers list</param>
+            <param name="layerIndex">The index of layerdata in the layer list</param>
         </member>
-        <member name="M:MapImporter.Map.TileLayerToTop(System.String)">
-            <summary>
-            Moves the given layer in the TileLayer list from its current index to the top.
-            </summary>
-            <param name="layerName">The name of the layer object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.TileLayerToTop(MapImporter.TileLayer)">
+        <member name="M:MapImporter.Map.LayerToTop(MapImporter.LayerData)">
             <summary>
             Moves the given layer in the layer list from its current index to the top.
             </summary>
-            <param name="layer">The layer object to be moved</param>
+            <param name="layerData">The layerData object to be moved</param>
         </member>
         <member name="M:MapImporter.Map.LayerToBottom(System.Int32)">
             <summary>
             Moves the given layer in the layer list from its current index to the bottom.
             </summary>
-            <param name="layerIndex">The index of the layer object's current position in the TileLayer list</param>
+            <param name="layerIndex">The index of the layer object's current position in the layer list</param>
         </member>
-        <member name="M:MapImporter.Map.TileLayerToBottom(System.String)">
-            <summary>
-            Moves the given layer in the TileLayer list from its current index to the bottom.
-            </summary>
-            <param name="layerName">The name of the layer object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.TileLayerToBottom(MapImporter.TileLayer)">
+        <member name="M:MapImporter.Map.LayerToBottom(MapImporter.LayerData)">
             <summary>
             Moves the given layer in the layer list from its current index to the bottom.
             </summary>
-            <param name="layer">The layer object to be moved</param>
+            <param name="layerData">The layerData object to be moved</param>
         </member>
         <member name="M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)">
             <summary>
@@ -571,6 +559,11 @@
             The type of the object. An arbitrary string.
             </summary>
         </member>
+        <member name="P:MapImporter.Object.Id">
+            <summary>
+            The Id of the object
+            </summary>
+        </member>
         <member name="P:MapImporter.Object.X">
             <summary>
             The x coordinate of the object in pixels.
@@ -598,12 +591,52 @@
         </member>
         <member name="P:MapImporter.Object.Gid">
             <summary>
-            An reference to a tile (optional).
+            A reference to a tile (optional).
             </summary>
         </member>
         <member name="P:MapImporter.Object.Visible">
             <summary>
             Whether the object is shown (1) or hidden (0). Defaults to 1. (since 0.9.0)
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.Props">
+            <summary>
+            Custom properties for this object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.Ellipse">
+            <summary>
+            An Ellipse object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.Polygon">
+            <summary>
+            A Polygon object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.Polyline">
+            <summary>
+            A Polyline object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.Image">
+            <summary>
+            An image object
+            </summary>
+        </member>
+        <member name="T:MapImporter.DrawOrder">
+            <summary>
+            The different draw orders for objects
+            </summary>
+        </member>
+        <member name="F:MapImporter.DrawOrder.TopDown">
+            <summary>
+            Draws objects from the top down
+            </summary>
+        </member>
+        <member name="F:MapImporter.DrawOrder.BottomUp">
+            <summary>
+            Draws objects from bottom up
             </summary>
         </member>
         <member name="T:MapImporter.ObjectGroup">
@@ -615,6 +648,11 @@
         <member name="P:MapImporter.ObjectGroup.Name">
             <summary>
             The name of the object group
+            </summary>
+        </member>
+        <member name="P:MapImporter.ObjectGroup.DrawOrder">
+            <summary>
+            The draw order for the object group
             </summary>
         </member>
         <member name="P:MapImporter.ObjectGroup.Color">

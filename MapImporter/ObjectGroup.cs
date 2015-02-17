@@ -1,6 +1,23 @@
-﻿
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+
 namespace MapImporter
 {
+    /// <summary>
+    /// The different draw orders for objects
+    /// </summary>
+    public enum DrawOrder
+    {
+        /// <summary>
+        /// Draws objects from the top down
+        /// </summary>
+        TopDown,
+        /// <summary>
+        /// Draws objects from bottom up
+        /// </summary>
+        BottomUp
+    }
+
     /// <summary>
     /// The object group is in fact a map layer, and is hence called
     /// "object layer" in Tiled Qt.
@@ -12,9 +29,13 @@ namespace MapImporter
         /// </summary>
         public string Name { set; get; }
         /// <summary>
+        /// The draw order for the object group
+        /// </summary>
+        public DrawOrder DrawOrder { set; get; }
+        /// <summary>
         /// The color used to display the objects in this group
         /// </summary>
-        public string Color { set; get; }
+        public Color Color { set; get; }
         /// <summary>
         /// The x coordinate of the object group in tiles.
         /// Defaults to 0 and can no longer be changed in Tiled Qt.
@@ -45,7 +66,7 @@ namespace MapImporter
         /// <summary>
         /// Objects contained in this object group
         /// </summary>
-        public Object[] Objects { set; get; }
+        public List<Object> Objects { set; get; }
         /// <summary>
         /// Custom properties for the object group
         /// </summary>

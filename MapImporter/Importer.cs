@@ -276,6 +276,79 @@ namespace MapImporter
                         ld.Index = indexInLayerList;
                         ld.LayerType = LayerType.ObjectGroup;
                         m.LayerDataList.Add(ld);
+
+                        ObjectGroup objGroup = new ObjectGroup();
+                        string str = layerJson["draworder"].ToString();
+                        if (str.Equals("topdown"))
+                        {
+                            objGroup.DrawOrder = DrawOrder.TopDown;
+                        }
+                        else
+                        {
+                            objGroup.DrawOrder = DrawOrder.TopDown;
+                        }
+
+                        objGroup.Name = layerJson["name"].ToString();
+                        objGroup.X = (int)layerJson["x"];
+                        objGroup.Y = (int)layerJson["y"];
+                        objGroup.Width = (int)layerJson["width"];
+                        objGroup.Height = (int)layerJson["height"];
+                        objGroup.Opacity = (int)layerJson["opacity"];
+
+                        string s = layerJson["visible"].ToString();
+                        if (s.Equals("true") || s.Equals("True"))
+                        {
+                            objGroup.Visible = true;
+                        }
+                        else
+                        {
+                            objGroup.Visible = false;
+                        }
+
+                        objGroup.Objects = new List<Object>();
+                        JArray objectJson = (JArray)layerJson["objects"];
+                        foreach (JObject o in objectJson)
+                        {
+                            Object obj = new Object();
+                            obj.Name = objectJson["name"].ToString();
+                            obj.Id = (int)objectJson["id"];
+                            obj.Width = (double)objectJson["width"];
+                            obj.Height = (double)objectJson["height"];
+                            obj.X = (double)objectJson["x"];
+                            obj.Y = (double)objectJson["y"];
+                            obj.Type = objectJson["type"].ToString();
+                            obj.Rotation = (double)objectJson["rotation"];
+
+                            string st = objectJson["visible"].ToString();
+                            if (st.Equals("true") || s.Equals("True"))
+                            {
+                                obj.Visible = true;
+                            }
+                            else
+                            {
+                                obj.Visible = false;
+                            }
+
+                            if (objectJson["properties"] != null)
+                            {
+                                obj.Props = new Properties();
+                                obj.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(objectJson["properties"].ToString());
+                            }
+
+                            if (objectJson["gid"] != null)
+                            {
+                                obj.Gid = (int)objectJson["gid"];
+                            }
+
+                            if (objectJson["ellipse"] != null)
+                            {
+                                //add other shapes
+                            }
+
+                            objGroup.Objects.Add(obj);
+                        }
+
+                        m.ObjectGroups.Add(objGroup);
                     }
                     else if (layerJson["type"].ToString() == "imagelayer")
                     {
