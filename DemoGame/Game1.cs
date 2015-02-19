@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MapImporter;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using MapImporter;
 
 namespace DemoGame
 {
@@ -18,6 +18,8 @@ namespace DemoGame
         Map map;
         // This is used to tell the draw method what part of the map to draw.
         Vector2 startIndex;
+        Vector2 playerTilePosition;
+        Vector2 playerPosition;
 
         /// <summary>
         /// The Game1 class constructor
@@ -68,6 +70,10 @@ namespace DemoGame
             // This will tell the draw method to begin drawing the map from
             // the [5, 5] index in the matrix that contains our tile data.
             startIndex = new Vector2(5, 5);
+            int xPlayerPosition = (graphics.GraphicsDevice.Viewport.Width - map.TileWidth) / 2; //Check if its a int or double value
+            int yPlayerPosition = (graphics.GraphicsDevice.Viewport.Height - map.TileHeight) / 2;
+            playerPosition = new Vector2(xPlayerPosition, yPlayerPosition);
+            playerTilePosition = new Vector2(6, 5);
         }
 
         /// <summary>
@@ -116,6 +122,10 @@ namespace DemoGame
                 map.LayerToBottom(1);
             }
 
+            //Prints the gid of the tile the player is currently on if it contains a trigger tile
+            int i = map.GetTileGidAt(playerTilePosition, startIndex, map.GetTileLayerByName("TriggerLayer"));
+            Console.Write("The gid is: " + i + "\n");
+
             base.Update(gameTime);
         }
 
@@ -142,7 +152,8 @@ namespace DemoGame
             //
             // I recommend the previous two but there is also this one which draws the given Layer object
             // map.DrawLayer(spriteBatch, new Layer(), graphics.GraphicsDevice.Viewport.Bounds);
-            
+
+            spriteBatch.Draw(map.Tilesets[1].Image.Texture, playerPosition, new Rectangle(0, 0, 32, 32), Color.CadetBlue);
             spriteBatch.End();
             base.Draw(gameTime);
         }

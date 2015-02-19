@@ -13,9 +13,9 @@ namespace MapImporter
         /// </summary>
         TopDown,
         /// <summary>
-        /// Draws objects from bottom up
+        /// Manually set
         /// </summary>
-        BottomUp
+        Manual
     }
 
     /// <summary>

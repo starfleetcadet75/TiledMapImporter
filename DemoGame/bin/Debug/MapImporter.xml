@@ -371,6 +371,32 @@
             </summary>
             <param name="layerData">The layerData object to be moved</param>
         </member>
+        <member name="M:MapImporter.Map.GetTileGidAt(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
+            <summary>
+            Returns the gid of the tile at the specified postion on the screen. Use this method
+            in combination with your game logic to determine collisions, doors, etc.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapImporter.Map.TranslateScreenToMap(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Translates the tile at the screen loaction to a tile coordinate on the overall map.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <returns>The i and j indices of the tile in the map's layer data</returns>
+        </member>
+        <member name="M:MapImporter.Map.TranslateMapToScreen(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Translates the tile at the given loaction on the overall map to its tile position on the screen.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <returns>The i and j indices of the tile in the map's layer data</returns>
+        </member>
         <member name="M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)">
             <summary>
             The textures need to be loaded for each tileset.
@@ -634,9 +660,9 @@
             Draws objects from the top down
             </summary>
         </member>
-        <member name="F:MapImporter.DrawOrder.BottomUp">
+        <member name="F:MapImporter.DrawOrder.Manual">
             <summary>
-            Draws objects from bottom up
+            Manually set
             </summary>
         </member>
         <member name="T:MapImporter.ObjectGroup">
@@ -715,6 +741,49 @@
             <summary>
             A polyline follows the same placement definition as a polygon object.
             </summary>
+        </member>
+        <member name="P:MapImporter.Polyline.Points">
+            <summary>
+            The points that make up the polyline object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Polyline.Lines">
+            <summary>
+            The lines that make up the polyline object
+            </summary>
+        </member>
+        <member name="P:MapImporter.Polyline.Bounds">
+            <summary>
+            Bounding rectangle of this polyline
+            </summary>
+        </member>
+        <member name="F:MapImporter.Line.Start">
+            <summary>
+            The starting point of the line
+            </summary>
+        </member>
+        <member name="F:MapImporter.Line.End">
+            <summary>
+            The ending point of the line
+            </summary>
+        </member>
+        <member name="F:MapImporter.Line.Length">
+            <summary>
+            Length of the line
+            </summary>
+        </member>
+        <member name="F:MapImporter.Line.Angle">
+            <summary>
+            Rotation of the line
+            </summary>
+        </member>
+        <member name="M:MapImporter.Line.FromPoints(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Create a line from start and end points and calculate the length and angle
+            </summary>
+            <param name="start">The first point of the line</param>
+            <param name="end">The end of the line</param>
+            <returns>A Line created from the points</returns>
         </member>
         <member name="T:MapImporter.Properties">
             <summary>

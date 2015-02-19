@@ -294,6 +294,7 @@ namespace MapImporter
                         objGroup.Width = (int)layerJson["width"];
                         objGroup.Height = (int)layerJson["height"];
                         objGroup.Opacity = (int)layerJson["opacity"];
+                        objGroup.Color = ToColor(layerJson["color"].ToString());
 
                         string s = layerJson["visible"].ToString();
                         if (s.Equals("true") || s.Equals("True"))
@@ -343,6 +344,15 @@ namespace MapImporter
                             if (objectJson["ellipse"] != null)
                             {
                                 //add other shapes
+                            }
+
+                            if (objectJson["polyline"] != null)
+                            {
+                                JArray polylineJson = (JArray)objectJson["polyline"];
+                                foreach (JObject polyline in polylineJson)
+                                {
+
+                                }
                             }
 
                             objGroup.Objects.Add(obj);
