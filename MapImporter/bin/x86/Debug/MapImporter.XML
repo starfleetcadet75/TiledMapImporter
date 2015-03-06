@@ -379,7 +379,24 @@
             <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
             <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
             <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-            <returns></returns>
+            <returns>The gid of the tile</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTilePropsAt(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
+            <summary>
+            Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
+            in combination with your game logic to determine collisions, doors, etc.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+            <returns>The properties of the given tile</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTilePropsAt(System.Int32)">
+            <summary>
+            Returns a Dictionary object of all properties for the tile with the given gid.
+            </summary>
+            <param name="gid">The gid of the tile</param>
+            <returns>The properties of the given tile</returns>
         </member>
         <member name="M:MapImporter.Map.TranslateScreenToMap(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
             <summary>
@@ -755,6 +772,11 @@
         <member name="P:MapImporter.Polyline.Bounds">
             <summary>
             Bounding rectangle of this polyline
+            </summary>
+        </member>
+        <member name="T:MapImporter.Line">
+            <summary>
+            A line object that is drawn based on specified points
             </summary>
         </member>
         <member name="F:MapImporter.Line.Start">

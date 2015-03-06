@@ -291,11 +291,37 @@ namespace MapImporter
         /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
         /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
         /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-        /// <returns></returns>
+        /// <returns>The gid of the tile</returns>
         public int GetTileGidAt(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
         {
             Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
             return tileLayer.Data.GetTileDataAt((int)temp.X, (int)temp.Y);
+        }
+
+        /// <summary>
+        /// Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
+        /// in combination with your game logic to determine collisions, doors, etc.
+        /// </summary>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+        /// <returns>The properties of the given tile</returns>
+        public Dictionary<string, string> GetTilePropsAt(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
+        {
+            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
+            return GetTilePropsAt(tileLayer.Data.GetTileDataAt((int)temp.X, (int)temp.Y));
+        }
+
+        /// <summary>
+        /// Returns a Dictionary object of all properties for the tile with the given gid.
+        /// </summary>
+        /// <param name="gid">The gid of the tile</param>
+        /// <returns>The properties of the given tile</returns>
+        public Dictionary<string, string> GetTilePropsAt(int gid)
+        {
+            Tileset t = GetTilesetWithGid(gid);
+            Tile tile = t.GetTileByGid(gid);
+            return tile.Props.PropertiesList;
         }
 
         /// <summary>
