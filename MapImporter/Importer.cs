@@ -192,6 +192,7 @@ namespace MapImporter
 
                         if (tilesets["tileproperties"] != null)
                         {
+                            int index = 0;
                             string str = tilesets["tileproperties"].ToString();
                             if (str.Contains(","))
                             {
@@ -199,9 +200,18 @@ namespace MapImporter
                                 foreach (string s in elements)
                                 {
                                     string[] i = s.Split('\"');
-                                    int index = Convert.ToInt32(i[1]);
-                                    tileset.Tiles[index].Props = new Properties();
-                                    tileset.Tiles[index].Props.PropertiesList.Add(i[3].ToString(), i[5].ToString());
+
+                                    //Property for a tile that does not currently have any
+                                    if (i.Length > 5)
+                                    {
+                                        index = Convert.ToInt32(i[1]);
+                                        tileset.Tiles[index].Props = new Properties();
+                                        tileset.Tiles[index].Props.PropertiesList.Add(i[3].ToString(), i[5].ToString());
+                                    }
+                                    else
+                                    {
+                                        tileset.Tiles[index].Props.PropertiesList.Add(i[1].ToString(), i[3].ToString());
+                                    }
                                 }
                             }
                         }
