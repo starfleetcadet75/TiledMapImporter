@@ -14,18 +14,20 @@ Quick Start
 ------------
 To use this library in MonoGame, head over to the Release page and download the latest MapImporter.dll file. This the entire library compiled into a more useful format. Simply put it somewhere safe and then add a reference to it inside your project. Or you can download the zip file and try running the DemoGame project.
 
-  1) Add a using statement:   
+  1) Use NuGet to download the latest version of Newtonsoft.Json into your project. (Forgetting this step will lead to null reference exceptions!)
+  
+  2) Add a using statement:   
   `using MapImporter`
 
-  2) Create a new Map object by calling this line:   
+  3) Create a new Map object by calling this line:   
   `Map map = Importer.ImportMap(@"Content/NewBarkTown.json")`
 
 The library supports both TMX and JSON map files (TMX support will be ready soon) so make sure you specify the extension. Theoretically, you can load your Tiled map file from anywhere as long as you specify the right path. However, the images used in your tilesets must be loaded in the way usually required by MonoGame. (See this project's wiki if you don't know what that is...)
 
-  3) Because the tileset images (which should be in XNB format somewhere inside your content folder) must be loaded as Texture2D objects, you have to call this line directly after creating a new map object:    
+  4) Because the tileset images (which should be in XNB format somewhere inside your content folder) must be loaded as Texture2D objects, you have to call this line directly after creating a new map object:    
   `map.LoadTilesetTextures(Content)`
 
-  4) Finally, draw the Tiled map in your game by calling the following inside your Draw method:   
+  5) Finally, draw the Tiled map in your game by calling the following inside your Draw method:   
   `map.Draw(spriteBatch, graphics.GraphicsDevice.Viewport.Bounds, new Vector(0, 0))`
 
 Keep in mind this is the quick start. I have added tons of other useful methods and tricks which I will soon have documented in the project wiki.
