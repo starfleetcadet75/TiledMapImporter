@@ -33,13 +33,24 @@ namespace MapImporter
                 }
                 else
                 {
+                    Console.Write("ERROR: Class=Importer --- Map file is not of type JSON or TMX" + "\n");
                     return null;
                 }
             }
             catch (FileNotFoundException)
             {
+                Console.Write("ERROR: Class=Importer --- Map file was not found --- Value=" + filepath + "\n");
                 return null;
             }
+            catch (NullReferenceException)
+            {
+                Console.Write("ERROR: Class=Importer --- Null reference found ---" + "\n");
+                return null;
+            }
+            /*catch
+            {
+                throw new Exception("ERROR: Class=Importer --- General exception found during Importing process ---" + "\n");
+            }*/
         }
 
         /// <summary>
@@ -204,7 +215,15 @@ namespace MapImporter
                                     //Property for a tile that does not currently have any
                                     if (i.Length > 5)
                                     {
-                                        index = Convert.ToInt32(i[1]);
+                                        try
+                                        {
+                                            int.TryParse(i[1], out index);
+                                        }
+                                        catch (OverflowException)
+                                        {
+                                            Console.Write("ERROR: Class=Importer --- Int32 conversion failed --- Value=" + i[1] + "\n");
+                                        }
+                                       
                                         tileset.Tiles[index].Props = new Properties();
                                         tileset.Tiles[index].Props.PropertiesList.Add(i[3].ToString(), i[5].ToString());
                                     }
@@ -247,9 +266,16 @@ namespace MapImporter
                         l.Data = new Data(l.Width, l.Height);
                         List<int> nums = new List<int>();
 
-                        foreach (int num in dataJson)
+                        try
                         {
-                            nums.Add(num);
+                            foreach (int num in dataJson)
+                            {
+                                nums.Add(num);
+                            }
+                        }
+                        catch
+                        {
+                            throw new OverflowException("ERROR: Class=Importer --- Int32 conversion failed ---" + "\n");
                         }
 
                         int k = 0;
@@ -257,8 +283,16 @@ namespace MapImporter
                         {
                             for (int i = 0; i < l.Width; i++)
                             {
-                                l.Data.TileData[i, j] = nums[k];
-                                k++;
+                                try
+                                {
+                                    l.Data.TileData[i, j] = nums[k];
+                                    k++;
+                                }
+                                catch
+                                {
+                                    throw new IndexOutOfRangeException("ERROR: Class=Importer --- Problem with indices in TileData --- Value="
+                                        + l.Data.TileData[i, j] + "\n");
+                                }
                             }
                         }
 

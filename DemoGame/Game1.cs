@@ -28,8 +28,8 @@ namespace DemoGame
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 416;
-            graphics.PreferredBackBufferHeight = 352;
+            graphics.PreferredBackBufferWidth = 576;
+            graphics.PreferredBackBufferHeight = 576;
             this.Window.AllowUserResizing = false;
             this.Window.Title = "Tiled Map Importer Demo";
             this.IsMouseVisible = true;
@@ -153,7 +153,7 @@ namespace DemoGame
             // I recommend the previous two but there is also this one which draws the given Layer object
             // map.DrawLayer(spriteBatch, new Layer(), graphics.GraphicsDevice.Viewport.Bounds);
 
-            spriteBatch.Draw(map.Tilesets[1].Image.Texture, playerPosition, new Rectangle(0, 0, 32, 32), Color.CadetBlue);
+            spriteBatch.Draw(map.Tilesets[1].Image.Texture, playerPosition, new Rectangle(0, 0, 64, 64), Color.CadetBlue);
             spriteBatch.End();
             base.Draw(gameTime);
         }
