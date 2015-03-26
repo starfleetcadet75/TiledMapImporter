@@ -12,7 +12,7 @@ This project is written in C# and is designed to be used in MonoGame (http://www
 
 Quick Start
 ------------
-To use this library in MonoGame, head over to the Release page and download the latest MapImporter.dll file. This the entire library compiled into a more useful format. Simply put it somewhere safe and then add a reference to it inside your project. Or you can download the zip file and try running the DemoGame project.
+To use this library in MonoGame, head over to the Release page and download the latest MapImporter.dll file. This is the entire library compiled into a more useful format. Simply put it somewhere safe and then add a reference to it inside your project. Or you can download the zip file and try running the DemoGame project.
 
   1) Use NuGet to download the latest version of Newtonsoft.Json into your project. (Forgetting this step will lead to null reference exceptions!)
   
@@ -31,6 +31,9 @@ The library supports both TMX and JSON map files (TMX support will be ready soon
   `map.Draw(spriteBatch, graphics.GraphicsDevice.Viewport.Bounds, new Vector(0, 0))`
 
 Keep in mind this is the quick start. I have added tons of other useful methods and tricks which I will soon have documented in the project wiki.
+
+For use in XNA Game Studio 4.0:
+Download the latest release of the build specifically for XNA. The MonoGame build depends on some references that MonoGame uses which are not available in the same way inside XNA. The code is exactly the same.
 
 Updates
 ------------
