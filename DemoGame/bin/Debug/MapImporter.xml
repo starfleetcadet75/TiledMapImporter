@@ -17,7 +17,7 @@
             <param name="i">The number of tiles in the i direction</param>
             <param name="j">The number of tiles in the j direction</param>
         </member>
-        <member name="M:MapImporter.Data.GetTileDataAt(System.Int32,System.Int32)">
+        <member name="M:MapImporter.Data.GetTileData(System.Int32,System.Int32)">
             <summary>
             Returns the gid of the tile at the specified indices
             </summary>
@@ -312,12 +312,44 @@
             http://www.mapeditor.org/
             </summary>
         </member>
-        <member name="M:MapImporter.Map.GetTilesetByName(System.String)">
+        <member name="M:MapImporter.Map.TranslateScreenToMap(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Translates the tile at the screen location to a tile coordinate on the overall map.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <returns>The i and j indices of the tile in the map's layer data</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTile(System.Int32)">
+            <summary>
+            Finds and returns the Tile with the given global id
+            </summary>
+            <param name="gid">The global id of the tile to find</param>
+            <returns>The Tile in the Map with the given global id</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTileGid(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
+            <summary>
+            Returns the gid of the tile at the specified postion on the screen. Use this method
+            in combination with your game logic to determine collisions, doors, etc.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+            <returns>The gid of the tile</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTileset(System.String)">
             <summary>
             Returns the tileset with the given name
             </summary>
             <param name="name">The name of the tileset to search for</param>
             <returns>The tileset with the given name</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTileset(System.Int32)">
+            <summary>
+            Returns the tileset at the given index in the tileset list
+            </summary>
+            <param name="val">The index of the tileset to search for</param>
+            <returns>The tileset at the given index</returns>
         </member>
         <member name="M:MapImporter.Map.GetTilesetWithGid(System.Int32)">
             <summary>
@@ -326,26 +358,64 @@
             <param name="gid">The global id to search for</param>
             <returns>The tileset that contains the tile with the given gid</returns>
         </member>
-        <member name="M:MapImporter.Map.GetTileLayerByName(System.String)">
+        <member name="M:MapImporter.Map.GetTileProps(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
+            <summary>
+            Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
+            in combination with your game logic to determine collisions, doors, etc.
+            </summary>
+            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+            <returns>The properties of the given tile</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTileProps(System.Int32)">
+            <summary>
+            Returns a Dictionary object of all properties for the tile with the given gid.
+            </summary>
+            <param name="gid">The gid of the tile</param>
+            <returns>The properties of the given tile</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetTileLayer(System.String)">
             <summary>
             Returns the tile layer with the given name
             </summary>
             <param name="name">The name of the tile layer to search for</param>
             <returns>The tile layer with the given name</returns>
         </member>
-        <member name="M:MapImporter.Map.GetObjectGroupByName(System.String)">
+        <member name="M:MapImporter.Map.GetTileLayer(System.Int32)">
+            <summary>
+            Returns the tilelayer at the given index in the tilelayer list
+            </summary>
+            <param name="val">The index of the tilelayer to search for</param>
+            <returns>The tilelayer at the given index</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetObjectGroup(System.String)">
             <summary>
             Returns the object group with the given name
             </summary>
             <param name="name">The name of the object group to search for</param>
             <returns>The object group with the given name</returns>
         </member>
-        <member name="M:MapImporter.Map.GetImageLayerByName(System.String)">
+        <member name="M:MapImporter.Map.GetObjectGroup(System.Int32)">
+            <summary>
+            Returns the object group at the given index in the object group list
+            </summary>
+            <param name="val">The index of the object group to search for</param>
+            <returns>The object group at the given index</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetImageLayer(System.String)">
             <summary>
             Returns the image layer with the given name
             </summary>
             <param name="name">The name of the image layer to search for</param>
             <returns>The image layer with the given name</returns>
+        </member>
+        <member name="M:MapImporter.Map.GetImageLayer(System.Int32)">
+            <summary>
+            Returns the image layer at the given index in the image layer list
+            </summary>
+            <param name="val">The index of the image layer to search for</param>
+            <returns>The image layer at the given index</returns>
         </member>
         <member name="M:MapImporter.Map.LayerToTop(System.Int32)">
             <summary>
@@ -370,49 +440,6 @@
             Moves the given layer in the layer list from its current index to the bottom.
             </summary>
             <param name="layerData">The layerData object to be moved</param>
-        </member>
-        <member name="M:MapImporter.Map.GetTileGidAt(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
-            <summary>
-            Returns the gid of the tile at the specified postion on the screen. Use this method
-            in combination with your game logic to determine collisions, doors, etc.
-            </summary>
-            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-            <returns>The gid of the tile</returns>
-        </member>
-        <member name="M:MapImporter.Map.GetTilePropsAt(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
-            <summary>
-            Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
-            in combination with your game logic to determine collisions, doors, etc.
-            </summary>
-            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-            <returns>The properties of the given tile</returns>
-        </member>
-        <member name="M:MapImporter.Map.GetTilePropsAt(System.Int32)">
-            <summary>
-            Returns a Dictionary object of all properties for the tile with the given gid.
-            </summary>
-            <param name="gid">The gid of the tile</param>
-            <returns>The properties of the given tile</returns>
-        </member>
-        <member name="M:MapImporter.Map.TranslateScreenToMap(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Translates the tile at the screen loaction to a tile coordinate on the overall map.
-            </summary>
-            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-            <returns>The i and j indices of the tile in the map's layer data</returns>
-        </member>
-        <member name="M:MapImporter.Map.TranslateMapToScreen(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Translates the tile at the given loaction on the overall map to its tile position on the screen.
-            </summary>
-            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-            <returns>The i and j indices of the tile in the map's layer data</returns>
         </member>
         <member name="M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)">
             <summary>
@@ -563,7 +590,7 @@
         </member>
         <member name="P:MapImporter.Map.TileLayers">
             <summary>
-            List of all layers(regular tile layers) in this map
+            List of all layers (regular tile layers) in this map
             </summary>
         </member>
         <member name="P:MapImporter.Map.ObjectGroups">
@@ -929,18 +956,19 @@
         <member name="M:MapImporter.Tileset.GetTileByLocalId(System.Int32)">
             <summary>
             Finds and returns the Tile with the given local id
+            (its Id within its Tileset; chances are you will never need this)
             </summary>
             <param name="id">The local id of the tile to search for</param>
             <returns>The tile with the given local id</returns>
         </member>
-        <member name="M:MapImporter.Tileset.GetTileByGid(System.Int32)">
+        <member name="M:MapImporter.Tileset.GetTile(System.Int32)">
             <summary>
             Finds and returns the Tile with the given global id
             </summary>
             <param name="gid">The global id of the tile to search for</param>
             <returns>The tile with the given global id</returns>
         </member>
-        <member name="M:MapImporter.Tileset.GetTilesByProperty(System.String)">
+        <member name="M:MapImporter.Tileset.GetTilesWithProperty(System.String)">
             <summary>
             Finds and returns all Tiles with the given property name
             </summary>

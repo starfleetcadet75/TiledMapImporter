@@ -129,7 +129,7 @@ namespace MapImporter
         /// </summary>
         public List<Tileset> Tilesets { set; get; }
         /// <summary>
-        /// List of all layers(regular tile layers) in this map
+        /// List of all layers (regular tile layers) in this map
         /// </summary>
         public List<TileLayer> TileLayers { set; get; }
         /// <summary>
@@ -146,11 +146,47 @@ namespace MapImporter
         public List<LayerData> LayerDataList { set; get; }
 
         /// <summary>
+        /// Translates the tile at the screen location to a tile coordinate on the overall map.
+        /// </summary>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+        /// <returns>The i and j indices of the tile in the map's layer data</returns>
+        public Vector2 TranslateScreenToMap(Vector2 tileOnScreen, Vector2 startIndex)
+        {
+            return new Vector2(startIndex.X + tileOnScreen.X - 1, startIndex.Y + tileOnScreen.Y - 1);
+        }
+
+        /// <summary>
+        /// Finds and returns the Tile with the given global id
+        /// </summary>
+        /// <param name="gid">The global id of the tile to find</param>
+        /// <returns>The Tile in the Map with the given global id</returns>
+        public Tile GetTile(int gid)
+        {
+            Tileset t = GetTilesetWithGid(gid);
+            return t.GetTile(gid);
+        }
+
+        /// <summary>
+        /// Returns the gid of the tile at the specified postion on the screen. Use this method
+        /// in combination with your game logic to determine collisions, doors, etc.
+        /// </summary>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+        /// <returns>The gid of the tile</returns>
+        public int GetTileGid(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
+        {
+            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
+            return tileLayer.Data.GetTileData((int)temp.X, (int)temp.Y);
+        }
+
+        /// <summary>
         /// Returns the tileset with the given name
         /// </summary>
         /// <param name="name">The name of the tileset to search for</param>
         /// <returns>The tileset with the given name</returns>
-        public Tileset GetTilesetByName(string name)
+        public Tileset GetTileset(string name)
         {
             foreach (Tileset t in Tilesets)
             {
@@ -163,6 +199,18 @@ namespace MapImporter
         }
 
         /// <summary>
+        /// Returns the tileset at the given index in the tileset list
+        /// </summary>
+        /// <param name="val">The index of the tileset to search for</param>
+        /// <returns>The tileset at the given index</returns>
+        public Tileset GetTileset(int val)
+        {
+            if (Tilesets[val] == null)
+                throw new IndexOutOfRangeException();
+            return Tilesets[val];
+        }
+
+        /// <summary>
         /// Returns the tileset that contains the given global id
         /// </summary>
         /// <param name="gid">The global id to search for</param>
@@ -171,12 +219,38 @@ namespace MapImporter
         {
             foreach (Tileset t in Tilesets)
             {
-                if (t.GetTileByGid(gid) != null)
+                if (t.GetTile(gid) != null)
                 {
                     return t;
                 }
             }
+            new Exception("");
             return null;
+        }
+
+        /// <summary>
+        /// Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
+        /// in combination with your game logic to determine collisions, doors, etc.
+        /// </summary>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
+        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
+        /// <returns>The properties of the given tile</returns>
+        public Dictionary<string, string> GetTileProps(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
+        {
+            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
+            return GetTileProps(tileLayer.Data.GetTileData((int)temp.X, (int)temp.Y));
+        }
+
+        /// <summary>
+        /// Returns a Dictionary object of all properties for the tile with the given gid.
+        /// </summary>
+        /// <param name="gid">The gid of the tile</param>
+        /// <returns>The properties of the given tile</returns>
+        public Dictionary<string, string> GetTileProps(int gid)
+        {
+            Tile tile = GetTile(gid);
+            return tile.Props.PropertiesList;
         }
 
         /// <summary>
@@ -184,7 +258,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="name">The name of the tile layer to search for</param>
         /// <returns>The tile layer with the given name</returns>
-        public TileLayer GetTileLayerByName(string name)
+        public TileLayer GetTileLayer(string name)
         {
             foreach (TileLayer l in TileLayers)
             {
@@ -197,11 +271,23 @@ namespace MapImporter
         }
 
         /// <summary>
+        /// Returns the tilelayer at the given index in the tilelayer list
+        /// </summary>
+        /// <param name="val">The index of the tilelayer to search for</param>
+        /// <returns>The tilelayer at the given index</returns>
+        public TileLayer GetTileLayer(int val)
+        {
+            if (TileLayers[val] == null)
+                throw new IndexOutOfRangeException();
+            return TileLayers[val];
+        }
+
+        /// <summary>
         /// Returns the object group with the given name
         /// </summary>
         /// <param name="name">The name of the object group to search for</param>
         /// <returns>The object group with the given name</returns>
-        public ObjectGroup GetObjectGroupByName(string name)
+        public ObjectGroup GetObjectGroup(string name)
         {
             foreach (ObjectGroup obj in ObjectGroups)
             {
@@ -214,11 +300,23 @@ namespace MapImporter
         }
 
         /// <summary>
+        /// Returns the object group at the given index in the object group list
+        /// </summary>
+        /// <param name="val">The index of the object group to search for</param>
+        /// <returns>The object group at the given index</returns>
+        public ObjectGroup GetObjectGroup(int val)
+        {
+            if (ObjectGroups[val] == null)
+                throw new IndexOutOfRangeException();
+            return ObjectGroups[val];
+        }
+
+        /// <summary>
         /// Returns the image layer with the given name
         /// </summary>
         /// <param name="name">The name of the image layer to search for</param>
         /// <returns>The image layer with the given name</returns>
-        public ImageLayer GetImageLayerByName(string name)
+        public ImageLayer GetImageLayer(string name)
         {
             foreach (ImageLayer l in ImageLayers)
             {
@@ -228,6 +326,18 @@ namespace MapImporter
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// Returns the image layer at the given index in the image layer list
+        /// </summary>
+        /// <param name="val">The index of the image layer to search for</param>
+        /// <returns>The image layer at the given index</returns>
+        public ImageLayer GetImageLayer(int val)
+        {
+            if (ImageLayers[val] == null)
+                throw new IndexOutOfRangeException();
+            return ImageLayers[val];
         }
 
         /// <summary>
@@ -282,69 +392,6 @@ namespace MapImporter
             LayerData temp = layerData;
             LayerDataList.Remove(layerData);
             LayerDataList.Insert(0, temp);
-        }
-
-        /// <summary>
-        /// Returns the gid of the tile at the specified postion on the screen. Use this method
-        /// in combination with your game logic to determine collisions, doors, etc.
-        /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-        /// <returns>The gid of the tile</returns>
-        public int GetTileGidAt(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
-        {
-            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
-            return tileLayer.Data.GetTileDataAt((int)temp.X, (int)temp.Y);
-        }
-
-        /// <summary>
-        /// Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
-        /// in combination with your game logic to determine collisions, doors, etc.
-        /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-        /// <returns>The properties of the given tile</returns>
-        public Dictionary<string, string> GetTilePropsAt(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
-        {
-            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
-            return GetTilePropsAt(tileLayer.Data.GetTileDataAt((int)temp.X, (int)temp.Y));
-        }
-
-        /// <summary>
-        /// Returns a Dictionary object of all properties for the tile with the given gid.
-        /// </summary>
-        /// <param name="gid">The gid of the tile</param>
-        /// <returns>The properties of the given tile</returns>
-        public Dictionary<string, string> GetTilePropsAt(int gid)
-        {
-            Tileset t = GetTilesetWithGid(gid);
-            Tile tile = t.GetTileByGid(gid);
-            return tile.Props.PropertiesList;
-        }
-
-        /// <summary>
-        /// Translates the tile at the screen loaction to a tile coordinate on the overall map.
-        /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <returns>The i and j indices of the tile in the map's layer data</returns>
-        public Vector2 TranslateScreenToMap(Vector2 tileOnScreen, Vector2 startIndex)
-        {
-            return new Vector2(startIndex.X + tileOnScreen.X, startIndex.Y + tileOnScreen.Y);
-        }
-
-        /*   Untested  */
-        /// <summary>
-        /// Translates the tile at the given loaction on the overall map to its tile position on the screen.
-        /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <returns>The i and j indices of the tile in the map's layer data</returns>
-        public Vector2 TranslateMapToScreen(Vector2 tileOnScreen, Vector2 startIndex)
-        {
-            return new Vector2(startIndex.X - tileOnScreen.X, startIndex.Y - tileOnScreen.Y);
         }
 
         /// <summary>
@@ -434,12 +481,12 @@ namespace MapImporter
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
         public void DrawLayer(SpriteBatch spriteBatch, string layerName, Rectangle location, Vector2 startIndex)
         {
-            if (GetTileLayerByName(layerName) != null)
-                DrawLayer(spriteBatch, GetTileLayerByName(layerName), location, startIndex);
-            else if (GetObjectGroupByName(layerName) != null)
-                DrawLayer(spriteBatch, GetObjectGroupByName(layerName), location, startIndex);
-            else if (GetImageLayerByName(layerName) != null)
-                DrawLayer(spriteBatch, GetImageLayerByName(layerName), location, startIndex);
+            if (GetTileLayer(layerName) != null)
+                DrawLayer(spriteBatch, GetTileLayer(layerName), location, startIndex);
+            else if (GetObjectGroup(layerName) != null)
+                DrawLayer(spriteBatch, GetObjectGroup(layerName), location, startIndex);
+            else if (GetImageLayer(layerName) != null)
+                DrawLayer(spriteBatch, GetImageLayer(layerName), location, startIndex);
         }
 
         /// <summary>
@@ -575,9 +622,9 @@ namespace MapImporter
             //This if statement keeps the code from throwing an out of range exception depending on where the start indices are.
             //There is an explanation along with comments on how to prevent this from happening in the documentation.
             if (iStartIndex + i < layer.Data.TileData.GetUpperBound(0) && jStartIndex + j < layer.Data.TileData.GetUpperBound(1)
-                && iStartIndex > 0 && jStartIndex > 0)
+                && iStartIndex >= 0 && jStartIndex >= 0)
             {
-                int gid = layer.Data.GetTileDataAt(iStartIndex + i, jStartIndex + j); //The global id of the tile in the layer at this point
+                int gid = layer.Data.GetTileData(iStartIndex + i, jStartIndex + j); //The global id of the tile in the layer at this point
 
                 //If a gid of 0 occurs, it means that for this layer there is no tile placed in that location
                 if (gid != 0)
@@ -606,7 +653,7 @@ namespace MapImporter
                         }
                     }
 
-                    Tile tile = tileset.GetTileByGid(gid); //Find the tile in that tilset
+                    Tile tile = tileset.GetTile(gid); //Find the tile in that tileset
                     spriteBatch.Draw(tileset.Image.Texture, new Rectangle((i * TileWidth) + tileOffsetX, (j * TileHeight) + tileOffsetY, TileWidth, TileHeight),
                         tile.Location, Color.White);
                 }

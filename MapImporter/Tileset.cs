@@ -60,6 +60,7 @@ namespace MapImporter
 
         /// <summary>
         /// Finds and returns the Tile with the given local id
+        /// (its Id within its Tileset; chances are you will never need this)
         /// </summary>
         /// <param name="id">The local id of the tile to search for</param>
         /// <returns>The tile with the given local id</returns>
@@ -80,7 +81,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="gid">The global id of the tile to search for</param>
         /// <returns>The tile with the given global id</returns>
-        public Tile GetTileByGid(int gid)
+        public Tile GetTile(int gid)
         {
             foreach (Tile t in Tiles)
             {
@@ -97,7 +98,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="propertyName">The name of the property to search for</param>
         /// <returns>The tiles with the given property</returns>
-        public List<Tile> GetTilesByProperty(string propertyName)
+        public List<Tile> GetTilesWithProperty(string propertyName)
         {
             List<Tile> tilesWithProperty = new List<Tile>();
 

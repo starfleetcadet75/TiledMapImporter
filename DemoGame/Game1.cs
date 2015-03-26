@@ -16,9 +16,13 @@ namespace DemoGame
 
         // The Tiled map object
         Map map;
-        // This is used to tell the draw method what part of the map to draw.
+        // This is used to tell the draw method what part of the map to draw
+        // By default it refers to the top left map tile
         Vector2 startIndex;
+        // This stores the current tile the player is on
         Vector2 playerTilePosition;
+        // Refers to the player's position in pixels. Used only for drawing
+        // purposes, the player's tile position is used for any logic.
         Vector2 playerPosition;
 
         /// <summary>
@@ -73,7 +77,7 @@ namespace DemoGame
             int xPlayerPosition = (graphics.GraphicsDevice.Viewport.Width - map.TileWidth) / 2; //Check if its a int or double value
             int yPlayerPosition = (graphics.GraphicsDevice.Viewport.Height - map.TileHeight) / 2;
             playerPosition = new Vector2(xPlayerPosition, yPlayerPosition);
-            playerTilePosition = new Vector2(6, 5);
+            playerTilePosition = new Vector2(5, 5);
         }
 
         /// <summary>
@@ -123,8 +127,9 @@ namespace DemoGame
             }
 
             //Prints the gid of the tile the player is currently on if it contains a trigger tile
-            int i = map.GetTileGidAt(playerTilePosition, startIndex, map.GetTileLayerByName("TriggerLayer"));
+            int i = map.GetTileGid(playerTilePosition, startIndex, map.GetTileLayer("TriggerLayer"));
             Console.Write("The gid is: " + i + "\n");
+            Console.Write("The player is at tile: " + playerTilePosition.ToString() + "\n");
 
             base.Update(gameTime);
         }

@@ -29,9 +29,17 @@ namespace MapImporter
         /// <param name="i">The index in the i direction</param>
         /// <param name="j">The index in the j direction</param>
         /// <returns>The gid at the given indices</returns>
-        public int GetTileDataAt(int i, int j)
+        public int GetTileData(int i, int j)
         {
-            return TileData[i, j];
+            try
+            {
+                return TileData[i, j];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.Write("ERROR: Class=Data --- Tried to access a value in Data index that does not exist" + "\n");
+                return 0;
+            }
         }
 
         /// <summary>
@@ -43,7 +51,14 @@ namespace MapImporter
         /// <param name="j">The index in the j direction</param>
         public void ChangeTileDataAt(int newVal, int i, int j)
         {
-            TileData[i, j] = newVal;
+            try
+            {
+                TileData[i, j] = newVal;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.Write("ERROR: Class=Data --- Tried to assign a value to an index that does not exist" + "\n");
+            }
         }
 
         /// <summary>
