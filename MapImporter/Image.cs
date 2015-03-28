@@ -24,15 +24,15 @@ namespace MapImporter
         public Color Trans { set; get; }
         /// <summary>
         /// The image width in pixels (optional, used for tile index
-        /// correction when the image changes)
+        /// correction when the image changes).
         /// </summary>
         public int Width { set; get; }
         /// <summary>
-        /// The image height in pixels (optional)
+        /// The image height in pixels (optional).
         /// </summary>
         public int Height { set; get; }
         /// <summary>
-        /// Specifically for use by the Xna Framework. The image must be loaded
+        /// Specifically for use by the Xna/MonoGame Framework. The image must be loaded
         /// from the Source path using the content pipeline.
         /// </summary>
         public Texture2D Texture { set; get; }

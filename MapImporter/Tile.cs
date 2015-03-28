@@ -8,11 +8,11 @@ namespace MapImporter
     public class Tile
     {
         /// <summary>
-        /// The local tile Id within its tileset
+        /// The local tile Id within its tileset.
         /// </summary>
         public int Id { set; get; }
         /// <summary>
-        /// The global tile Id
+        /// The global tile Id.
         /// </summary>
         public int Gid { set; get; }
         /// <summary>
@@ -28,16 +28,33 @@ namespace MapImporter
         /// </summary>
         public int Probability { set; get; }
         /// <summary>
-        /// Custom properties for the tile object
+        /// Custom properties for the tile object.
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
-        /// The location of this individual tile in the tileset
+        /// The location of this individual tile in the tileset.
         /// </summary>
         public Rectangle Location { set; get; }
         /// <summary>
-        /// Object group this tile is part of
+        /// Object group this tile is part of (optional).
         /// </summary>
         public ObjectGroup ObjectGroup { set; get; }
+
+        /// <summary>
+        /// Constructor for the Tile class.
+        /// </summary>
+        public Tile()
+        {
+        }
+
+        /// <summary>
+        /// Constructor for the Tile class.
+        /// </summary>
+        public Tile(int id, int gid, Rectangle location)
+        {
+            Id = id;
+            Gid = gid;
+            Location = location;
+        }
     }
 }

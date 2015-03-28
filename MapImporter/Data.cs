@@ -9,12 +9,12 @@ namespace MapImporter
     public class Data
     {
         /// <summary>
-        /// Contains the gid at the given indices for a layer
+        /// Contains the gid at the given indices for a layer.
         /// </summary>
         public int[,] TileData { set; get; }
 
         /// <summary>
-        /// Instantiates the new 2d array
+        /// Instantiates the new 2d array.
         /// </summary>
         /// <param name="i">The number of tiles in the i direction</param>
         /// <param name="j">The number of tiles in the j direction</param>
@@ -24,7 +24,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the gid of the tile at the specified indices
+        /// Returns the gid of the tile at the specified indices.
         /// </summary>
         /// <param name="i">The index in the i direction</param>
         /// <param name="j">The index in the j direction</param>
@@ -62,7 +62,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Prints the entire matrix to the console
+        /// Prints the entire matrix to the console.
         /// </summary>
         public void PrintData()
         {

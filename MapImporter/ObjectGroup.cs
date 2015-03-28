@@ -4,16 +4,16 @@ using System.Collections.Generic;
 namespace MapImporter
 {
     /// <summary>
-    /// The different draw orders for objects
+    /// The different draw orders for objects.
     /// </summary>
     public enum DrawOrder
     {
         /// <summary>
-        /// Draws objects from the top down
+        /// Draws objects from the top down.
         /// </summary>
         TopDown,
         /// <summary>
-        /// Manually set
+        /// Manually set.
         /// </summary>
         Manual
     }

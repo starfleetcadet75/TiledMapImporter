@@ -10,7 +10,8 @@ using System.Xml;
 namespace MapImporter
 {
     /// <summary>
-    /// Importer class contains the methods needed to import the Tiled maps.
+    /// The Importer class contains the methods needed to import
+    /// the Tiled maps and turn them into Map objects.
     /// </summary>
     public class Importer
     {
@@ -54,7 +55,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Parses the given text from a JSON file and turns it into a Map object
+        /// Parses the given text from a JSON file and turns it into a Map object.
         /// </summary>
         /// <param name="fileText">The text of the JSON file</param>
         /// <returns>A new Map object</returns>
@@ -109,7 +110,6 @@ namespace MapImporter
 
                 if (mapJSON["properties"] != null)
                 {
-                    m.Props = new Properties();
                     m.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(mapJSON["properties"].ToString());
                 }
 
@@ -118,17 +118,10 @@ namespace MapImporter
                 JArray tilesetJson = (JArray)mapJSON["tilesets"];
                 if (tilesetJson != null)
                 {
-                    m.Tilesets = new List<Tileset>();
-
                     foreach (JObject tilesets in tilesetJson)
                     {
-                        Tileset tileset = new Tileset();
-                        tileset.Firstgid = (int)tilesets["firstgid"];
-                        tileset.Name = tilesets["name"].ToString();
-                        tileset.TileWidth = (int)tilesets["tilewidth"];
-                        tileset.TileHeight = (int)tilesets["tileheight"];
-                        tileset.Spacing = (int)tilesets["spacing"];
-                        tileset.Margin = (int)tilesets["margin"];
+                        Tileset tileset = new Tileset((int)tilesets["firstgid"], tilesets["name"].ToString(), (int)tilesets["tilewidth"], (int)tilesets["tileheight"], 
+                            (int)tilesets["spacing"], (int)tilesets["margin"]);
 
                         if (tilesets["tileoffset"] != null)
                         {
@@ -155,7 +148,6 @@ namespace MapImporter
 
                         if (tilesets["image"] != null)
                         {
-                            tileset.Image = new Image();
                             tileset.Image.Source = tilesets["image"].ToString();
                             tileset.Image.Format = Path.GetExtension(tileset.Image.Source);
                             if (tilesets["trans"] != null)
@@ -175,7 +167,6 @@ namespace MapImporter
 
                         if (tilesets["properties"] != null)
                         {
-                            tileset.Props = new Properties();
                             tileset.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(tilesets["properties"].ToString());
                         }
 
@@ -184,17 +175,13 @@ namespace MapImporter
                             // add terraintypes
                         }
 
-                        tileset.Tiles = new List<Tile>(); //List of all tiles in this Tileset
                         int id = 0; //Keeps track of the local id for the tiles
                         for (int y = (tileset.Margin / tileset.TileHeight); y < ((tileset.Image.Height - tileset.Margin) / tileset.TileHeight); y++)
                         {
                             for (int x = (tileset.Margin / tileset.TileWidth); x < ((tileset.Image.Width - tileset.Margin) / tileset.TileWidth); x++)
                             {
-                                Tile tile = new Tile();
-                                tile.Id = id;
-                                tile.Gid = gid;
-                                tile.Location = new Rectangle((x * tileset.TileWidth) + tileset.Spacing, (y * tileset.TileHeight) + tileset.Spacing,
-                                    tileset.TileWidth, tileset.TileHeight);
+                                Tile tile = new Tile(id, gid, new Rectangle((x * tileset.TileWidth) + tileset.Spacing, (y * tileset.TileHeight) + tileset.Spacing,
+                                    tileset.TileWidth, tileset.TileHeight));
                                 tileset.Tiles.Add(tile);
                                 id++;
                                 gid++;
@@ -238,28 +225,17 @@ namespace MapImporter
                     }
                 }
 
-                // Create and add the layers
-                m.TileLayers = new List<TileLayer>();
-                m.ObjectGroups = new List<ObjectGroup>();
-                m.ImageLayers = new List<ImageLayer>();
-                m.LayerDataList = new List<LayerData>();
+                // Add the layers
                 int indexInLayerList = 0;
                 foreach (JObject layerJson in mapJSON["layers"])
                 {
                     if (layerJson["type"].ToString() == "tilelayer")
                     {
-                        LayerData ld = new LayerData();
-                        ld.Index = indexInLayerList;
-                        ld.LayerType = LayerType.TileLayer;
+                        LayerData ld = new LayerData(indexInLayerList, LayerType.TileLayer);
                         m.LayerDataList.Add(ld);
 
-                        TileLayer l = new TileLayer();
-                        l.Name = layerJson["name"].ToString();
-                        l.X = (int)layerJson["x"];
-                        l.Y = (int)layerJson["y"];
-                        l.Width = (int)layerJson["width"];
-                        l.Height = (int)layerJson["height"];
-                        l.Opacity = (int)layerJson["opacity"];
+                        TileLayer l = new TileLayer(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"], (int)layerJson["width"],
+                            (int)layerJson["height"], (int)layerJson["opacity"]);
 
                         //Put the data from the layer into the Data object
                         JArray dataJson = (JArray)layerJson["data"];
@@ -316,9 +292,7 @@ namespace MapImporter
                     }
                     else if (layerJson["type"].ToString() == "objectgroup")
                     {
-                        LayerData ld = new LayerData();
-                        ld.Index = indexInLayerList;
-                        ld.LayerType = LayerType.ObjectGroup;
+                        LayerData ld = new LayerData(indexInLayerList, LayerType.ObjectGroup);
                         m.LayerDataList.Add(ld);
 
                         ObjectGroup objGroup = new ObjectGroup();
@@ -406,9 +380,7 @@ namespace MapImporter
                     }
                     else if (layerJson["type"].ToString() == "imagelayer")
                     {
-                        LayerData ld = new LayerData();
-                        ld.Index = indexInLayerList;
-                        ld.LayerType = LayerType.ImageLayer;
+                        LayerData ld = new LayerData(indexInLayerList, LayerType.ImageLayer);
                         m.LayerDataList.Add(ld);
                     }
                     indexInLayerList++;
@@ -418,7 +390,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Parses the given text from a Tmx file and turns it into a Map object
+        /// Parses the given text from a Tmx file and turns it into a Map object.
         /// </summary>
         /// <param name="fileText">The text of the Tmx file</param>
         /// <returns>A new Map object</returns>

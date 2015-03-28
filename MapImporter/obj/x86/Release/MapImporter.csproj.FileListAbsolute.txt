@@ -1,0 +1,11 @@
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\MapImporter.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\MapImporter.pdb
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\MonoGame.Framework.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\Newtonsoft.Json.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\OpenTK.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\Lidgren.Network.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\Tao.Sdl.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Release\Newtonsoft.Json.xml
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Release\MapImporter.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Release\MapImporter.dll
+C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Release\MapImporter.pdb

@@ -9,12 +9,28 @@ namespace MapImporter
     public class TileOffset
     {
         /// <summary>
-        /// Horizontal offset in pixels
+        /// Horizontal offset in pixels.
         /// </summary>
         public int X { set; get; }
         /// <summary>
-        /// Vertical offset in pixels (positive is down)
+        /// Vertical offset in pixels (positive is down).
         /// </summary>
         public int Y { set; get; }
+
+        /// <summary>
+        /// Constructor for the Tile class.
+        /// </summary>
+        public TileOffset()
+        {
+        }
+
+        /// <summary>
+        /// Constructor for the Tile class.
+        /// </summary>
+        public TileOffset(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
     }
 }

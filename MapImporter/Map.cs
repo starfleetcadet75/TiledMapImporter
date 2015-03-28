@@ -7,79 +7,88 @@ using System.Collections.Generic;
 namespace MapImporter
 {
     /// <summary>
-    /// The different kinds of orientation types that Tiled supports
+    /// The different kinds of orientation types that Tiled supports.
     /// </summary>
     public enum Orientation
     {
         /// <summary>
-        /// The Tiled map has an orthogonal orientation
+        /// The Tiled map has an orthogonal orientation.
         /// </summary>
         Orthogonal,
         /// <summary>
-        /// The Tiled map has an isometric orientation
+        /// The Tiled map has an isometric orientation.
         /// </summary>
         Isometric,
         /// <summary>
-        /// The Tiled map has a staggered orientation
+        /// The Tiled map has a staggered orientation.
         /// </summary>
         Staggered
     }
 
     /// <summary>
-    /// The different render orders possible
+    /// The different render orders possible for drawing the maps.
     /// </summary>
     public enum RenderOrder
     {
         /// <summary>
-        /// The Tiled map should be rendered right and down
+        /// The Tiled map should be rendered right and down.
         /// </summary>
         RightDown,
         /// <summary>
-        /// The Tiled map should be rendered right and up
+        /// The Tiled map should be rendered right and up.
         /// </summary>
         RightUp,
         /// <summary>
-        /// The Tiled map should be rendered left and down
+        /// The Tiled map should be rendered left and down.
         /// </summary>
         LeftDown,
         /// <summary>
-        /// The Tiled map should be rendered left and up
+        /// The Tiled map should be rendered left and up.
         /// </summary>
         LeftUp
     }
 
     /// <summary>
-    /// The different types of Layers possible in a Tiled map
+    /// The different types of Layers possible in a Tiled map.
     /// </summary>
     public enum LayerType
     {
         /// <summary>
-        /// A layer of tiles from a tileset
+        /// A layer of tiles from a tileset.
         /// </summary>
         TileLayer,
         /// <summary>
-        /// A layer of objects
+        /// A layer of objects.
         /// </summary>
         ObjectGroup,
         /// <summary>
-        /// A layer of images
+        /// A layer of images.
         /// </summary>
         ImageLayer
     }
 
     /// <summary>
-    /// Holds layer specific information for each layer
+    /// Holds layer specific information for each layer.
     /// </summary>
     public struct LayerData
     {
         /// <summary>
-        /// The Layer's index in the overall layer list
+        /// The Layer's index in the overall layer list.
         /// </summary>
         public int Index;
         /// <summary>
-        /// The type of this specific layer
+        /// The type of this specific layer.
         /// </summary>
         public LayerType LayerType;
+
+        /// <summary>
+        /// Constructor for LayerData structure.
+        /// </summary>
+        public LayerData(int index, LayerType layerType)
+        {
+            Index = index;
+            LayerType = layerType;
+        }
     }
 
     /// <summary>
@@ -89,7 +98,7 @@ namespace MapImporter
     public class Map
     {
         /// <summary>
-        /// The TMX format version, generally 1.0
+        /// The TMX format version, generally 1.0.
         /// </summary>
         public string Version { set; get; }
         /// <summary>
@@ -97,53 +106,66 @@ namespace MapImporter
         /// </summary>
         public Orientation Orientation { set; get; }
         /// <summary>
-        /// The map width in tiles
+        /// The map width in tiles.
         /// </summary>
         public int Width { set; get; }
         /// <summary>
-        /// The map height in tiles
+        /// The map height in tiles.
         /// </summary>
         public int Height { set; get; }
         /// <summary>
-        /// The width of a tile
+        /// The width of a tile.
         /// </summary>
         public int TileWidth { set; get; }
         /// <summary>
-        /// The height of a tile
+        /// The height of a tile.
         /// </summary>
         public int TileHeight { set; get; }
         /// <summary>
-        /// The background color of the map (since 0.9, optional)
+        /// The background color of the map (since 0.9, optional).
         /// </summary>
         public Color BackgroundColor { set; get; }
         /// <summary>
-        /// The order in which tiles on tile layers are rendered
+        /// The order in which tiles on tile layers are rendered.
         /// </summary>
         public RenderOrder RenderOrder { set; get; }
         /// <summary>
-        /// Custom properties for the map object
+        /// Custom properties for the map object.
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
-        /// List of all tilesets used in this map
+        /// List of all tilesets used in this map.
         /// </summary>
         public List<Tileset> Tilesets { set; get; }
         /// <summary>
-        /// List of all layers (regular tile layers) in this map
+        /// List of all layers (regular tile layers) in this map.
         /// </summary>
         public List<TileLayer> TileLayers { set; get; }
         /// <summary>
-        /// List of all object groups in this map
+        /// List of all object groups in this map.
         /// </summary>
         public List<ObjectGroup> ObjectGroups { set; get; }
         /// <summary>
-        /// List of all image layers in this map
+        /// List of all image layers in this map.
         /// </summary>
         public List<ImageLayer> ImageLayers { set; get; }
         /// <summary>
-        /// The list of every layer regardless of layer type
+        /// The list of every layer regardless of layer type.
         /// </summary>
         public List<LayerData> LayerDataList { set; get; }
+
+        /// <summary>
+        /// Constructor for the Map class.
+        /// </summary>
+        public Map()
+        {
+            Props = new Properties();
+            Tilesets = new List<Tileset>();
+            TileLayers = new List<TileLayer>();
+            ObjectGroups = new List<ObjectGroup>();
+            ImageLayers = new List<ImageLayer>();
+            LayerDataList = new List<LayerData>();
+        }
 
         /// <summary>
         /// Translates the tile at the screen location to a tile coordinate on the overall map.
@@ -157,7 +179,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Finds and returns the Tile with the given global id
+        /// Finds and returns the Tile with the given global id.
         /// </summary>
         /// <param name="gid">The global id of the tile to find</param>
         /// <returns>The Tile in the Map with the given global id</returns>
@@ -182,7 +204,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tileset with the given name
+        /// Returns the tileset with the given name.
         /// </summary>
         /// <param name="name">The name of the tileset to search for</param>
         /// <returns>The tileset with the given name</returns>
@@ -199,7 +221,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tileset at the given index in the tileset list
+        /// Returns the tileset at the given index in the tileset list.
         /// </summary>
         /// <param name="val">The index of the tileset to search for</param>
         /// <returns>The tileset at the given index</returns>
@@ -211,7 +233,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tileset that contains the given global id
+        /// Returns the tileset that contains the given global id.
         /// </summary>
         /// <param name="gid">The global id to search for</param>
         /// <returns>The tileset that contains the tile with the given gid</returns>
@@ -229,20 +251,6 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
-        /// in combination with your game logic to determine collisions, doors, etc.
-        /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-        /// <returns>The properties of the given tile</returns>
-        public Dictionary<string, string> GetTileProps(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
-        {
-            Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
-            return GetTileProps(tileLayer.Data.GetTileData((int)temp.X, (int)temp.Y));
-        }
-
-        /// <summary>
         /// Returns a Dictionary object of all properties for the tile with the given gid.
         /// </summary>
         /// <param name="gid">The gid of the tile</param>
@@ -254,7 +262,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tile layer with the given name
+        /// Returns the tile layer with the given name.
         /// </summary>
         /// <param name="name">The name of the tile layer to search for</param>
         /// <returns>The tile layer with the given name</returns>
@@ -271,7 +279,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tilelayer at the given index in the tilelayer list
+        /// Returns the tilelayer at the given index in the tilelayer list.
         /// </summary>
         /// <param name="val">The index of the tilelayer to search for</param>
         /// <returns>The tilelayer at the given index</returns>
@@ -283,7 +291,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the object group with the given name
+        /// Returns the object group with the given name.
         /// </summary>
         /// <param name="name">The name of the object group to search for</param>
         /// <returns>The object group with the given name</returns>
@@ -300,7 +308,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the object group at the given index in the object group list
+        /// Returns the object group at the given index in the object group list.
         /// </summary>
         /// <param name="val">The index of the object group to search for</param>
         /// <returns>The object group at the given index</returns>
@@ -312,7 +320,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the image layer with the given name
+        /// Returns the image layer with the given name.
         /// </summary>
         /// <param name="name">The name of the image layer to search for</param>
         /// <returns>The image layer with the given name</returns>
@@ -329,7 +337,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the image layer at the given index in the image layer list
+        /// Returns the image layer at the given index in the image layer list.
         /// </summary>
         /// <param name="val">The index of the image layer to search for</param>
         /// <returns>The image layer at the given index</returns>
@@ -407,7 +415,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws all visible layers of the Map to the screen
+        /// Draws all visible layers of the Map to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="location">The location to draw the layers</param>
@@ -441,7 +449,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified layer from the overall layer list to the screen
+        /// Draws the specified layer from the overall layer list to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="layerId">The id of the layer to be drawn in the LayerDataList list</param>
@@ -473,7 +481,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified layer to the screen
+        /// Draws the specified layer to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="layerName">The name of the layer to be drawn</param>
@@ -490,7 +498,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified tile layer to the screen
+        /// Draws the specified tile layer to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="layer">The Layer object to be drawn</param>
@@ -502,7 +510,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified object group to the screen
+        /// Draws the specified object group to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="objectGroup">The object group object to be drawn</param>
@@ -514,7 +522,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified image layer to the screen
+        /// Draws the specified image layer to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="imageLayer">The Image Layer object to be drawn</param>
@@ -526,7 +534,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Performs all the math for the tile layer and then makes the call to render it
+        /// Performs all the math for the tile layer and then makes the call to render it.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="tileLayer">The tile layer to be drawn</param>
@@ -582,7 +590,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Performs the actual rendering for the object group
+        /// Performs the actual rendering for the object group.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="objectGroup">The object group to be drawn</param>
@@ -594,7 +602,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Performs the actual rendering for the image layer
+        /// Performs the actual rendering for the image layer.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
         /// <param name="imageLayer">The image layer to be drawn</param>

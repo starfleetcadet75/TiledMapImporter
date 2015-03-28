@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Graphics;
 namespace MapImporter
 {
     /// <summary>
-    /// A single layer of tiles in the map
+    /// A single layer of tiles in the map.
     /// </summary>
     public class TileLayer
     {
         /// <summary>
-        /// The name of the layer
+        /// The name of the layer.
         /// </summary>
         public string Name { set; get; }
         /// <summary>
@@ -41,12 +41,38 @@ namespace MapImporter
         /// </summary>
         public bool Visible { set; get; }
         /// <summary>
-        /// Contains the gids for the layer
+        /// Contains the global ids for the layer.
         /// </summary>
         public Data Data { set; get; }
         /// <summary>
-        /// Custom properties for the layer object
+        /// Custom properties for the layer object.
         /// </summary>
         public Properties Props { set; get; }
+
+        /// <summary>
+        /// Constructor for TileLayer class.
+        /// </summary>
+        public TileLayer()
+        {
+        }
+
+        /// <summary>
+        /// Constructor for TileLayer class.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="opacity"></param>
+        public TileLayer(string name, int x, int y, int width, int height, int opacity)
+        {
+            Name = name;
+            X = x;
+            Y = y;
+            Width = width;
+            Height = height;
+            Opacity = opacity;
+        }
     }
 }
