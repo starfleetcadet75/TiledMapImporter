@@ -113,6 +113,13 @@ namespace MapImporter
                     m.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(mapJSON["properties"].ToString());
                 }
 
+                if (mapJSON["nextobjectid"] != null)
+                {
+                    int num;
+                    int.TryParse(mapJSON["nextobjectid"].ToString(), out num);
+                    m.NextObjectId = num;
+                }
+
                 // Create and add the tilesets
                 int gid = 1; //Keeps track of the global ids for all tiles
                 JArray tilesetJson = (JArray)mapJSON["tilesets"];

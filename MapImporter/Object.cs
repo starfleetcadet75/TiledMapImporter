@@ -27,11 +27,11 @@ namespace MapImporter
         /// <summary>
         /// The x coordinate of the object in pixels.
         /// </summary>
-        public double X { set; get; }
+        public int X { set; get; }
         /// <summary>
         /// The y coordinate of the object in pixels.
         /// </summary>
-        public double Y { set; get; }
+        public int Y { set; get; }
         /// <summary>
         /// The width of the object in pixels (defaults to 0).
         /// </summary>

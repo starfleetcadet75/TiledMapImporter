@@ -153,6 +153,10 @@ namespace MapImporter
         /// The list of every layer regardless of layer type.
         /// </summary>
         public List<LayerData> LayerDataList { set; get; }
+        /// <summary>
+        /// The id of the next object in the map.
+        /// </summary>
+        public int NextObjectId { set; get; }
 
         /// <summary>
         /// Constructor for the Map class.
