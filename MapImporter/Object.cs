@@ -21,7 +21,7 @@ namespace MapImporter
         /// </summary>
         public string Type { set; get; }
         /// <summary>
-        /// The Id of the object
+        /// The Id of the object.
         /// </summary>
         public int Id { set; get; }
         /// <summary>
@@ -53,24 +53,31 @@ namespace MapImporter
         /// </summary>
         public bool Visible { set; get; }
         /// <summary>
-        /// Custom properties for this object
+        /// Custom properties for this object.
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
-        /// An Ellipse object
+        /// An Ellipse object.
         /// </summary>
         public Ellipse Ellipse { set; get; }
         /// <summary>
-        /// A Polygon object
+        /// A Polygon object.
         /// </summary>
         public Polygon Polygon { set; get; }
         /// <summary>
-        /// A Polyline object
+        /// A Polyline object.
         /// </summary>
         public Polyline Polyline { set; get; }
         /// <summary>
-        /// An image object
+        /// An image object.
         /// </summary>
         public Image Image { set; get; }
+
+        /// <summary>
+        /// Constructor for the Object class.
+        /// </summary>
+        public Object()
+        {
+        }
     }
 }

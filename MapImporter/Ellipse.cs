@@ -8,5 +8,12 @@ namespace MapImporter
     public class Ellipse
     {
 
+        /// <summary>
+        /// Constructor for an Ellipse object.
+        /// </summary>
+        public Ellipse()
+        {
+
+        }
     }
 }

@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MapImporter.ImageLayer">
-    <Position X="9.25" Y="3.25" Width="1.5" />
+    <Position X="9.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAABAAAAAAAAAAAAEQAAAAAABAIgAAAAAAAYAA=</HashCode>
       <FileName>ImageLayer.cs</FileName>
@@ -77,11 +77,60 @@
       <FileName>ObjectGroup.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MapImporter.Ellipse">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ellipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapImporter.Object">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACBAAAAIBAAAACAEQAAAAAABAIgQAAAAAAYCA=</HashCode>
+      <FileName>Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapImporter.Polygon">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polygon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapImporter.Polyline">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAgA=</HashCode>
+      <FileName>Polyline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapImporter.Terrain">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAgAAAAAAAAQA=</HashCode>
+      <FileName>Terrain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapImporter.TerrainTypes">
+    <Position X="2.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>TerrainTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="MapImporter.LayerData">
     <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MapImporter.Line">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAKAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Polyline.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="MapImporter.Orientation">

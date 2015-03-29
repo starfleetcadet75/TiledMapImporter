@@ -7,15 +7,15 @@ namespace MapImporter
     public class ImageLayer
     {
         /// <summary>
-        /// The name of the image layer
+        /// The name of the image layer.
         /// </summary>
         public string Name { set; get; }
         /// <summary>
-        /// The x position of the image layer in pixels
+        /// The x position of the image layer in pixels.
         /// </summary>
         public int X { set; get; }
         /// <summary>
-        /// The y position of the image layer in pixels
+        /// The y position of the image layer in pixels.
         /// </summary>
         public int Y { set; get; }
         /// <summary>
@@ -35,12 +35,20 @@ namespace MapImporter
         /// </summary>
         public bool Visible { set; get; }
         /// <summary>
-        /// The image used in the layer
+        /// The image used in the layer.
         /// </summary>
         public Image Image { set; get; }
         /// <summary>
-        /// Custom properties for the image layer
+        /// Custom properties for the image layer.
         /// </summary>
         public Properties Props { set; get; }
+
+        /// <summary>
+        /// Constructor for an ImageLayer object.
+        /// </summary>
+        public ImageLayer()
+        {
+            Props = new Properties();
+        }
     }
 }

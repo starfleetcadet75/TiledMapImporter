@@ -25,15 +25,15 @@ namespace MapImporter
     public class ObjectGroup
     {
         /// <summary>
-        /// The name of the object group
+        /// The name of the object group.
         /// </summary>
         public string Name { set; get; }
         /// <summary>
-        /// The draw order for the object group
+        /// The draw order for the object group.
         /// </summary>
         public DrawOrder DrawOrder { set; get; }
         /// <summary>
-        /// The color used to display the objects in this group
+        /// The color used to display the objects in this group.
         /// </summary>
         public Color Color { set; get; }
         /// <summary>
@@ -64,12 +64,21 @@ namespace MapImporter
         /// </summary>
         public bool Visible { set; get; }
         /// <summary>
-        /// Objects contained in this object group
+        /// Objects contained in this object group.
         /// </summary>
         public List<Object> Objects { set; get; }
         /// <summary>
-        /// Custom properties for the object group
+        /// Custom properties for the object group.
         /// </summary>
         public Properties Props { set; get; }
+
+        /// <summary>
+        /// Constructor for the ObjectGroup class.
+        /// </summary>
+        public ObjectGroup()
+        {
+            Objects = new List<Object>();
+            Props = new Properties();
+        }
     }
 }

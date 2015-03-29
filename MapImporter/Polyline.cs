@@ -9,47 +9,93 @@ namespace MapImporter
     public class Polyline
     {
         /// <summary>
-        /// The points that make up the polyline object
+        /// The points that make up the polyline object.
         /// </summary>
         public Point[] Points { set; get; }
         /// <summary>
-        /// The lines that make up the polyline object
+        /// The lines that make up the polyline object.
         /// </summary>
         public Line[] Lines { set; get; }
         /// <summary>
-        /// Bounding rectangle of this polyline
+        /// Bounding rectangle of this polyline.
         /// </summary>
         public Rectangle Bounds { set; get; }
+
+        /// <summary>
+        /// Constructor for Polyline object.
+        /// </summary>
+        public Polyline()
+        {
+        }
+
+        /// <summary>
+        /// Constructor for Polyline object.
+        /// </summary>
+        /// <param name="points"></param>
+        /// <param name="lines"></param>
+        /// <param name="bounds"></param>
+        public Polyline(Point[] points, Line[] lines, Rectangle bounds)
+        {
+            Points = points;
+            Lines = lines;
+            Bounds = bounds;
+        }
     }
 
     /// <summary>
-    /// A line object that is drawn based on specified points
+    /// A line object that is drawn based on specified points.
     /// </summary>
     public struct Line
     {
         /// <summary>
-        /// The starting point of the line
+        /// The starting point of the line.
         /// </summary>
-        public Vector2 Start;
+        public Vector2 Start { set; get; }
         /// <summary>
-        /// The ending point of the line
+        /// The ending point of the line.
         /// </summary>
-        public Vector2 End;
+        public Vector2 End { set; get; }
         /// <summary>
-        /// Length of the line
+        /// The length of the line.
         /// </summary>
-        public float Length;
+        public float Length { set; get; }
         /// <summary>
-        /// Rotation of the line
+        /// The rotation of the line.
         /// </summary>
-        public float Angle;
+        public float Angle { set; get; }
 
         /// <summary>
-        /// Create a line from start and end points and calculate the length and angle
+        /// Constructor for Line structure.
         /// </summary>
-        /// <param name="start">The first point of the line</param>
-        /// <param name="end">The end of the line</param>
-        /// <returns>A Line created from the points</returns>
+        public Line()
+        {
+            Start = new Vector2();
+            End = new Vector2();
+            Length = 0.0f;
+            Angle = 0.0f;
+        }
+
+        /// <summary>
+        /// Constructor for Line structure.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="length"></param>
+        /// <param name="angle"></param>
+        public Line(Vector2 start, Vector2 end, float length, float angle)
+        {
+            Start = start;
+            End = end;
+            Length = length;
+            Angle = angle;
+        }
+
+        /// <summary>
+        /// Create a line from start and end points and calculate the length and angle.
+        /// </summary>
+        /// <param name="start">The first point of the line.</param>
+        /// <param name="end">The end of the line.</param>
+        /// <returns>A Line created from the points.</returns>
         public static Line FromPoints(Vector2 start, Vector2 end)
         {
             Line l = new Line();
