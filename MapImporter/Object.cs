@@ -9,6 +9,11 @@ namespace MapImporter
     /// When the object has a gid set, then it is represented by the image of the tile with that global ID.
     /// Currently that means width and height are ignored for such objects. The image alignment currently depends on the map orientation.
     /// In orthogonal orientation it's aligned to the bottom-left while in isometric it's aligned to the bottom-center.
+    /// If IsEllipse is true, then the object is an Ellipse.
+    /// If Polygon is not null, the object is a Polygon.
+    /// If Polyline is not null, then the object is a Polyline.
+    /// If Image is not null, the object is an Image.
+    /// If all of these are null, then the object is a Rectangle.
     /// </summary>
     public class Object
     {
@@ -27,11 +32,11 @@ namespace MapImporter
         /// <summary>
         /// The x coordinate of the object in pixels.
         /// </summary>
-        public int X { set; get; }
+        public double X { set; get; }
         /// <summary>
         /// The y coordinate of the object in pixels.
         /// </summary>
-        public int Y { set; get; }
+        public double Y { set; get; }
         /// <summary>
         /// The width of the object in pixels (defaults to 0).
         /// </summary>
@@ -57,9 +62,10 @@ namespace MapImporter
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
-        /// An Ellipse object.
+        /// Used to mark an object as an ellipse. The regular x, y, width, height
+        /// attributes are used to determine the size of the ellipse.
         /// </summary>
-        public Ellipse Ellipse { set; get; }
+        public bool IsEllipse { set; get; }
         /// <summary>
         /// A Polygon object.
         /// </summary>
@@ -78,6 +84,39 @@ namespace MapImporter
         /// </summary>
         public Object()
         {
+            Props = new Properties();
+        }
+
+        /// <summary>
+        /// Constructor for the Object class.
+        /// </summary>
+        public Object(string name, int id, double width, double height, double x, double y,  string type, double rotation)
+        {
+            Name = name;
+            Type = type;
+            Width = width;
+            Height = height;
+            Id = id;
+            Rotation = rotation;
+            X = x;
+            Y = y;
+            Props = new Properties();
+        }
+
+        /// <summary>
+        /// Constructor for the Object class.
+        /// </summary>
+        public Object(string name, int id, double width, double height, double x, double y,  string type, double rotation, Properties props)
+        {
+            Name = name;
+            Type = type;
+            Width = width;
+            Height = height;
+            Id = id;
+            Rotation = rotation;
+            X = x;
+            Y = y;
+            Props = props;
         }
     }
 }

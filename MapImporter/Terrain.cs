@@ -30,7 +30,8 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Terrain object.
         /// </summary>
-        /// <param name="terrains"></param>
+        /// <param name="name"></param>
+        /// <param name="tile"></param>
         public Terrain(string name, int tile)
         {
             Name = name;
@@ -41,7 +42,9 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Terrain object.
         /// </summary>
-        /// <param name="terrains"></param>
+        /// <param name="name"></param>
+        /// <param name="tile"></param>
+        /// <param name="props"></param>
         public Terrain(string name, int tile, Properties props)
         {
             Name = name;

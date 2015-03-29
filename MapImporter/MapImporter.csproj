@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
-    <Compile Include="Ellipse.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="ImageLayer.cs" />
     <Compile Include="Importer.cs" />

@@ -12,14 +12,14 @@
         </member>
         <member name="M:MapImporter.Data.#ctor(System.Int32,System.Int32)">
             <summary>
-            Instantiates the new 2d array
+            Instantiates the new 2d array.
             </summary>
             <param name="i">The number of tiles in the i direction</param>
             <param name="j">The number of tiles in the j direction</param>
         </member>
         <member name="M:MapImporter.Data.GetTileData(System.Int32,System.Int32)">
             <summary>
-            Returns the gid of the tile at the specified indices
+            Returns the gid of the tile at the specified indices.
             </summary>
             <param name="i">The index in the i direction</param>
             <param name="j">The index in the j direction</param>
@@ -36,18 +36,12 @@
         </member>
         <member name="M:MapImporter.Data.PrintData">
             <summary>
-            Prints the entire matrix to the console
+            Prints the entire matrix to the console.
             </summary>
         </member>
         <member name="P:MapImporter.Data.TileData">
             <summary>
-            Contains the gid at the given indices for a layer
-            </summary>
-        </member>
-        <member name="T:MapImporter.Ellipse">
-            <summary>
-            Used to mark an object as an ellipse. The regular x, y, width, height
-            attributes are used to determine the size of the ellipse.
+            Contains the gid at the given indices for a layer.
             </summary>
         </member>
         <member name="T:MapImporter.Image">
@@ -75,17 +69,17 @@
         <member name="P:MapImporter.Image.Width">
             <summary>
             The image width in pixels (optional, used for tile index
-            correction when the image changes)
+            correction when the image changes).
             </summary>
         </member>
         <member name="P:MapImporter.Image.Height">
             <summary>
-            The image height in pixels (optional)
+            The image height in pixels (optional).
             </summary>
         </member>
         <member name="P:MapImporter.Image.Texture">
             <summary>
-            Specifically for use by the Xna Framework. The image must be loaded
+            Specifically for use by the Xna/MonoGame Framework. The image must be loaded
             from the Source path using the content pipeline.
             </summary>
         </member>
@@ -94,19 +88,24 @@
             A layer consisting of a single image.
             </summary>
         </member>
+        <member name="M:MapImporter.ImageLayer.#ctor">
+            <summary>
+            Constructor for an ImageLayer object.
+            </summary>
+        </member>
         <member name="P:MapImporter.ImageLayer.Name">
             <summary>
-            The name of the image layer
+            The name of the image layer.
             </summary>
         </member>
         <member name="P:MapImporter.ImageLayer.X">
             <summary>
-            The x position of the image layer in pixels
+            The x position of the image layer in pixels.
             </summary>
         </member>
         <member name="P:MapImporter.ImageLayer.Y">
             <summary>
-            The y position of the image layer in pixels
+            The y position of the image layer in pixels.
             </summary>
         </member>
         <member name="P:MapImporter.ImageLayer.Width">
@@ -131,17 +130,18 @@
         </member>
         <member name="P:MapImporter.ImageLayer.Image">
             <summary>
-            The image used in the layer
+            The image used in the layer.
             </summary>
         </member>
         <member name="P:MapImporter.ImageLayer.Props">
             <summary>
-            Custom properties for the image layer
+            Custom properties for the image layer.
             </summary>
         </member>
         <member name="T:MapImporter.Importer">
             <summary>
-            Importer class contains the methods needed to import the Tiled maps.
+            The Importer class contains the methods needed to import
+            the Tiled maps and turn them into Map objects.
             </summary>
         </member>
         <member name="M:MapImporter.Importer.ImportMap(System.String)">
@@ -153,14 +153,14 @@
         </member>
         <member name="M:MapImporter.Importer.ReadMapAsJson(System.String)">
             <summary>
-            Parses the given text from a JSON file and turns it into a Map object
+            Parses the given text from a JSON file and turns it into a Map object.
             </summary>
             <param name="fileText">The text of the JSON file</param>
             <returns>A new Map object</returns>
         </member>
         <member name="M:MapImporter.Importer.ReadMapAsTmx(System.String)">
             <summary>
-            Parses the given text from a Tmx file and turns it into a Map object
+            Parses the given text from a Tmx file and turns it into a Map object.
             </summary>
             <param name="fileText">The text of the Tmx file</param>
             <returns>A new Map object</returns>
@@ -174,12 +174,28 @@
         </member>
         <member name="T:MapImporter.TileLayer">
             <summary>
-            A single layer of tiles in the map
+            A single layer of tiles in the map.
             </summary>
+        </member>
+        <member name="M:MapImporter.TileLayer.#ctor">
+            <summary>
+            Constructor for TileLayer class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.TileLayer.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor for TileLayer class.
+            </summary>
+            <param name="name"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="opacity"></param>
         </member>
         <member name="P:MapImporter.TileLayer.Name">
             <summary>
-            The name of the layer
+            The name of the layer.
             </summary>
         </member>
         <member name="P:MapImporter.TileLayer.X">
@@ -218,98 +234,108 @@
         </member>
         <member name="P:MapImporter.TileLayer.Data">
             <summary>
-            Contains the gids for the layer
+            Contains the global ids for the layer.
             </summary>
         </member>
         <member name="P:MapImporter.TileLayer.Props">
             <summary>
-            Custom properties for the layer object
+            Custom properties for the layer object.
             </summary>
         </member>
         <member name="T:MapImporter.Orientation">
             <summary>
-            The different kinds of orientation types that Tiled supports
+            The different kinds of orientation types that Tiled supports.
             </summary>
         </member>
         <member name="F:MapImporter.Orientation.Orthogonal">
             <summary>
-            The Tiled map has an orthogonal orientation
+            The Tiled map has an orthogonal orientation.
             </summary>
         </member>
         <member name="F:MapImporter.Orientation.Isometric">
             <summary>
-            The Tiled map has an isometric orientation
+            The Tiled map has an isometric orientation.
             </summary>
         </member>
         <member name="F:MapImporter.Orientation.Staggered">
             <summary>
-            The Tiled map has a staggered orientation
+            The Tiled map has a staggered orientation.
             </summary>
         </member>
         <member name="T:MapImporter.RenderOrder">
             <summary>
-            The different render orders possible
+            The different render orders possible for drawing the maps.
             </summary>
         </member>
         <member name="F:MapImporter.RenderOrder.RightDown">
             <summary>
-            The Tiled map should be rendered right and down
+            The Tiled map should be rendered right and down.
             </summary>
         </member>
         <member name="F:MapImporter.RenderOrder.RightUp">
             <summary>
-            The Tiled map should be rendered right and up
+            The Tiled map should be rendered right and up.
             </summary>
         </member>
         <member name="F:MapImporter.RenderOrder.LeftDown">
             <summary>
-            The Tiled map should be rendered left and down
+            The Tiled map should be rendered left and down.
             </summary>
         </member>
         <member name="F:MapImporter.RenderOrder.LeftUp">
             <summary>
-            The Tiled map should be rendered left and up
+            The Tiled map should be rendered left and up.
             </summary>
         </member>
         <member name="T:MapImporter.LayerType">
             <summary>
-            The different types of Layers possible in a Tiled map
+            The different types of Layers possible in a Tiled map.
             </summary>
         </member>
         <member name="F:MapImporter.LayerType.TileLayer">
             <summary>
-            A layer of tiles from a tileset
+            A layer of tiles from a tileset.
             </summary>
         </member>
         <member name="F:MapImporter.LayerType.ObjectGroup">
             <summary>
-            A layer of objects
+            A layer of objects.
             </summary>
         </member>
         <member name="F:MapImporter.LayerType.ImageLayer">
             <summary>
-            A layer of images
+            A layer of images.
             </summary>
         </member>
         <member name="T:MapImporter.LayerData">
             <summary>
-            Holds layer specific information for each layer
+            Holds layer specific information for each layer.
             </summary>
         </member>
         <member name="F:MapImporter.LayerData.Index">
             <summary>
-            The Layer's index in the overall layer list
+            The Layer's index in the overall layer list.
             </summary>
         </member>
         <member name="F:MapImporter.LayerData.LayerType">
             <summary>
-            The type of this specific layer
+            The type of this specific layer.
+            </summary>
+        </member>
+        <member name="M:MapImporter.LayerData.#ctor(System.Int32,MapImporter.LayerType)">
+            <summary>
+            Constructor for LayerData structure.
             </summary>
         </member>
         <member name="T:MapImporter.Map">
             <summary>
             A map object created using the Tiled Map Editor
             http://www.mapeditor.org/
+            </summary>
+        </member>
+        <member name="M:MapImporter.Map.#ctor">
+            <summary>
+            Constructor for the Map class.
             </summary>
         </member>
         <member name="M:MapImporter.Map.TranslateScreenToMap(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
@@ -322,7 +348,7 @@
         </member>
         <member name="M:MapImporter.Map.GetTile(System.Int32)">
             <summary>
-            Finds and returns the Tile with the given global id
+            Finds and returns the Tile with the given global id.
             </summary>
             <param name="gid">The global id of the tile to find</param>
             <returns>The Tile in the Map with the given global id</returns>
@@ -339,34 +365,24 @@
         </member>
         <member name="M:MapImporter.Map.GetTileset(System.String)">
             <summary>
-            Returns the tileset with the given name
+            Returns the tileset with the given name.
             </summary>
             <param name="name">The name of the tileset to search for</param>
             <returns>The tileset with the given name</returns>
         </member>
         <member name="M:MapImporter.Map.GetTileset(System.Int32)">
             <summary>
-            Returns the tileset at the given index in the tileset list
+            Returns the tileset at the given index in the tileset list.
             </summary>
             <param name="val">The index of the tileset to search for</param>
             <returns>The tileset at the given index</returns>
         </member>
         <member name="M:MapImporter.Map.GetTilesetWithGid(System.Int32)">
             <summary>
-            Returns the tileset that contains the given global id
+            Returns the tileset that contains the given global id.
             </summary>
             <param name="gid">The global id to search for</param>
             <returns>The tileset that contains the tile with the given gid</returns>
-        </member>
-        <member name="M:MapImporter.Map.GetTileProps(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,MapImporter.TileLayer)">
-            <summary>
-            Returns a Dictionary object of all properties for the tile at the specified postion on the screen. Use this method
-            in combination with your game logic to determine collisions, doors, etc.
-            </summary>
-            <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-            <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-            <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-            <returns>The properties of the given tile</returns>
         </member>
         <member name="M:MapImporter.Map.GetTileProps(System.Int32)">
             <summary>
@@ -377,42 +393,42 @@
         </member>
         <member name="M:MapImporter.Map.GetTileLayer(System.String)">
             <summary>
-            Returns the tile layer with the given name
+            Returns the tile layer with the given name.
             </summary>
             <param name="name">The name of the tile layer to search for</param>
             <returns>The tile layer with the given name</returns>
         </member>
         <member name="M:MapImporter.Map.GetTileLayer(System.Int32)">
             <summary>
-            Returns the tilelayer at the given index in the tilelayer list
+            Returns the tilelayer at the given index in the tilelayer list.
             </summary>
             <param name="val">The index of the tilelayer to search for</param>
             <returns>The tilelayer at the given index</returns>
         </member>
         <member name="M:MapImporter.Map.GetObjectGroup(System.String)">
             <summary>
-            Returns the object group with the given name
+            Returns the object group with the given name.
             </summary>
             <param name="name">The name of the object group to search for</param>
             <returns>The object group with the given name</returns>
         </member>
         <member name="M:MapImporter.Map.GetObjectGroup(System.Int32)">
             <summary>
-            Returns the object group at the given index in the object group list
+            Returns the object group at the given index in the object group list.
             </summary>
             <param name="val">The index of the object group to search for</param>
             <returns>The object group at the given index</returns>
         </member>
         <member name="M:MapImporter.Map.GetImageLayer(System.String)">
             <summary>
-            Returns the image layer with the given name
+            Returns the image layer with the given name.
             </summary>
             <param name="name">The name of the image layer to search for</param>
             <returns>The image layer with the given name</returns>
         </member>
         <member name="M:MapImporter.Map.GetImageLayer(System.Int32)">
             <summary>
-            Returns the image layer at the given index in the image layer list
+            Returns the image layer at the given index in the image layer list.
             </summary>
             <param name="val">The index of the image layer to search for</param>
             <returns>The image layer at the given index</returns>
@@ -449,7 +465,7 @@
         </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws all visible layers of the Map to the screen
+            Draws all visible layers of the Map to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="location">The location to draw the layers</param>
@@ -457,7 +473,7 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified layer from the overall layer list to the screen
+            Draws the specified layer from the overall layer list to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="layerId">The id of the layer to be drawn in the LayerDataList list</param>
@@ -466,7 +482,7 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified layer to the screen
+            Draws the specified layer to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="layerName">The name of the layer to be drawn</param>
@@ -475,7 +491,7 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified tile layer to the screen
+            Draws the specified tile layer to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="layer">The Layer object to be drawn</param>
@@ -484,7 +500,7 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified object group to the screen
+            Draws the specified object group to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="objectGroup">The object group object to be drawn</param>
@@ -493,7 +509,7 @@
         </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ImageLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Draws the specified image layer to the screen
+            Draws the specified image layer to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="imageLayer">The Image Layer object to be drawn</param>
@@ -502,7 +518,7 @@
         </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Performs all the math for the tile layer and then makes the call to render it
+            Performs all the math for the tile layer and then makes the call to render it.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="tileLayer">The tile layer to be drawn</param>
@@ -511,7 +527,7 @@
         </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Performs the actual rendering for the object group
+            Performs the actual rendering for the object group.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="objectGroup">The object group to be drawn</param>
@@ -520,7 +536,7 @@
         </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ImageLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Performs the actual rendering for the image layer
+            Performs the actual rendering for the image layer.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
             <param name="imageLayer">The image layer to be drawn</param>
@@ -540,7 +556,7 @@
         </member>
         <member name="P:MapImporter.Map.Version">
             <summary>
-            The TMX format version, generally 1.0
+            The TMX format version, generally 1.0.
             </summary>
         </member>
         <member name="P:MapImporter.Map.Orientation">
@@ -550,62 +566,67 @@
         </member>
         <member name="P:MapImporter.Map.Width">
             <summary>
-            The map width in tiles
+            The map width in tiles.
             </summary>
         </member>
         <member name="P:MapImporter.Map.Height">
             <summary>
-            The map height in tiles
+            The map height in tiles.
             </summary>
         </member>
         <member name="P:MapImporter.Map.TileWidth">
             <summary>
-            The width of a tile
+            The width of a tile.
             </summary>
         </member>
         <member name="P:MapImporter.Map.TileHeight">
             <summary>
-            The height of a tile
+            The height of a tile.
             </summary>
         </member>
         <member name="P:MapImporter.Map.BackgroundColor">
             <summary>
-            The background color of the map (since 0.9, optional)
+            The background color of the map (since 0.9, optional).
             </summary>
         </member>
         <member name="P:MapImporter.Map.RenderOrder">
             <summary>
-            The order in which tiles on tile layers are rendered
+            The order in which tiles on tile layers are rendered.
             </summary>
         </member>
         <member name="P:MapImporter.Map.Props">
             <summary>
-            Custom properties for the map object
+            Custom properties for the map object.
             </summary>
         </member>
         <member name="P:MapImporter.Map.Tilesets">
             <summary>
-            List of all tilesets used in this map
+            List of all tilesets used in this map.
             </summary>
         </member>
         <member name="P:MapImporter.Map.TileLayers">
             <summary>
-            List of all layers (regular tile layers) in this map
+            List of all layers (regular tile layers) in this map.
             </summary>
         </member>
         <member name="P:MapImporter.Map.ObjectGroups">
             <summary>
-            List of all object groups in this map
+            List of all object groups in this map.
             </summary>
         </member>
         <member name="P:MapImporter.Map.ImageLayers">
             <summary>
-            List of all image layers in this map
+            List of all image layers in this map.
             </summary>
         </member>
         <member name="P:MapImporter.Map.LayerDataList">
             <summary>
-            The list of every layer regardless of layer type
+            The list of every layer regardless of layer type.
+            </summary>
+        </member>
+        <member name="P:MapImporter.Map.NextObjectId">
+            <summary>
+            The id of the next object in the map.
             </summary>
         </member>
         <member name="T:MapImporter.Object">
@@ -617,6 +638,26 @@
             When the object has a gid set, then it is represented by the image of the tile with that global ID.
             Currently that means width and height are ignored for such objects. The image alignment currently depends on the map orientation.
             In orthogonal orientation it's aligned to the bottom-left while in isometric it's aligned to the bottom-center.
+            If IsEllipse is true, then the object is an Ellipse.
+            If Polygon is not null, the object is a Polygon.
+            If Polyline is not null, then the object is a Polyline.
+            If Image is not null, the object is an Image.
+            If all of these are null, then the object is a Rectangle.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Object.#ctor">
+            <summary>
+            Constructor for the Object class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Object.#ctor(System.String,System.Int32,System.Double,System.Double,System.Double,System.Double,System.String,System.Double)">
+            <summary>
+            Constructor for the Object class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Object.#ctor(System.String,System.Int32,System.Double,System.Double,System.Double,System.Double,System.String,System.Double,MapImporter.Properties)">
+            <summary>
+            Constructor for the Object class.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Name">
@@ -631,7 +672,7 @@
         </member>
         <member name="P:MapImporter.Object.Id">
             <summary>
-            The Id of the object
+            The Id of the object.
             </summary>
         </member>
         <member name="P:MapImporter.Object.X">
@@ -671,42 +712,43 @@
         </member>
         <member name="P:MapImporter.Object.Props">
             <summary>
-            Custom properties for this object
+            Custom properties for this object.
             </summary>
         </member>
-        <member name="P:MapImporter.Object.Ellipse">
+        <member name="P:MapImporter.Object.IsEllipse">
             <summary>
-            An Ellipse object
+            Used to mark an object as an ellipse. The regular x, y, width, height
+            attributes are used to determine the size of the ellipse.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Polygon">
             <summary>
-            A Polygon object
+            A Polygon object.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Polyline">
             <summary>
-            A Polyline object
+            A Polyline object.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Image">
             <summary>
-            An image object
+            An image object.
             </summary>
         </member>
         <member name="T:MapImporter.DrawOrder">
             <summary>
-            The different draw orders for objects
+            The different draw orders for objects.
             </summary>
         </member>
         <member name="F:MapImporter.DrawOrder.TopDown">
             <summary>
-            Draws objects from the top down
+            Draws objects from the top down.
             </summary>
         </member>
         <member name="F:MapImporter.DrawOrder.Manual">
             <summary>
-            Manually set
+            Manually set.
             </summary>
         </member>
         <member name="T:MapImporter.ObjectGroup">
@@ -715,19 +757,29 @@
             "object layer" in Tiled Qt.
             </summary>
         </member>
+        <member name="M:MapImporter.ObjectGroup.#ctor">
+            <summary>
+            Constructor for the ObjectGroup class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.ObjectGroup.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
+            <summary>
+            Constructor for the ObjectGroup class.
+            </summary>
+        </member>
         <member name="P:MapImporter.ObjectGroup.Name">
             <summary>
-            The name of the object group
+            The name of the object group.
             </summary>
         </member>
         <member name="P:MapImporter.ObjectGroup.DrawOrder">
             <summary>
-            The draw order for the object group
+            The draw order for the object group.
             </summary>
         </member>
         <member name="P:MapImporter.ObjectGroup.Color">
             <summary>
-            The color used to display the objects in this group
+            The color used to display the objects in this group.
             </summary>
         </member>
         <member name="P:MapImporter.ObjectGroup.X">
@@ -765,12 +817,12 @@
         </member>
         <member name="P:MapImporter.ObjectGroup.Objects">
             <summary>
-            Objects contained in this object group
+            Objects contained in this object group.
             </summary>
         </member>
         <member name="P:MapImporter.ObjectGroup.Props">
             <summary>
-            Custom properties for the object group
+            Custom properties for the object group.
             </summary>
         </member>
         <member name="T:MapImporter.Polygon">
@@ -781,78 +833,107 @@
             where the object is placed.
             </summary>
         </member>
+        <member name="M:MapImporter.Polygon.#ctor">
+            <summary>
+            Constructor for a Polygon object.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Polygon.#ctor(System.Collections.Generic.List{Microsoft.Xna.Framework.Vector2})">
+            <summary>
+            Constructor for a Polygon object.
+            </summary>
+            <param name="points"></param>
+        </member>
+        <member name="P:MapImporter.Polygon.Points">
+            <summary>
+            List of points as Vector2 objects that make up the polygon.
+            </summary>
+        </member>
         <member name="T:MapImporter.Polyline">
             <summary>
             A polyline follows the same placement definition as a polygon object.
             </summary>
         </member>
+        <member name="M:MapImporter.Polyline.#ctor">
+            <summary>
+            Constructor for Polyline object.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Polyline.#ctor(Microsoft.Xna.Framework.Point[],MapImporter.Line[],Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Constructor for Polyline object.
+            </summary>
+            <param name="points"></param>
+            <param name="lines"></param>
+            <param name="bounds"></param>
+        </member>
         <member name="P:MapImporter.Polyline.Points">
             <summary>
-            The points that make up the polyline object
+            The points that make up the polyline object.
             </summary>
         </member>
         <member name="P:MapImporter.Polyline.Lines">
             <summary>
-            The lines that make up the polyline object
+            The lines that make up the polyline object.
             </summary>
         </member>
         <member name="P:MapImporter.Polyline.Bounds">
             <summary>
-            Bounding rectangle of this polyline
+            Bounding rectangle of this polyline.
             </summary>
         </member>
         <member name="T:MapImporter.Line">
             <summary>
-            A line object that is drawn based on specified points
-            </summary>
-        </member>
-        <member name="F:MapImporter.Line.Start">
-            <summary>
-            The starting point of the line
-            </summary>
-        </member>
-        <member name="F:MapImporter.Line.End">
-            <summary>
-            The ending point of the line
-            </summary>
-        </member>
-        <member name="F:MapImporter.Line.Length">
-            <summary>
-            Length of the line
-            </summary>
-        </member>
-        <member name="F:MapImporter.Line.Angle">
-            <summary>
-            Rotation of the line
+            A line object that is drawn based on specified points.
             </summary>
         </member>
         <member name="M:MapImporter.Line.FromPoints(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Create a line from start and end points and calculate the length and angle
+            Create a line from start and end points and calculate the length and angle.
             </summary>
-            <param name="start">The first point of the line</param>
-            <param name="end">The end of the line</param>
-            <returns>A Line created from the points</returns>
+            <param name="start">The first point of the line.</param>
+            <param name="end">The end of the line.</param>
+            <returns>A Line created from the points.</returns>
+        </member>
+        <member name="P:MapImporter.Line.Start">
+            <summary>
+            The starting point of the line.
+            </summary>
+        </member>
+        <member name="P:MapImporter.Line.End">
+            <summary>
+            The ending point of the line.
+            </summary>
+        </member>
+        <member name="P:MapImporter.Line.Length">
+            <summary>
+            The length of the line.
+            </summary>
+        </member>
+        <member name="P:MapImporter.Line.Angle">
+            <summary>
+            The rotation of the line.
+            </summary>
         </member>
         <member name="T:MapImporter.Properties">
             <summary>
             Wraps any number of custom properties. Can be used as a child of the map,
-            tile (when part of a tileset), layer, objectgroup and object elements.
+            tile (when part of a tileset), layer, objectgroup, and object elements.
             </summary>
         </member>
         <member name="F:MapImporter.Properties.PropertiesList">
             <summary>
-            Dictionary of individual properties inside the properties class
+            Dictionary of individual properties inside the properties class.
             </summary>
         </member>
         <member name="M:MapImporter.Properties.#ctor">
             <summary>
-            Constructor for Properties class
+            Constructor for Properties class.
             </summary>
         </member>
         <member name="M:MapImporter.Properties.GetValue(System.String)">
             <summary>
-            Finds the value with the specified name and returns it 
+            Finds the value with the specified name and returns it.
             </summary>
             <param name="name">The name of the property</param>
         </member>
@@ -861,9 +942,29 @@
             UNSURE
             </summary>
         </member>
+        <member name="M:MapImporter.Terrain.#ctor">
+            <summary>
+            Constructor for the Terrain object.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Terrain.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor for the Terrain object.
+            </summary>
+            <param name="name"></param>
+            <param name="tile"></param>
+        </member>
+        <member name="M:MapImporter.Terrain.#ctor(System.String,System.Int32,MapImporter.Properties)">
+            <summary>
+            Constructor for the Terrain object.
+            </summary>
+            <param name="name"></param>
+            <param name="tile"></param>
+            <param name="props"></param>
+        </member>
         <member name="P:MapImporter.Terrain.Name">
             <summary>
-            The name of the terrain type
+            The name of the terrain type.
             </summary>
         </member>
         <member name="P:MapImporter.Terrain.Tile">
@@ -873,7 +974,7 @@
         </member>
         <member name="P:MapImporter.Terrain.Props">
             <summary>
-            Custom properties for the terrain object
+            Custom properties for the terrain object.
             </summary>
         </member>
         <member name="T:MapImporter.TerrainTypes">
@@ -882,9 +983,20 @@
             from the terrain attribute of the tile element.
             </summary>
         </member>
+        <member name="M:MapImporter.TerrainTypes.#ctor">
+            <summary>
+            Constructor for the TerrainTypes object.
+            </summary>
+        </member>
+        <member name="M:MapImporter.TerrainTypes.#ctor(MapImporter.Terrain[])">
+            <summary>
+            Constructor for the TerrainTypes object.
+            </summary>
+            <param name="terrains"></param>
+        </member>
         <member name="P:MapImporter.TerrainTypes.Terrains">
             <summary>
-            Array of Terrains to define the types
+            Array of Terrain objects to define the types.
             </summary>
         </member>
         <member name="T:MapImporter.Tile">
@@ -892,14 +1004,24 @@
             An individual tile object
             </summary>
         </member>
+        <member name="M:MapImporter.Tile.#ctor">
+            <summary>
+            Constructor for the Tile class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Tile.#ctor(System.Int32,System.Int32,Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Constructor for the Tile class.
+            </summary>
+        </member>
         <member name="P:MapImporter.Tile.Id">
             <summary>
-            The local tile Id within its tileset
+            The local tile Id within its tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tile.Gid">
             <summary>
-            The global tile Id
+            The global tile Id.
             </summary>
         </member>
         <member name="P:MapImporter.Tile.Terrain">
@@ -918,17 +1040,17 @@
         </member>
         <member name="P:MapImporter.Tile.Props">
             <summary>
-            Custom properties for the tile object
+            Custom properties for the tile object.
             </summary>
         </member>
         <member name="P:MapImporter.Tile.Location">
             <summary>
-            The location of this individual tile in the tileset
+            The location of this individual tile in the tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tile.ObjectGroup">
             <summary>
-            Object group this tile is part of
+            Object group this tile is part of (optional).
             </summary>
         </member>
         <member name="T:MapImporter.TileOffset">
@@ -938,14 +1060,24 @@
             no offset is applied.
             </summary>
         </member>
+        <member name="M:MapImporter.TileOffset.#ctor">
+            <summary>
+            Constructor for the Tile class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.TileOffset.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor for the Tile class.
+            </summary>
+        </member>
         <member name="P:MapImporter.TileOffset.X">
             <summary>
-            Horizontal offset in pixels
+            Horizontal offset in pixels.
             </summary>
         </member>
         <member name="P:MapImporter.TileOffset.Y">
             <summary>
-            Vertical offset in pixels (positive is down)
+            Vertical offset in pixels (positive is down).
             </summary>
         </member>
         <member name="T:MapImporter.Tileset">
@@ -953,68 +1085,84 @@
             Tileset object that contains the tiles used in a map
             </summary>
         </member>
+        <member name="M:MapImporter.Tileset.#ctor">
+            <summary>
+            Constructor for the Tileset class.
+            </summary>
+        </member>
+        <member name="M:MapImporter.Tileset.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor for the Tileset class.
+            </summary>
+            <param name="firstGid"></param>
+            <param name="name"></param>
+            <param name="tileWidth"></param>
+            <param name="tileHeight"></param>
+            <param name="spacing"></param>
+            <param name="margin"></param>
+        </member>
         <member name="M:MapImporter.Tileset.GetTileByLocalId(System.Int32)">
             <summary>
             Finds and returns the Tile with the given local id
-            (its Id within its Tileset; chances are you will never need this)
+            (its Id within its Tileset; chances are you will never need this).
             </summary>
             <param name="id">The local id of the tile to search for</param>
             <returns>The tile with the given local id</returns>
         </member>
         <member name="M:MapImporter.Tileset.GetTile(System.Int32)">
             <summary>
-            Finds and returns the Tile with the given global id
+            Finds and returns the Tile with the given global id.
             </summary>
             <param name="gid">The global id of the tile to search for</param>
             <returns>The tile with the given global id</returns>
         </member>
         <member name="M:MapImporter.Tileset.GetTilesWithProperty(System.String)">
             <summary>
-            Finds and returns all Tiles with the given property name
+            Finds and returns all Tiles with the given property name.
             </summary>
             <param name="propertyName">The name of the property to search for</param>
             <returns>The tiles with the given property</returns>
         </member>
         <member name="P:MapImporter.Tileset.Firstgid">
             <summary>
-            The first global tile ID of this tileset
-            This global ID maps to the first tile in this tileset
+            The first global tile id of this tileset
+            . This global id maps to the first tile in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Source">
             <summary>
-            The filepath that specifies where the tileset image is located
-            Be sure to manually check inside the Tiled map and verify the path!
+            The file path that specifies where the tileset image is located.
+             Be sure to manually check inside the Tiled map and verify the path!
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Name">
             <summary>
-            The name of this tileset
+            The name of this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.TileWidth">
             <summary>
-            The (maximum) width of the tiles in this tileset
+            The (maximum) width of the tiles in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.TileHeight">
             <summary>
-            The (maximum) height of the tiles in this tileset
+            The (maximum) height of the tiles in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Spacing">
             <summary>
-            The spacing in pixels between the tiles in this tileset
+            The spacing in pixels between the tiles in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Margin">
             <summary>
-            The margin around the tiles in this tileset
+            The margin around the tiles in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.TileOffset">
             <summary>
-            Offset in pixels for this tileset
+            Offset in pixels for this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Image">
@@ -1024,17 +1172,17 @@
         </member>
         <member name="P:MapImporter.Tileset.Props">
             <summary>
-            Custom properties for the tileset object
+            Custom properties for the tileset object.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.TerrainTypes">
             <summary>
-            Terrain types in this tileset
+            Terrain types in this tileset.
             </summary>
         </member>
         <member name="P:MapImporter.Tileset.Tiles">
             <summary>
-            List of all tiles in this tileset
+            List of all tiles in this tileset.
             </summary>
         </member>
     </members>

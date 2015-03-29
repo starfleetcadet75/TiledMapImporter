@@ -302,7 +302,9 @@ namespace MapImporter
                         LayerData ld = new LayerData(indexInLayerList, LayerType.ObjectGroup);
                         m.LayerDataList.Add(ld);
 
-                        ObjectGroup objGroup = new ObjectGroup();
+                        ObjectGroup objGroup = new ObjectGroup(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"],
+                            (int)layerJson["width"], (int)layerJson["height"], (int)layerJson["opacity"], ToColor(layerJson["color"].ToString()));
+
                         string str = layerJson["draworder"].ToString();
                         if (str.Equals("topdown"))
                         {
@@ -312,14 +314,6 @@ namespace MapImporter
                         {
                             objGroup.DrawOrder = DrawOrder.TopDown;
                         }
-
-                        objGroup.Name = layerJson["name"].ToString();
-                        objGroup.X = (int)layerJson["x"];
-                        objGroup.Y = (int)layerJson["y"];
-                        objGroup.Width = (int)layerJson["width"];
-                        objGroup.Height = (int)layerJson["height"];
-                        objGroup.Opacity = (int)layerJson["opacity"];
-                        objGroup.Color = ToColor(layerJson["color"].ToString());
 
                         string s = layerJson["visible"].ToString();
                         if (s.Equals("true") || s.Equals("True"))
@@ -331,19 +325,11 @@ namespace MapImporter
                             objGroup.Visible = false;
                         }
 
-                        objGroup.Objects = new List<Object>();
                         JArray objectJson = (JArray)layerJson["objects"];
                         foreach (JObject o in objectJson)
                         {
-                            Object obj = new Object();
-                            obj.Name = objectJson["name"].ToString();
-                            obj.Id = (int)objectJson["id"];
-                            obj.Width = (double)objectJson["width"];
-                            obj.Height = (double)objectJson["height"];
-                            obj.X = (double)objectJson["x"];
-                            obj.Y = (double)objectJson["y"];
-                            obj.Type = objectJson["type"].ToString();
-                            obj.Rotation = (double)objectJson["rotation"];
+                            Object obj = new Object(objectJson["name"].ToString(), (int)objectJson["id"], (double)objectJson["width"], (double)objectJson["height"], 
+                                (double)objectJson["x"], (double)objectJson["y"], objectJson["type"].ToString(), (double)objectJson["rotation"]);
 
                             string st = objectJson["visible"].ToString();
                             if (st.Equals("true") || s.Equals("True"))
@@ -357,7 +343,6 @@ namespace MapImporter
 
                             if (objectJson["properties"] != null)
                             {
-                                obj.Props = new Properties();
                                 obj.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(objectJson["properties"].ToString());
                             }
 
@@ -366,12 +351,22 @@ namespace MapImporter
                                 obj.Gid = (int)objectJson["gid"];
                             }
 
+                            // If the property Ellipse exists, then the object is an Ellipse
                             if (objectJson["ellipse"] != null)
                             {
-                                //add other shapes
+                                obj.IsEllipse = true;
                             }
-
-                            if (objectJson["polyline"] != null)
+                            else if (objectJson["polygon"] != null)
+                            {
+                                JArray polygonJson = (JArray)objectJson["polygon"];
+                                List<Vector2> points = new List<Vector2>();
+                                foreach (JObject point in polygonJson)
+                                {
+                                    points.Add(new Vector2((int)polygonJson["x"], (int)polygonJson["y"]));
+                                }
+                                obj.Polygon = new Polygon(points);
+                            }
+                            else if (objectJson["polyline"] != null)
                             {
                                 JArray polylineJson = (JArray)objectJson["polyline"];
                                 foreach (JObject polyline in polylineJson)
@@ -379,6 +374,7 @@ namespace MapImporter
 
                                 }
                             }
+                            // If none of these exist, then it a rectangle object
 
                             objGroup.Objects.Add(obj);
                         }

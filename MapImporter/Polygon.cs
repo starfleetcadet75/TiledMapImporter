@@ -1,4 +1,6 @@
-﻿
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+
 namespace MapImporter
 {
     /// <summary>
@@ -9,6 +11,25 @@ namespace MapImporter
     /// </summary>
     public class Polygon
     {
-        //points
+        /// <summary>
+        /// List of points as Vector2 objects that make up the polygon.
+        /// </summary>
+        public List<Vector2> Points { set; get; }
+
+        /// <summary>
+        /// Constructor for a Polygon object.
+        /// </summary>
+        public Polygon()
+        {
+        }
+
+        /// <summary>
+        /// Constructor for a Polygon object.
+        /// </summary>
+        /// <param name="points"></param>
+        public Polygon(List<Vector2> points)
+        {
+            Points = points;
+        }
     }
 }

@@ -65,32 +65,6 @@ namespace MapImporter
         public float Angle { set; get; }
 
         /// <summary>
-        /// Constructor for Line structure.
-        /// </summary>
-        public Line()
-        {
-            Start = new Vector2();
-            End = new Vector2();
-            Length = 0.0f;
-            Angle = 0.0f;
-        }
-
-        /// <summary>
-        /// Constructor for Line structure.
-        /// </summary>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <param name="length"></param>
-        /// <param name="angle"></param>
-        public Line(Vector2 start, Vector2 end, float length, float angle)
-        {
-            Start = start;
-            End = end;
-            Length = length;
-            Angle = angle;
-        }
-
-        /// <summary>
         /// Create a line from start and end points and calculate the length and angle.
         /// </summary>
         /// <param name="start">The first point of the line.</param>

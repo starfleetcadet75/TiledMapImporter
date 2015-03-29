@@ -80,5 +80,21 @@ namespace MapImporter
             Objects = new List<Object>();
             Props = new Properties();
         }
+
+        /// <summary>
+        /// Constructor for the ObjectGroup class.
+        /// </summary>
+        public ObjectGroup(string name, int x, int y, int width, int height, int opacity, Color color)
+        {
+            Name = name;
+            X = x;
+            Y = y;
+            Width = width;
+            Height = height;
+            Opacity = opacity;
+            Color = color;
+            Objects = new List<Object>();
+            Props = new Properties();
+        }
     }
 }
