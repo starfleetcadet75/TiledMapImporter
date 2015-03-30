@@ -242,7 +242,7 @@ namespace MapImporter
                         m.LayerDataList.Add(ld);
 
                         TileLayer l = new TileLayer(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"], (int)layerJson["width"],
-                            (int)layerJson["height"], (int)layerJson["opacity"]);
+                            (int)layerJson["height"], (float)layerJson["opacity"]);
 
                         //Put the data from the layer into the Data object
                         JArray dataJson = (JArray)layerJson["data"];
@@ -303,7 +303,7 @@ namespace MapImporter
                         m.LayerDataList.Add(ld);
 
                         ObjectGroup objGroup = new ObjectGroup(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"],
-                            (int)layerJson["width"], (int)layerJson["height"], (int)layerJson["opacity"], ToColor(layerJson["color"].ToString()));
+                            (int)layerJson["width"], (int)layerJson["height"], (float)layerJson["opacity"], ToColor(layerJson["color"].ToString()));
 
                         string str = layerJson["draworder"].ToString();
                         if (str.Equals("topdown"))

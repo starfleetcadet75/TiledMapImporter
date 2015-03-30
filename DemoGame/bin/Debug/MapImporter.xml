@@ -182,7 +182,7 @@
             Constructor for TileLayer class.
             </summary>
         </member>
-        <member name="M:MapImporter.TileLayer.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:MapImporter.TileLayer.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single)">
             <summary>
             Constructor for TileLayer class.
             </summary>
@@ -633,7 +633,7 @@
             <summary>
             Defines the possible types that an Object can be.
             Objects have the same properties and ObjectType
-            allows the program to determine how to treat them.
+            allows the program determine how to treat them.
             </summary>
         </member>
         <member name="F:MapImporter.ObjectType.Rectangle">
@@ -694,7 +694,7 @@
         </member>
         <member name="P:MapImporter.Object.ObjType">
             <summary>
-            The name of the object. An arbitrary string.
+            Identifies the type of the object.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Name">
@@ -793,7 +793,7 @@
             Constructor for the ObjectGroup class.
             </summary>
         </member>
-        <member name="M:MapImporter.ObjectGroup.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
+        <member name="M:MapImporter.ObjectGroup.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,Microsoft.Xna.Framework.Color)">
             <summary>
             Constructor for the ObjectGroup class.
             </summary>

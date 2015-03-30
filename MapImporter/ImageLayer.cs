@@ -29,7 +29,7 @@ namespace MapImporter
         /// <summary>
         /// The opacity of the layer as a value from 0 to 1. Defaults to 1.
         /// </summary>
-        public int Opacity { set; get; }
+        public float Opacity { set; get; }
         /// <summary>
         /// Whether the layer is shown (1) or hidden (0). Defaults to 1.
         /// </summary>

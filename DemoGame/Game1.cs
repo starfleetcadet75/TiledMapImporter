@@ -141,7 +141,7 @@ namespace DemoGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             // This line calls the Draw function of our Map object.
             // It will draw all tile layers that are marked visible to the screen.

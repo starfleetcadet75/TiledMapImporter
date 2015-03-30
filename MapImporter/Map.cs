@@ -414,6 +414,12 @@ namespace MapImporter
         {
             foreach (Tileset t in Tilesets)
             {
+                // NOTE: This line loads in the image used for your Tileset
+                // using the image source property, which was read from the
+                // JSON file. If you get an exception here, chances are your
+                // file path inside the JSON file is not correct. It should
+                // be different from the one that Tiled automatically puts in
+                // there. See the Documentation for a further description.
                 t.Image.Texture = content.Load<Texture2D>(t.Image.Source);
             }
         }
@@ -602,7 +608,7 @@ namespace MapImporter
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
         private void Draw(SpriteBatch spriteBatch, ObjectGroup objectGroup, Rectangle location, Vector2 startIndex)
         {
-
+            //objectGroup.Color;
         }
 
         /// <summary>
@@ -630,6 +636,12 @@ namespace MapImporter
         {
             int tileOffsetX = 0;
             int tileOffsetY = 0;
+            float opacity = 1.0f;
+
+            if (layer.Opacity != 1.0f)
+            {
+                opacity = layer.Opacity;
+            }
 
             //This if statement keeps the code from throwing an out of range exception depending on where the start indices are.
             //There is an explanation along with comments on how to prevent this from happening in the documentation.
@@ -666,8 +678,9 @@ namespace MapImporter
                     }
 
                     Tile tile = tileset.GetTile(gid); //Find the tile in that tileset
+                    
                     spriteBatch.Draw(tileset.Image.Texture, new Rectangle((i * TileWidth) + tileOffsetX, (j * TileHeight) + tileOffsetY, TileWidth, TileHeight),
-                        tile.Location, Color.White);
+                        tile.Location, Color.White * opacity);
                 }
             }
         }
