@@ -798,6 +798,23 @@
             Constructor for the ObjectGroup class.
             </summary>
         </member>
+        <member name="M:MapImporter.ObjectGroup.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Draws all Objects that are part of this ObjectGroup.
+            </summary>
+            <param name="spriteBatch"></param>
+            <param name="location"></param>
+            <param name="startIndex"></param>
+        </member>
+        <member name="M:MapImporter.ObjectGroup.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2,MapImporter.ObjectType)">
+            <summary>
+            Draws all Objects of the specified ObjectType that are part of this ObjectGroup.
+            </summary>
+            <param name="spriteBatch"></param>
+            <param name="location"></param>
+            <param name="startIndex"></param>
+            <param name="type"></param>
+        </member>
         <member name="P:MapImporter.ObjectGroup.Name">
             <summary>
             The name of the object group.

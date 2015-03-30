@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
 namespace MapImporter
@@ -95,6 +96,38 @@ namespace MapImporter
             Color = color;
             Objects = new List<Object>();
             Props = new Properties();
+        }
+
+        /// <summary>
+        /// Draws all Objects that are part of this ObjectGroup.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="location"></param>
+        /// <param name="startIndex"></param>
+        public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex)
+        {
+            foreach (Object obj in Objects)
+            {
+                obj.Draw(spriteBatch, location, startIndex, Color, Opacity);
+            }
+        }
+
+        /// <summary>
+        /// Draws all Objects of the specified ObjectType that are part of this ObjectGroup.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="location"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="type"></param>
+        public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, ObjectType type)
+        {
+            foreach (Object obj in Objects)
+            {
+                if (obj.ObjType == type)
+                {
+                    obj.Draw(spriteBatch, location, startIndex, Color, Opacity);
+                }
+            }
         }
     }
 }

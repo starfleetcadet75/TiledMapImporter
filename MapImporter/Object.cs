@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 namespace MapImporter
 {
     /// <summary>
@@ -145,6 +147,56 @@ namespace MapImporter
             X = x;
             Y = y;
             Props = props;
+        }
+
+        /// <summary>
+        /// Draws the Object to the screen.
+        /// </summary>
+        /// <param name="spriteBatch">A spritebatch object for drawing</param>
+        /// <param name="location">The location to draw the layers</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="color">The color to be used when drawing the Object.</param>
+        /// <param name="opacity">The opacity or transparency of the Object. Determined by its ObjectGroup.</param>
+        public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
+        {
+            Texture2D pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            pixel.SetData(new[] { color });
+
+            switch (ObjType)
+            {
+                case ObjectType.Rectangle:
+                    DrawRectangle(spriteBatch, location, startIndex, pixel, color, opacity);
+                    break;
+                case ObjectType.Polygon:
+                    break;
+                case ObjectType.Polyline:
+                    break;
+                case ObjectType.Ellipse:
+                    break;
+                case ObjectType.Image:
+                    break;
+            }
+        }
+
+        private void DrawRectangle(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Texture2D pixel, Color color, float opacity)
+        {
+            spriteBatch.Draw(pixel, new Rectangle((int)X, (int)Y, (int)Width, (int)Height), color * opacity);
+        }
+
+        private void DrawPolygon(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
+        {
+        }
+
+        private void DrawPolyline(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
+        {
+        }
+
+        private void DrawEllipse(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
+        {
+        }
+
+        private void DrawImage(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
+        {
         }
     }
 }

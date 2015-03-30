@@ -608,7 +608,7 @@ namespace MapImporter
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
         private void Draw(SpriteBatch spriteBatch, ObjectGroup objectGroup, Rectangle location, Vector2 startIndex)
         {
-            //objectGroup.Color;
+ 
         }
 
         /// <summary>
