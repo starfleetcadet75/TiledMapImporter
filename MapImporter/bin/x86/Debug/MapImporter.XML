@@ -629,6 +629,38 @@
             The id of the next object in the map.
             </summary>
         </member>
+        <member name="T:MapImporter.ObjectType">
+            <summary>
+            Defines the possible types that an Object can be.
+            Objects have the same properties and ObjectType
+            allows the program to determine how to treat them.
+            </summary>
+        </member>
+        <member name="F:MapImporter.ObjectType.Rectangle">
+            <summary>
+            The Object is a Rectangle.
+            </summary>
+        </member>
+        <member name="F:MapImporter.ObjectType.Polygon">
+            <summary>
+            The Object is a Polygon.
+            </summary>
+        </member>
+        <member name="F:MapImporter.ObjectType.Ellipse">
+            <summary>
+            The Object is an Ellipse.
+            </summary>
+        </member>
+        <member name="F:MapImporter.ObjectType.Polyline">
+            <summary>
+            The Object is a Polyline.
+            </summary>
+        </member>
+        <member name="F:MapImporter.ObjectType.Image">
+            <summary>
+            The Object is an Image.
+            </summary>
+        </member>
         <member name="T:MapImporter.Object">
             <summary>
             While tile layers are very suitable for anything repetitive aligned to the tile grid,
@@ -658,6 +690,11 @@
         <member name="M:MapImporter.Object.#ctor(System.String,System.Int32,System.Double,System.Double,System.Double,System.Double,System.String,System.Double,MapImporter.Properties)">
             <summary>
             Constructor for the Object class.
+            </summary>
+        </member>
+        <member name="P:MapImporter.Object.ObjType">
+            <summary>
+            The name of the object. An arbitrary string.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Name">
@@ -713,12 +750,6 @@
         <member name="P:MapImporter.Object.Props">
             <summary>
             Custom properties for this object.
-            </summary>
-        </member>
-        <member name="P:MapImporter.Object.IsEllipse">
-            <summary>
-            Used to mark an object as an ellipse. The regular x, y, width, height
-            attributes are used to determine the size of the ellipse.
             </summary>
         </member>
         <member name="P:MapImporter.Object.Polygon">

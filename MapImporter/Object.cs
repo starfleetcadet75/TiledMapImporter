@@ -2,6 +2,35 @@
 namespace MapImporter
 {
     /// <summary>
+    /// Defines the possible types that an Object can be.
+    /// Objects have the same properties and ObjectType
+    /// allows the program determine how to treat them.
+    /// </summary>
+    public enum ObjectType
+    {
+        /// <summary>
+        /// The Object is a Rectangle.
+        /// </summary>
+        Rectangle,
+        /// <summary>
+        /// The Object is a Polygon.
+        /// </summary>
+        Polygon,
+        /// <summary>
+        /// The Object is an Ellipse.
+        /// </summary>
+        Ellipse,
+        /// <summary>
+        /// The Object is a Polyline.
+        /// </summary>
+        Polyline,
+        /// <summary>
+        /// The Object is an Image.
+        /// </summary>
+        Image
+    }
+
+    /// <summary>
     /// While tile layers are very suitable for anything repetitive aligned to the tile grid,
     /// sometimes you want to annotate your map with other information, not necessarily aligned to the grid.
     /// Hence the objects have their coordinates and size in pixels, but you can still easily align that to the grid when you want to.
@@ -17,6 +46,10 @@ namespace MapImporter
     /// </summary>
     public class Object
     {
+        /// <summary>
+        /// Identifies the type of the object.
+        /// </summary>
+        public ObjectType ObjType { set; get; }
         /// <summary>
         /// The name of the object. An arbitrary string.
         /// </summary>
@@ -61,11 +94,6 @@ namespace MapImporter
         /// Custom properties for this object.
         /// </summary>
         public Properties Props { set; get; }
-        /// <summary>
-        /// Used to mark an object as an ellipse. The regular x, y, width, height
-        /// attributes are used to determine the size of the ellipse.
-        /// </summary>
-        public bool IsEllipse { set; get; }
         /// <summary>
         /// A Polygon object.
         /// </summary>

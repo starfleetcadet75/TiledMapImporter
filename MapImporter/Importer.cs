@@ -354,10 +354,11 @@ namespace MapImporter
                             // If the property Ellipse exists, then the object is an Ellipse
                             if (objectJson["ellipse"] != null)
                             {
-                                obj.IsEllipse = true;
+                                obj.ObjType = ObjectType.Ellipse;
                             }
                             else if (objectJson["polygon"] != null)
                             {
+                                obj.ObjType = ObjectType.Polygon;
                                 JArray polygonJson = (JArray)objectJson["polygon"];
                                 List<Vector2> points = new List<Vector2>();
                                 foreach (JObject point in polygonJson)
@@ -368,13 +369,17 @@ namespace MapImporter
                             }
                             else if (objectJson["polyline"] != null)
                             {
+                                obj.ObjType = ObjectType.Polyline;
                                 JArray polylineJson = (JArray)objectJson["polyline"];
                                 foreach (JObject polyline in polylineJson)
                                 {
 
                                 }
                             }
-                            // If none of these exist, then it a rectangle object
+                            else
+                            {
+                                obj.ObjType = ObjectType.Rectangle;
+                            }
 
                             objGroup.Objects.Add(obj);
                         }
