@@ -93,6 +93,14 @@
             Constructor for an ImageLayer object.
             </summary>
         </member>
+        <member name="M:MapImporter.ImageLayer.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Draws the Image that is part of this ImageLayer.
+            </summary>
+            <param name="spriteBatch"></param>
+            <param name="location"></param>
+            <param name="startIndex"></param>
+        </member>
         <member name="P:MapImporter.ImageLayer.Name">
             <summary>
             The name of the image layer.
@@ -494,15 +502,6 @@
             <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
-        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Draws the specified tile layer to the screen.
-            </summary>
-            <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="layer">The Layer object to be drawn</param>
-            <param name="location">The location to draw the layer</param>
-            <param name="startIndex">The i and j indices of the first tile to draw</param>
-        </member>
         <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
             Draws the specified object group to the screen.
@@ -521,31 +520,13 @@
             <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
-        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
+        <member name="M:MapImporter.Map.DrawLayer(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.TileLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
-            Performs all the math for the tile layer and then makes the call to render it.
+            Draws the specified tile layer to the screen.
             </summary>
             <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="tileLayer">The tile layer to be drawn</param>
-            <param name="location">The location to draw the layers</param>
-            <param name="startIndex">The i and j indices of the first tile to draw</param>
-        </member>
-        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ObjectGroup,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Performs the actual rendering for the object group.
-            </summary>
-            <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="objectGroup">The object group to be drawn</param>
-            <param name="location">The location to draw the layers</param>
-            <param name="startIndex">The i and j indices of the first tile to draw</param>
-        </member>
-        <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,MapImporter.ImageLayer,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Performs the actual rendering for the image layer.
-            </summary>
-            <param name="spriteBatch">A spritebatch object for drawing</param>
-            <param name="imageLayer">The image layer to be drawn</param>
-            <param name="location">The location to draw the layers</param>
+            <param name="layer">The Layer object to be drawn</param>
+            <param name="location">The location to draw the layer</param>
             <param name="startIndex">The i and j indices of the first tile to draw</param>
         </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Int32,System.Int32,System.Int32,System.Int32,MapImporter.TileLayer)">

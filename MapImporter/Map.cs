@@ -513,18 +513,6 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Draws the specified tile layer to the screen.
-        /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="layer">The Layer object to be drawn</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
-        public void DrawLayer(SpriteBatch spriteBatch, TileLayer layer, Rectangle location, Vector2 startIndex)
-        {
-            Draw(spriteBatch, layer, location, startIndex);
-        }
-
-        /// <summary>
         /// Draws the specified object group to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
@@ -533,7 +521,7 @@ namespace MapImporter
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
         public void DrawLayer(SpriteBatch spriteBatch, ObjectGroup objectGroup, Rectangle location, Vector2 startIndex)
         {
-            Draw(spriteBatch, objectGroup, location, startIndex);
+            objectGroup.Draw(spriteBatch, location, startIndex);
         }
 
         /// <summary>
@@ -545,17 +533,17 @@ namespace MapImporter
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
         public void DrawLayer(SpriteBatch spriteBatch, ImageLayer imageLayer, Rectangle location, Vector2 startIndex)
         {
-            Draw(spriteBatch, imageLayer, location, startIndex);
+            imageLayer.Draw(spriteBatch, location, startIndex);
         }
 
         /// <summary>
-        /// Performs all the math for the tile layer and then makes the call to render it.
+        /// Draws the specified tile layer to the screen.
         /// </summary>
         /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="tileLayer">The tile layer to be drawn</param>
-        /// <param name="location">The location to draw the layers</param>
+        /// <param name="layer">The Layer object to be drawn</param>
+        /// <param name="location">The location to draw the layer</param>
         /// <param name="startIndex">The i and j indices of the first tile to draw</param>
-        private void Draw(SpriteBatch spriteBatch, TileLayer tileLayer, Rectangle location, Vector2 startIndex)
+        public void DrawLayer(SpriteBatch spriteBatch, TileLayer tileLayer, Rectangle location, Vector2 startIndex)
         {
             int width = location.Width / TileWidth; //The number of tiles in the i direction that fit on the screen
             int height = location.Height / TileHeight; //The number of tiles in the j direction that fit on the screen
@@ -602,30 +590,6 @@ namespace MapImporter
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// Performs the actual rendering for the object group.
-        /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="objectGroup">The object group to be drawn</param>
-        /// <param name="location">The location to draw the layers</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
-        private void Draw(SpriteBatch spriteBatch, ObjectGroup objectGroup, Rectangle location, Vector2 startIndex)
-        {
- 
-        }
-
-        /// <summary>
-        /// Performs the actual rendering for the image layer.
-        /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="imageLayer">The image layer to be drawn</param>
-        /// <param name="location">The location to draw the layers</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
-        private void Draw(SpriteBatch spriteBatch, ImageLayer imageLayer, Rectangle location, Vector2 startIndex)
-        {
-
         }
 
         /// <summary>

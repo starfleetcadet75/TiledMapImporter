@@ -180,6 +180,7 @@ namespace MapImporter
 
         private void DrawRectangle(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Texture2D pixel, Color color, float opacity)
         {
+
             spriteBatch.Draw(pixel, new Rectangle((int)X, (int)Y, (int)Width, (int)Height), color * opacity);
         }
 

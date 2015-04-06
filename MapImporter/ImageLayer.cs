@@ -1,4 +1,6 @@
-﻿
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace MapImporter
 {
     /// <summary>
@@ -49,6 +51,17 @@ namespace MapImporter
         public ImageLayer()
         {
             Props = new Properties();
+        }
+
+        /// <summary>
+        /// Draws the Image that is part of this ImageLayer.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="location"></param>
+        /// <param name="startIndex"></param>
+        public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex)
+        {
+
         }
     }
 }
