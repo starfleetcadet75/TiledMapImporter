@@ -1,5 +1,4 @@
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\Content\triggers.xnb
-C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\Content\NewBarkTown.json
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\SDL.dll
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\SDL_Mixer.dll
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\TiledMapImporter.exe
@@ -17,3 +16,4 @@ C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\MapImporter.dll
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\MapImporter.pdb
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\MapImporter.xml
 C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\Content\tileset_1.xnb
+C:\Users\Alex\Source\Repos\TiledMapImporter\DemoGame\bin\Debug\Content\NewBarkTown.json

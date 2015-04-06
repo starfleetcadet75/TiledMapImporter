@@ -317,12 +317,17 @@
             The Layer's index in the overall layer list.
             </summary>
         </member>
+        <member name="F:MapImporter.LayerData.LocalIndex">
+            <summary>
+            The Layer's index in it's specific layer list.
+            </summary>
+        </member>
         <member name="F:MapImporter.LayerData.LayerType">
             <summary>
             The type of this specific layer.
             </summary>
         </member>
-        <member name="M:MapImporter.LayerData.#ctor(System.Int32,MapImporter.LayerType)">
+        <member name="M:MapImporter.LayerData.#ctor(System.Int32,System.Int32,MapImporter.LayerType)">
             <summary>
             Constructor for LayerData structure.
             </summary>
@@ -692,6 +697,16 @@
             Constructor for the Object class.
             </summary>
         </member>
+        <member name="M:MapImporter.Object.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)">
+            <summary>
+            Draws the Object to the screen.
+            </summary>
+            <param name="spriteBatch">A spritebatch object for drawing</param>
+            <param name="location">The location to draw the layers</param>
+            <param name="startIndex">The i and j indices of the first tile to draw</param>
+            <param name="color">The color to be used when drawing the Object.</param>
+            <param name="opacity">The opacity or transparency of the Object. Determined by its ObjectGroup.</param>
+        </member>
         <member name="P:MapImporter.Object.ObjType">
             <summary>
             Identifies the type of the object.
@@ -793,7 +808,7 @@
             Constructor for the ObjectGroup class.
             </summary>
         </member>
-        <member name="M:MapImporter.ObjectGroup.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,Microsoft.Xna.Framework.Color)">
+        <member name="M:MapImporter.ObjectGroup.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Single)">
             <summary>
             Constructor for the ObjectGroup class.
             </summary>

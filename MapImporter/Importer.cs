@@ -234,12 +234,16 @@ namespace MapImporter
 
                 // Add the layers
                 int indexInLayerList = 0;
+                int indexInTileLayer = 0;
+                int indexInObjectGroup = 0;
+                int indexInImageLayer = 0;
                 foreach (JObject layerJson in mapJSON["layers"])
                 {
                     if (layerJson["type"].ToString() == "tilelayer")
                     {
-                        LayerData ld = new LayerData(indexInLayerList, LayerType.TileLayer);
+                        LayerData ld = new LayerData(indexInLayerList, indexInTileLayer, LayerType.TileLayer);
                         m.LayerDataList.Add(ld);
+                        indexInTileLayer++;
 
                         TileLayer l = new TileLayer(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"], (int)layerJson["width"],
                             (int)layerJson["height"], (float)layerJson["opacity"]);
@@ -299,11 +303,17 @@ namespace MapImporter
                     }
                     else if (layerJson["type"].ToString() == "objectgroup")
                     {
-                        LayerData ld = new LayerData(indexInLayerList, LayerType.ObjectGroup);
+                        LayerData ld = new LayerData(indexInLayerList, indexInObjectGroup, LayerType.ObjectGroup);
                         m.LayerDataList.Add(ld);
+                        indexInObjectGroup++;
 
                         ObjectGroup objGroup = new ObjectGroup(layerJson["name"].ToString(), (int)layerJson["x"], (int)layerJson["y"],
-                            (int)layerJson["width"], (int)layerJson["height"], (float)layerJson["opacity"], ToColor(layerJson["color"].ToString()));
+                            (int)layerJson["width"], (int)layerJson["height"], (float)layerJson["opacity"]);
+
+                        if (layerJson["color"] != null)
+                        {
+                            objGroup.Color = ToColor(layerJson["color"].ToString());
+                        }
 
                         string str = layerJson["draworder"].ToString();
                         if (str.Equals("topdown"))
@@ -328,10 +338,10 @@ namespace MapImporter
                         JArray objectJson = (JArray)layerJson["objects"];
                         foreach (JObject o in objectJson)
                         {
-                            Object obj = new Object(objectJson["name"].ToString(), (int)objectJson["id"], (double)objectJson["width"], (double)objectJson["height"], 
-                                (double)objectJson["x"], (double)objectJson["y"], objectJson["type"].ToString(), (double)objectJson["rotation"]);
+                            Object obj = new Object(o["name"].ToString(), (int)o["id"], (double)o["width"], (double)o["height"], 
+                                (double)o["x"], (double)o["y"], o["type"].ToString(), (double)o["rotation"]);
 
-                            string st = objectJson["visible"].ToString();
+                            string st = o["visible"].ToString();
                             if (st.Equals("true") || s.Equals("True"))
                             {
                                 obj.Visible = true;
@@ -341,36 +351,36 @@ namespace MapImporter
                                 obj.Visible = false;
                             }
 
-                            if (objectJson["properties"] != null)
+                            if (o["properties"] != null)
                             {
-                                obj.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(objectJson["properties"].ToString());
+                                obj.Props.PropertiesList = JsonConvert.DeserializeObject<Dictionary<string, string>>(o["properties"].ToString());
                             }
 
-                            if (objectJson["gid"] != null)
+                            if (o["gid"] != null)
                             {
-                                obj.Gid = (int)objectJson["gid"];
+                                obj.Gid = (int)o["gid"];
                             }
 
                             // If the property Ellipse exists, then the object is an Ellipse
-                            if (objectJson["ellipse"] != null)
+                            if (o["ellipse"] != null)
                             {
                                 obj.ObjType = ObjectType.Ellipse;
                             }
-                            else if (objectJson["polygon"] != null)
+                            else if (o["polygon"] != null)
                             {
                                 obj.ObjType = ObjectType.Polygon;
-                                JArray polygonJson = (JArray)objectJson["polygon"];
+                                JArray polygonJson = (JArray)o["polygon"];
                                 List<Vector2> points = new List<Vector2>();
                                 foreach (JObject point in polygonJson)
                                 {
-                                    points.Add(new Vector2((int)polygonJson["x"], (int)polygonJson["y"]));
+                                    points.Add(new Vector2((int)point["x"], (int)point["y"]));
                                 }
                                 obj.Polygon = new Polygon(points);
                             }
-                            else if (objectJson["polyline"] != null)
+                            else if (o["polyline"] != null)
                             {
                                 obj.ObjType = ObjectType.Polyline;
-                                JArray polylineJson = (JArray)objectJson["polyline"];
+                                JArray polylineJson = (JArray)o["polyline"];
                                 foreach (JObject polyline in polylineJson)
                                 {
 
@@ -388,8 +398,9 @@ namespace MapImporter
                     }
                     else if (layerJson["type"].ToString() == "imagelayer")
                     {
-                        LayerData ld = new LayerData(indexInLayerList, LayerType.ImageLayer);
+                        LayerData ld = new LayerData(indexInLayerList, indexInImageLayer, LayerType.ImageLayer);
                         m.LayerDataList.Add(ld);
+                        indexInImageLayer++;
                     }
                     indexInLayerList++;
                 }

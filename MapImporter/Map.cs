@@ -77,6 +77,10 @@ namespace MapImporter
         /// </summary>
         public int Index;
         /// <summary>
+        /// The Layer's index in it's specific layer list.
+        /// </summary>
+        public int LocalIndex;
+        /// <summary>
         /// The type of this specific layer.
         /// </summary>
         public LayerType LayerType;
@@ -84,9 +88,10 @@ namespace MapImporter
         /// <summary>
         /// Constructor for LayerData structure.
         /// </summary>
-        public LayerData(int index, LayerType layerType)
+        public LayerData(int index, int localIndex, LayerType layerType)
         {
             Index = index;
+            LocalIndex = localIndex;
             LayerType = layerType;
         }
     }
@@ -436,23 +441,23 @@ namespace MapImporter
             {
                 if (data.LayerType == LayerType.TileLayer)
                 {
-                    if (TileLayers[data.Index].Visible)
+                    if (TileLayers[data.LocalIndex].Visible)
                     {
-                        DrawLayer(spriteBatch, TileLayers[data.Index], location, startIndex);
+                        DrawLayer(spriteBatch, TileLayers[data.LocalIndex], location, startIndex);
                     }
                 }
                 else if (data.LayerType == LayerType.ObjectGroup)
                 {
-                    if (ObjectGroups[data.Index].Visible)
+                    if (ObjectGroups[data.LocalIndex].Visible)
                     {
-                        DrawLayer(spriteBatch, ObjectGroups[data.Index], location, startIndex);
+                        DrawLayer(spriteBatch, ObjectGroups[data.LocalIndex], location, startIndex);
                     }
                 }
                 else if (data.LayerType == LayerType.ImageLayer)
                 {
-                    if (ObjectGroups[data.Index].Visible)
+                    if (ImageLayers[data.LocalIndex].Visible)
                     {
-                        DrawLayer(spriteBatch, ImageLayers[data.Index], location, startIndex);
+                        DrawLayer(spriteBatch, ImageLayers[data.LocalIndex], location, startIndex);
                     }
                 }
             }

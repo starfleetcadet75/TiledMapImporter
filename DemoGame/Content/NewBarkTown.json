@@ -43,8 +43,135 @@
          "width":30,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":23,
+         "name":"ObjLayer",
+         "objects":[
+                {
+                 "height":64,
+                 "id":1,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":832,
+                 "y":320
+                }, 
+                {
+                 "ellipse":true,
+                 "height":64,
+                 "id":2,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":960,
+                 "y":320
+                }, 
+                {
+                 "height":0,
+                 "id":3,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":64,
+                         "y":0
+                        }, 
+                        {
+                         "x":64,
+                         "y":64
+                        }],
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1088,
+                 "y":448
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":64,
+                         "y":64
+                        }, 
+                        {
+                         "x":128,
+                         "y":128
+                        }, 
+                        {
+                         "x":192,
+                         "y":64
+                        }, 
+                        {
+                         "x":256,
+                         "y":64
+                        }, 
+                        {
+                         "x":256,
+                         "y":128
+                        }],
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":896,
+                 "y":512
+                }, 
+                {
+                 "gid":32,
+                 "height":0,
+                 "id":5,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":704,
+                 "y":448
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":30,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":1,
+ "nextobjectid":6,
  "orientation":"orthogonal",
  "properties":
     {

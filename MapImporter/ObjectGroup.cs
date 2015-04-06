@@ -85,7 +85,7 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the ObjectGroup class.
         /// </summary>
-        public ObjectGroup(string name, int x, int y, int width, int height, float opacity, Color color)
+        public ObjectGroup(string name, int x, int y, int width, int height, float opacity)
         {
             Name = name;
             X = x;
@@ -93,7 +93,7 @@ namespace MapImporter
             Width = width;
             Height = height;
             Opacity = opacity;
-            Color = color;
+            Color = Color.Black;
             Objects = new List<Object>();
             Props = new Properties();
         }
