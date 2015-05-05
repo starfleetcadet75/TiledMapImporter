@@ -23,6 +23,8 @@ namespace MapImporter
     /// The object group is in fact a map layer, and is hence called
     /// "object layer" in Tiled Qt.
     /// </summary>
+    /// <see cref="MapImporter.TileLayer"/>
+    /// <see cref="MapImporter.ImageLayer"/>
     public class ObjectGroup
     {
         /// <summary>

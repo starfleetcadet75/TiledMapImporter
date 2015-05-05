@@ -5,6 +5,7 @@ namespace MapImporter
     /// This element defines an array of terrain types, which can be referenced
     /// from the terrain attribute of the tile element.
     /// </summary>
+    /// <see cref="MapImporter.Terrain"/>
     public class TerrainTypes
     {
         /// <summary>
@@ -22,7 +23,7 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the TerrainTypes object.
         /// </summary>
-        /// <param name="terrains"></param>
+        /// <param name="terrains">Array of Terrain objects to define the types.</param>
         public TerrainTypes(Terrain[] terrains)
         {
             Terrains = terrains;

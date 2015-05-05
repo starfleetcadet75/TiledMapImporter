@@ -21,12 +21,13 @@ namespace MapImporter
         /// </summary>
         public Polygon()
         {
+            Points = new List<Vector2>();
         }
 
         /// <summary>
         /// Constructor for a Polygon object.
         /// </summary>
-        /// <param name="points"></param>
+        /// <param name="points">List of points that are part of the Polygon.</param>
         public Polygon(List<Vector2> points)
         {
             Points = points;

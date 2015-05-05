@@ -4,22 +4,21 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Xml;
 
 namespace MapImporter
 {
     /// <summary>
     /// The Importer class contains the methods needed to import
     /// the Tiled maps and turn them into Map objects.
+    /// <see cref="MapImporter.Map"/>
     /// </summary>
     public class Importer
     {
         /// <summary>
         /// Creates a Map object from the given file. File can be either in JSON or TMX format.
         /// </summary>
-        /// <param name="filepath">The location of the Tiled map to be read</param>
-        /// <returns>The new Map object that can be used in game</returns>
+        /// <param name="filepath">The location of the Tiled map to be read.</param>
+        /// <returns>The new Map object that can be used in game.</returns>
         public static Map ImportMap(string filepath)
         {
             try
@@ -55,8 +54,8 @@ namespace MapImporter
         /// <summary>
         /// Parses the given text from a JSON file and turns it into a Map object.
         /// </summary>
-        /// <param name="fileText">The text of the JSON file</param>
-        /// <returns>A new Map object</returns>
+        /// <param name="fileText">The text of the JSON file.</param>
+        /// <returns>A new Map object.</returns>
         private static Map ReadMapAsJson(string fileText)
         {
             JObject mapJSON = JObject.Parse(fileText);
@@ -70,14 +69,19 @@ namespace MapImporter
                 {
                     m.Orientation = Orientation.Orthogonal;
                 }
-                else if (mapJSON["orientation"].ToString() == "isometric")
+                else
+                {
+                    throw new Exception("The Orientation of a given Map file is not 'Orthogonal'. " +
+                        "This version of the Importer library does not support any other types.");
+                }
+                /*else if (mapJSON["orientation"].ToString() == "isometric")
                 {
                     m.Orientation = Orientation.Isometric;
                 }
                 else if (mapJSON["orientation"].ToString() == "staggered")
                 {
                     m.Orientation = Orientation.Staggered;
-                }
+                }*/
                 
                 m.Width = (int)mapJSON["width"];
                 m.Height = (int)mapJSON["height"];
@@ -409,11 +413,11 @@ namespace MapImporter
         /// <summary>
         /// Parses the given text from a Tmx file and turns it into a Map object.
         /// </summary>
-        /// <param name="fileText">The text of the Tmx file</param>
-        /// <returns>A new Map object</returns>
+        /// <param name="fileText">The text of the Tmx file.</param>
+        /// <returns>A new Map object.</returns>
         private static Map ReadMapAsTmx(string fileText)
         {
-            return null;
+            throw new Exception("TMX format is not yet supported.");
         }
 
         /// <summary>

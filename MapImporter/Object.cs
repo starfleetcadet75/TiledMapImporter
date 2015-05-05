@@ -51,6 +51,7 @@ namespace MapImporter
         /// <summary>
         /// Identifies the type of the object.
         /// </summary>
+        /// <see cref="MapImporter.ObjectType"/>
         public ObjectType ObjType { set; get; }
         /// <summary>
         /// The name of the object. An arbitrary string.
@@ -85,7 +86,7 @@ namespace MapImporter
         /// </summary>
         public double Rotation { set; get; }
         /// <summary>
-        /// A reference to a tile (optional).
+        /// A reference to a tile (optional). Used for drawing individual tile objects.
         /// </summary>
         public int Gid { set; get; }
         /// <summary>
@@ -95,18 +96,22 @@ namespace MapImporter
         /// <summary>
         /// Custom properties for this object.
         /// </summary>
+        /// <see cref="MapImporter.Properties"/>
         public Properties Props { set; get; }
         /// <summary>
         /// A Polygon object.
         /// </summary>
+        /// <see cref="MapImporter.Polygon"/>
         public Polygon Polygon { set; get; }
         /// <summary>
         /// A Polyline object.
+        /// <see cref="MapImporter.Polyline"/>
         /// </summary>
         public Polyline Polyline { set; get; }
         /// <summary>
         /// An image object.
         /// </summary>
+        /// <see cref="MapImporter.Image"/>
         public Image Image { set; get; }
 
         /// <summary>
@@ -117,7 +122,7 @@ namespace MapImporter
         /// <summary>
         /// Creates the pixel to use for drawing objects.
         /// </summary>
-        /// <param name="spriteBatch"></param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
         private static void CreateThePixel(SpriteBatch spriteBatch)
         {
             pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
@@ -135,6 +140,14 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Object class.
         /// </summary>
+        /// <param name="name">The name of the object.</param>
+        /// <param name="id">The Id of the object.</param>
+        /// <param name="width">The width of the object in pixels (defaults to 0).</param>
+        /// <param name="height">The height of the object in pixels (defaults to 0).</param>
+        /// <param name="x">The x coordinate of the object in pixels.</param>
+        /// <param name="y">The y coordinate of the object in pixels.</param>
+        /// <param name="type">Identifies the type of the object.</param>
+        /// <param name="rotation">The rotation of the object in degrees clockwise (defaults to 0).</param>
         public Object(string name, int id, double width, double height, double x, double y,  string type, double rotation)
         {
             Name = name;
@@ -151,6 +164,15 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Object class.
         /// </summary>
+        /// <param name="name">The name of the object.</param>
+        /// <param name="id">The Id of the object.</param>
+        /// <param name="width">The width of the object in pixels (defaults to 0).</param>
+        /// <param name="height">The height of the object in pixels (defaults to 0).</param>
+        /// <param name="x">The x coordinate of the object in pixels.</param>
+        /// <param name="y">The y coordinate of the object in pixels.</param>
+        /// <param name="type">Identifies the type of the object.</param>
+        /// <param name="rotation">The rotation of the object in degrees clockwise (defaults to 0).</param>
+        /// <param name="props">Custom properties for the object.</param>
         public Object(string name, int id, double width, double height, double x, double y,  string type, double rotation, Properties props)
         {
             Name = name;
@@ -167,9 +189,9 @@ namespace MapImporter
         /// <summary>
         /// Draws the Object to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="location">The location to draw the layers</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="location">The location to draw the layers.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         /// <param name="color">The color to be used when drawing the Object.</param>
         /// <param name="opacity">The opacity or transparency of the Object. Determined by its ObjectGroup.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)

@@ -6,27 +6,30 @@ namespace MapImporter
     /// when drawing a tile from the related tileset. When not present,
     /// no offset is applied.
     /// </summary>
+    /// <see cref="MapImporter.Tileset"/>
     public class TileOffset
     {
         /// <summary>
-        /// Horizontal offset in pixels.
+        /// The horizontal offset in pixels.
         /// </summary>
         public int X { set; get; }
         /// <summary>
-        /// Vertical offset in pixels (positive is down).
+        /// The vertical offset in pixels (positive is down).
         /// </summary>
         public int Y { set; get; }
 
         /// <summary>
-        /// Constructor for the Tile class.
+        /// Constructor for the TileOffset class.
         /// </summary>
         public TileOffset()
         {
         }
 
         /// <summary>
-        /// Constructor for the Tile class.
+        /// Constructor for the TileOffset class.
         /// </summary>
+        /// <param name="x">The horizontal offset in pixels.</param>
+        /// <param name="y">The vertical offset in pixels.</param>
         public TileOffset(int x, int y)
         {
             X = x;

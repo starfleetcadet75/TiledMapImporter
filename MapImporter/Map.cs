@@ -98,7 +98,7 @@ namespace MapImporter
 
     /// <summary>
     /// A map object created using the Tiled Map Editor
-    /// http://www.mapeditor.org/
+    /// (http://www.mapeditor.org/).
     /// </summary>
     public class Map
     {
@@ -108,6 +108,7 @@ namespace MapImporter
         public string Version { set; get; }
         /// <summary>
         /// Map orientation. This library only supports Orthogonal.
+        /// <see cref="MapImporter.Orientation"/>
         /// </summary>
         public Orientation Orientation { set; get; }
         /// <summary>
@@ -132,30 +133,37 @@ namespace MapImporter
         public Color BackgroundColor { set; get; }
         /// <summary>
         /// The order in which tiles on tile layers are rendered.
+        /// <see cref="MapImporter.RenderOrder"/>
         /// </summary>
         public RenderOrder RenderOrder { set; get; }
         /// <summary>
         /// Custom properties for the map object.
+        /// <see cref="MapImporter.Properties"/>
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
         /// List of all tilesets used in this map.
+        /// <see cref="MapImporter.Tileset"/>
         /// </summary>
         public List<Tileset> Tilesets { set; get; }
         /// <summary>
         /// List of all layers (regular tile layers) in this map.
+        /// <see cref="MapImporter.TileLayer"/>
         /// </summary>
         public List<TileLayer> TileLayers { set; get; }
         /// <summary>
         /// List of all object groups in this map.
+        /// <see cref="MapImporter.ObjectGroup"/>
         /// </summary>
         public List<ObjectGroup> ObjectGroups { set; get; }
         /// <summary>
         /// List of all image layers in this map.
+        /// <see cref="MapImporter.ImageLayer"/>
         /// </summary>
         public List<ImageLayer> ImageLayers { set; get; }
         /// <summary>
         /// The list of every layer regardless of layer type.
+        /// <see cref="MapImporter.LayerData"/>
         /// </summary>
         public List<LayerData> LayerDataList { set; get; }
         /// <summary>
@@ -179,9 +187,9 @@ namespace MapImporter
         /// <summary>
         /// Translates the tile at the screen location to a tile coordinate on the overall map.
         /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <returns>The i and j indices of the tile in the map's layer data</returns>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen.</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data.</param>
+        /// <returns>The i and j indices of the tile in the map's layer data.</returns>
         public Vector2 TranslateScreenToMap(Vector2 tileOnScreen, Vector2 startIndex)
         {
             return new Vector2(startIndex.X + tileOnScreen.X - 1, startIndex.Y + tileOnScreen.Y - 1);
@@ -192,6 +200,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="gid">The global id of the tile to find</param>
         /// <returns>The Tile in the Map with the given global id</returns>
+        /// <see cref="MapImporter.Tile"/>
         public Tile GetTile(int gid)
         {
             Tileset t = GetTileset(gid);
@@ -199,14 +208,17 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the gid of the tile at the specified postion on the screen. Use this method
-        /// in combination with your game logic to determine collisions, doors, etc.
+        /// Returns the global id of the tile at the specified postion on the screen.
         /// </summary>
-        /// <param name="tileOnScreen">The i and j indices of the tile on the screen</param>
-        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data</param>
-        /// <param name="tileLayer">The specific tile layer whose data we want to look at</param>
-        /// <returns>The gid of the tile</returns>
-        public int GetTileGid(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
+        /// <remarks>
+        /// This is a powerful method that can be used in combination with your game logic to determine collisions, doors, etc.
+        /// </remarks>
+        /// <param name="tileOnScreen">The i and j indices of the tile on the screen.</param>
+        /// <param name="startIndex">The i and j indices of the upper left most tile in the actual layer data.</param>
+        /// <param name="tileLayer">The specific TileLayer to search.</param>
+        /// <returns>The global id of the tile at the given location.</returns>
+        /// <see cref="MapImporter.Tile"/>
+        public int GetTile(Vector2 tileOnScreen, Vector2 startIndex, TileLayer tileLayer)
         {
             Vector2 temp = TranslateScreenToMap(tileOnScreen, startIndex);
             return tileLayer.Data.GetTileData((int)temp.X, (int)temp.Y);
@@ -215,8 +227,9 @@ namespace MapImporter
         /// <summary>
         /// Returns the tileset with the given name.
         /// </summary>
-        /// <param name="name">The name of the tileset to search for</param>
-        /// <returns>The tileset with the given name</returns>
+        /// <param name="name">The name of the tileset to search for.</param>
+        /// <returns>The tileset with the given name.</returns>
+        /// <see cref="MapImporter.Tileset"/>
         public Tileset GetTileset(string name)
         {
             try
@@ -232,8 +245,13 @@ namespace MapImporter
         /// <summary>
         /// Returns the tileset that contains the given global id.
         /// </summary>
-        /// <param name="gid">The global id to search for</param>
+        /// <remarks>
+        /// This method can be used when given a global id in order to
+        /// the find the Tileset that contains the Tile.
+        /// </remarks>
+        /// <param name="gid">The global id of the Tile to find.</param>
         /// <returns>The tileset that contains the tile with the given gid</returns>
+        /// <see cref="MapImporter.Tileset"/>
         public Tileset GetTileset(int gid)
         {
             foreach (Tileset t in Tilesets)
@@ -244,10 +262,11 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns a Dictionary object of all properties for the tile with the given gid.
+        /// Returns a Dictionary object of all properties for the Tile with the given global id.
         /// </summary>
         /// <param name="gid">The gid of the tile</param>
         /// <returns>The properties of the given tile</returns>
+        /// <see cref="MapImporter.Properties"/>
         public Dictionary<string, string> GetTileProps(int gid)
         {
             Tile tile = GetTile(gid);
@@ -257,8 +276,8 @@ namespace MapImporter
         /// <summary>
         /// Returns the tile layer with the given name.
         /// </summary>
-        /// <param name="name">The name of the tile layer to search for</param>
-        /// <returns>The tile layer with the given name</returns>
+        /// <param name="name">The name of the tile layer to find.</param>
+        /// <returns>The tile layer with the given name.</returns>
         public TileLayer GetTileLayer(string name)
         {
             try
@@ -272,7 +291,7 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Returns the tilelayer at the given index in the tilelayer list.
+        /// Returns the TileLayer object at the given index in the Map object's list of TileLayers.
         /// </summary>
         /// <param name="val">The index of the tilelayer to search for</param>
         /// <returns>The tilelayer at the given index</returns>
@@ -286,8 +305,8 @@ namespace MapImporter
         /// <summary>
         /// Returns the object group with the given name.
         /// </summary>
-        /// <param name="name">The name of the object group to search for</param>
-        /// <returns>The object group with the given name</returns>
+        /// <param name="name">The name of the object group to find.</param>
+        /// <returns>The object group with the given name.</returns>
         public ObjectGroup GetObjectGroup(string name)
         {
             try
@@ -303,8 +322,8 @@ namespace MapImporter
         /// <summary>
         /// Returns the object group at the given index in the object group list.
         /// </summary>
-        /// <param name="val">The index of the object group to search for</param>
-        /// <returns>The object group at the given index</returns>
+        /// <param name="val">The index of the object group to find.</param>
+        /// <returns>The object group at the given index.</returns>
         public ObjectGroup GetObjectGroup(int val)
         {
             if (ObjectGroups[val] == null)
@@ -315,8 +334,8 @@ namespace MapImporter
         /// <summary>
         /// Returns the image layer with the given name.
         /// </summary>
-        /// <param name="name">The name of the image layer to search for</param>
-        /// <returns>The image layer with the given name</returns>
+        /// <param name="name">The name of the image layer to find.</param>
+        /// <returns>The image layer with the given name.</returns>
         public ImageLayer GetImageLayer(string name)
         {
             try
@@ -332,8 +351,8 @@ namespace MapImporter
         /// <summary>
         /// Returns the image layer at the given index in the image layer list.
         /// </summary>
-        /// <param name="val">The index of the image layer to search for</param>
-        /// <returns>The image layer at the given index</returns>
+        /// <param name="val">The index of the image layer to find.</param>
+        /// <returns>The image layer at the given index.</returns>
         public ImageLayer GetImageLayer(int val)
         {
             if (ImageLayers[val] == null)
@@ -344,7 +363,8 @@ namespace MapImporter
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the top.
         /// </summary>
-        /// <param name="layerIndex">The index of layerdata in the layer list</param>
+        /// <param name="layerIndex">The index of LayerData in the layer list.</param>
+        /// <see cref="MapImporter.LayerData"/>
         public void LayerToTop(int layerIndex)
         {
             foreach (LayerData data in LayerDataList)
@@ -360,7 +380,8 @@ namespace MapImporter
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the top.
         /// </summary>
-        /// <param name="layerData">The layerData object to be moved</param>
+        /// <param name="layerData">The layerData object to be moved.</param>
+        /// <see cref="MapImporter.LayerData"/>
         public void LayerToTop(LayerData layerData)
         {
             LayerData temp = layerData;
@@ -371,7 +392,8 @@ namespace MapImporter
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the bottom.
         /// </summary>
-        /// <param name="layerIndex">The index of the layer object's current position in the layer list</param>
+        /// <param name="layerIndex">The index of the layer object's current position in the layer list.</param>
+        /// <see cref="MapImporter.LayerData"/>
         public void LayerToBottom(int layerIndex)
         {
             foreach (LayerData data in LayerDataList)
@@ -387,7 +409,8 @@ namespace MapImporter
         /// <summary>
         /// Moves the given layer in the layer list from its current index to the bottom.
         /// </summary>
-        /// <param name="layerData">The layerData object to be moved</param>
+        /// <param name="layerData">The layerData object to be moved.</param>
+        /// <see cref="MapImporter.LayerData"/>
         public void LayerToBottom(LayerData layerData)
         {
             LayerData temp = layerData;
@@ -396,9 +419,22 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// The textures need to be loaded for each tileset.
-        /// THIS MUST BE CALLED BEFORE DRAWING ANYTHING OR YOU WILL GET AN EXCEPTION!
+        /// Loads the Texture objects required for each Tileset.
         /// </summary>
+        /// <remarks>
+        /// This method can be a common cause of NullReferenceExceptions. If the Tileset
+        /// textures are not properly loaded, the Map object cannot be drawn. If the files
+        /// cannot be located in the project, there will be a Null Reference.
+        /// </remarks>
+        /// <example>
+        /// If your project stores all Tileset textures inside a "tilesets" folder in your Content directory,
+        /// you could alter the filepath to automatically look in that folder.
+        /// <code>foreach (Tileset t in Tilesets)
+        /// {
+        ///     t.Image.Texture = content.Load<Texture2D>("tilesets/" + t.Image.Source);
+        /// }</code>
+        /// </example>
+        /// <param name="content">A ContentManager object is needed in order to load the textures.</param>
         public void LoadTilesetTextures(ContentManager content)
         {
             foreach (Tileset t in Tilesets)
@@ -416,9 +452,9 @@ namespace MapImporter
         /// <summary>
         /// Draws all visible layers of the Map to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="location">The location to draw the layers</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="location">The location to draw the layers.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex)
         {
             foreach (LayerData data in LayerDataList)
@@ -450,10 +486,10 @@ namespace MapImporter
         /// <summary>
         /// Draws the specified layer from the overall layer list to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="layerId">The id of the layer to be drawn in the LayerDataList list</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="layerId">The id of the layer to be drawn in the LayerDataList list.</param>
+        /// <param name="location">The location to draw the layer.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void DrawLayer(SpriteBatch spriteBatch, int layerId, Rectangle location, Vector2 startIndex)
         {
             if (LayerDataList[layerId].LayerType == LayerType.TileLayer)
@@ -482,10 +518,10 @@ namespace MapImporter
         /// <summary>
         /// Draws the specified layer to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="layerName">The name of the layer to be drawn</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="layerName">The name of the layer to be drawn.</param>
+        /// <param name="location">The location to draw the layer.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void DrawLayer(SpriteBatch spriteBatch, string layerName, Rectangle location, Vector2 startIndex)
         {
             if (GetTileLayer(layerName) != null)
@@ -499,10 +535,10 @@ namespace MapImporter
         /// <summary>
         /// Draws the specified object group to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="objectGroup">The object group object to be drawn</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="objectGroup">The object group object to be drawn.</param>
+        /// <param name="location">The location to draw the layer.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void DrawLayer(SpriteBatch spriteBatch, ObjectGroup objectGroup, Rectangle location, Vector2 startIndex)
         {
             objectGroup.Draw(spriteBatch, location, startIndex);
@@ -511,10 +547,10 @@ namespace MapImporter
         /// <summary>
         /// Draws the specified image layer to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="imageLayer">The Image Layer object to be drawn</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="imageLayer">The ImageLayer object to be drawn.</param>
+        /// <param name="location">The location to draw the layer.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void DrawLayer(SpriteBatch spriteBatch, ImageLayer imageLayer, Rectangle location, Vector2 startIndex)
         {
             imageLayer.Draw(spriteBatch, location, startIndex);
@@ -523,10 +559,10 @@ namespace MapImporter
         /// <summary>
         /// Draws the specified tile layer to the screen.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="layer">The Layer object to be drawn</param>
-        /// <param name="location">The location to draw the layer</param>
-        /// <param name="startIndex">The i and j indices of the first tile to draw</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="tileLayer">The TileLayer object to be drawn.</param>
+        /// <param name="location">The location to draw the layer.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void DrawLayer(SpriteBatch spriteBatch, TileLayer tileLayer, Rectangle location, Vector2 startIndex)
         {
             int width = location.Width / TileWidth; //The number of tiles in the i direction that fit on the screen
@@ -579,12 +615,12 @@ namespace MapImporter
         /// <summary>
         /// Performs the actual drawing. Above Draw method tells it what render order to use.
         /// </summary>
-        /// <param name="spriteBatch">A spritebatch object for drawing</param>
-        /// <param name="i">The i index for drawwing in the i direction</param>
-        /// <param name="j">The j index for drawwing in the i direction</param>
-        /// <param name="iStartIndex">The i index of the first tile to draw</param>
-        /// <param name="jStartIndex">The j index of the first tile to draw</param>
-        /// <param name="layer">The layer to be drawn</param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="i">The i index for drawwing in the i direction.</param>
+        /// <param name="j">The j index for drawwing in the i direction.</param>
+        /// <param name="iStartIndex">The i index of the first tile to draw.</param>
+        /// <param name="jStartIndex">The j index of the first tile to draw.</param>
+        /// <param name="layer">The layer to be drawn.</param>
         private void Draw(SpriteBatch spriteBatch, int i, int j, int iStartIndex, int jStartIndex, TileLayer layer)
         {
             int tileOffsetX = 0;

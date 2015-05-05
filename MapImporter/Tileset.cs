@@ -15,7 +15,7 @@ namespace MapImporter
         public int Firstgid { set; get; }
         /// <summary>
         /// The file path that specifies where the tileset image is located.
-        ///  Be sure to manually check inside the Tiled map and verify the path!
+        /// Be sure to manually check inside the Tiled map and verify the path.
         /// </summary>
         public string Source { set; get; }
         /// <summary>
@@ -44,18 +44,22 @@ namespace MapImporter
         public TileOffset TileOffset { set; get; }
         /// <summary>
         /// An image used as a tileset. Not the same as the image at Source.
+        /// <see cref="MapImporter.Image"/>
         /// </summary>
         public Image Image { set; get; }
         /// <summary>
         /// Custom properties for the tileset object.
+        /// <see cref="MapImporter.Properties"/>
         /// </summary>
         public Properties Props { set; get; }
         /// <summary>
         /// Terrain types in this tileset.
+        /// <see cref="MapImporter.TerrainTypes"/>
         /// </summary>
         public TerrainTypes TerrainTypes { set; get; }
         /// <summary>
         /// List of all tiles in this tileset.
+        /// <see cref="MapImporter.Tile"/>
         /// </summary>
         public List<Tile> Tiles { set; get; }
 
@@ -72,12 +76,12 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Tileset class.
         /// </summary>
-        /// <param name="firstGid"></param>
-        /// <param name="name"></param>
-        /// <param name="tileWidth"></param>
-        /// <param name="tileHeight"></param>
-        /// <param name="spacing"></param>
-        /// <param name="margin"></param>
+        /// <param name="firstGid">The first global tile id of this tileset.</param>
+        /// <param name="name">The name of the tileset.</param>
+        /// <param name="tileWidth">The (maximum) width of the tiles in this tileset.</param>
+        /// <param name="tileHeight">The (maximum) height of the tiles in this tileset.</param>
+        /// <param name="spacing">The spacing in pixels between the tiles in this tileset.</param>
+        /// <param name="margin">The margin around the tiles in this tileset.</param>
         public Tileset(int firstGid, string name, int tileWidth, int tileHeight, int spacing, int margin)
         {
             Firstgid = firstGid;
@@ -95,8 +99,8 @@ namespace MapImporter
         /// Finds and returns the Tile with the given local id
         /// (its Id within its Tileset; chances are you will never need this).
         /// </summary>
-        /// <param name="id">The local id of the tile to search for</param>
-        /// <returns>The tile with the given local id</returns>
+        /// <param name="id">The local id of the tile to search for.</param>
+        /// <returns>The tile with the given local id.</returns>
         public Tile GetTileByLocalId(int id)
         {
             try
@@ -110,10 +114,10 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Finds and returns the Tile with the given global id.
+        /// Finds and returns the Tile in this Tileset with the given global id.
         /// </summary>
-        /// <param name="gid">The global id of the tile to search for</param>
-        /// <returns>The tile with the given global id</returns>
+        /// <param name="gid">The global id of the tile to search for.</param>
+        /// <returns>The tile with the given global id.</returns>
         public Tile GetTile(int gid)
         {
             try
@@ -129,8 +133,8 @@ namespace MapImporter
         /// <summary>
         /// Finds and returns all Tiles with the given property name.
         /// </summary>
-        /// <param name="propertyName">The name of the property to search for</param>
-        /// <returns>The tiles with the given property</returns>
+        /// <param name="propertyName">The name of the property to search for.</param>
+        /// <returns>The tiles with the given property contained in a List.</returns>
         public List<Tile> GetTile(string propertyName)
         {
             List<Tile> tilesWithProperty = new List<Tile>();
@@ -168,40 +172,6 @@ namespace MapImporter
         }
 
         /// <summary>
-        /// Equality operator for Tileset objects.
-        /// No Tileset should have the same first global id
-        /// properties, therefore these alone are used for
-        /// equality operations.
-        /// </summary>
-        /// <param name="var1">The first Tileset object to compare.</param>
-        /// <param name="var2">The second Tileset object to compare.</param>
-        /// <returns>Whether the two Tileset objects are equal.</returns>
-        public bool operator ==(Tileset var1, Tileset var2)
-        {
-            if (var1.Firstgid == var2.Firstgid)
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
-        /// Inequality operator for Tileset objects.
-        /// No Tileset should have the same first global id
-        /// properties, therefore these alone are used for
-        /// equality operations.
-        /// </summary>
-        /// <param name="var1">The first Tileset object to compare.</param>
-        /// <param name="var2">The second Tileset object to compare.</param>
-        /// <returns>Whether the two Tileset objects are equal.</returns>
-        public bool operator !=(Tileset var1, Tileset var2)
-        {
-            if (!(var1.Firstgid == var2.Firstgid))
-                return true;
-            else
-                return false;
-        }
-
-        /// <summary>
         /// The first global id property for Tilesets is used
         /// to compare Tilesets for greater than and less than
         /// operations.
@@ -209,8 +179,8 @@ namespace MapImporter
         /// <param name="var1">The first Tileset object to compare.</param>
         /// <param name="var2">The second Tileset object to compare.</param>
         /// <returns>Whether the first Tileset has a lower first
-        /// global id than the second Tileset</returns>
-        public bool operator <(Tileset var1, Tileset var2)
+        /// global id than the second Tileset.</returns>
+        public static bool operator <(Tileset var1, Tileset var2)
         {
             if (var1.Firstgid < var2.Firstgid)
                 return true;
@@ -226,8 +196,8 @@ namespace MapImporter
         /// <param name="var1">The first Tileset object to compare.</param>
         /// <param name="var2">The second Tileset object to compare.</param>
         /// <returns>Whether the first Tileset has a larger first
-        /// global id than the second Tileset</returns>
-        public bool operator >(Tileset var1, Tileset var2)
+        /// global id than the second Tileset.</returns>
+        public static bool operator >(Tileset var1, Tileset var2)
         {
             if (var1.Firstgid > var2.Firstgid)
                 return true;
@@ -243,8 +213,8 @@ namespace MapImporter
         /// <param name="var1">The first Tileset object to compare.</param>
         /// <param name="var2">The second Tileset object to compare.</param>
         /// <returns>Whether the first Tileset has a higher first global id
-        /// than the second Tileset or whether they are equal</returns>
-        public bool operator <=(Tileset var1, Tileset var2)
+        /// than the second Tileset or whether they are equal.</returns>
+        public static bool operator <=(Tileset var1, Tileset var2)
         {
             if ((var1.Firstgid < var2.Firstgid) || (var1.Firstgid == var2.Firstgid))
                 return true;
@@ -260,8 +230,8 @@ namespace MapImporter
         /// <param name="var1">The first Tileset object to compare.</param>
         /// <param name="var2">The second Tileset object to compare.</param>
         /// <returns>Whether the first Tileset has a lower first global id
-        /// than the second Tileset or whether they are equal</returns>
-        public bool operator <=(Tileset var1, Tileset var2)
+        /// than the second Tileset or whether they are equal.</returns>
+        public static bool operator >=(Tileset var1, Tileset var2)
         {
             if ((var1.Firstgid > var2.Firstgid) || (var1.Firstgid == var2.Firstgid))
                 return true;
@@ -274,7 +244,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="var">The Tileset object to compare.</param>
         /// <returns>Whether the Tilesets are equal.</returns>
-        public override bool Equals(Tileset var)
+        public bool Equals(Tileset var)
         {
             if (var.Firstgid == Firstgid)
                 return true;

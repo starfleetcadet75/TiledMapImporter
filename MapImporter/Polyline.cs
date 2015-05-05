@@ -31,9 +31,9 @@ namespace MapImporter
         /// <summary>
         /// Constructor for Polyline object.
         /// </summary>
-        /// <param name="points"></param>
-        /// <param name="lines"></param>
-        /// <param name="bounds"></param>
+        /// <param name="points">The points that make up the polyline object.</param>
+        /// <param name="lines">The lines that make up the polyline object.</param>
+        /// <param name="bounds">Bounding rectangle of this polyline.</param>
         public Polyline(Point[] points, Line[] lines, Rectangle bounds)
         {
             Points = points;

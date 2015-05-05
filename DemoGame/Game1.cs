@@ -127,7 +127,7 @@ namespace DemoGame
             }
 
             //Prints the gid of the tile the player is currently on if it contains a trigger tile
-            int i = map.GetTileGid(playerTilePosition, startIndex, map.GetTileLayer("TriggerLayer"));
+            int i = map.GetTile(playerTilePosition, startIndex, map.GetTileLayer("TriggerLayer"));
             Console.Write("The gid is: " + i + "\n");
             Console.Write("The player is at tile: " + playerTilePosition.ToString() + "\n");
 

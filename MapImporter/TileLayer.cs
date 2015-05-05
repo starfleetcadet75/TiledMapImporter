@@ -4,8 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 namespace MapImporter
 {
     /// <summary>
-    /// A single layer of tiles in the map.
+    /// A single layer of tiles in the Map object.
+    /// Stores data about Tile locations on the actual map to draw.
     /// </summary>
+    /// <see cref="MapImporter.ImageLayer"/>
+    /// <see cref="MapImporter.ObjectGroup"/>
     public class TileLayer
     {
         /// <summary>
@@ -43,10 +46,12 @@ namespace MapImporter
         /// <summary>
         /// Contains the global ids for the layer.
         /// </summary>
+        /// <see cref="MapImporter.Data"/>
         public Data Data { set; get; }
         /// <summary>
         /// Custom properties for the layer object.
         /// </summary>
+        /// <see cref="MapImporter.Properties"/>
         public Properties Props { set; get; }
 
         /// <summary>
@@ -54,17 +59,18 @@ namespace MapImporter
         /// </summary>
         public TileLayer()
         {
+            Props = new Properties();
         }
 
         /// <summary>
         /// Constructor for TileLayer class.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="opacity"></param>
+        /// <param name="name">The name of the layer.</param>
+        /// <param name="x">The x coordinate of the layer in tiles.</param>
+        /// <param name="y">The y coordinate of the layer in tiles.</param>
+        /// <param name="width">The width of the layer in tiles.</param>
+        /// <param name="height">The height of the layer in tiles.</param>
+        /// <param name="opacity">The opacity of the layer as a value from 0 to 1.</param>
         public TileLayer(string name, int x, int y, int width, int height, float opacity)
         {
             Name = name;
@@ -73,6 +79,7 @@ namespace MapImporter
             Width = width;
             Height = height;
             Opacity = opacity;
+            Props = new Properties();
         }
     }
 }

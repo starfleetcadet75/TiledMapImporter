@@ -6,6 +6,8 @@ namespace MapImporter
     /// <summary>
     /// A layer consisting of a single image.
     /// </summary>
+    /// <see cref="TileLayer"/>
+    /// <see cref="ObjectGroup"/>
     public class ImageLayer
     {
         /// <summary>
@@ -39,10 +41,12 @@ namespace MapImporter
         /// <summary>
         /// The image used in the layer.
         /// </summary>
+        /// <see cref="MapImporter.Image"/>
         public Image Image { set; get; }
         /// <summary>
         /// Custom properties for the image layer.
         /// </summary>
+        /// <see cref="MapImporter.Properties"/>
         public Properties Props { set; get; }
 
         /// <summary>
@@ -56,9 +60,9 @@ namespace MapImporter
         /// <summary>
         /// Draws the Image that is part of this ImageLayer.
         /// </summary>
-        /// <param name="spriteBatch"></param>
-        /// <param name="location"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="spriteBatch">a SpriteBatch object for drawing.</param>
+        /// <param name="location">The location to draw the ImageLayer.</param>
+        /// <param name="startIndex">The start index.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex)
         {
 

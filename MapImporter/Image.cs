@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace MapImporter
 {
     /// <summary>
-    /// An image object that can be used like a tileset
+    /// An image object that can be used like a tileset.
     /// </summary>
     public class Image
     {
