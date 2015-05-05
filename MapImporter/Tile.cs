@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace MapImporter
 {
@@ -55,6 +56,124 @@ namespace MapImporter
             Id = id;
             Gid = gid;
             Location = location;
+        }
+
+        /// <summary>
+        /// Equality operator for Tile objects.
+        /// No Tile should have the same global id
+        /// properties, therefore these alone are
+        /// used for equality operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the two Tile objects are equal.</returns>
+        public bool operator ==(Tile var1, Tile var2)
+        {
+            if (var1.Gid == var2.Gid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Equality operator for Tile objects.
+        /// No Tile should have the same global id
+        /// properties, therefore these alone are
+        /// used for equality operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the two Tile objects are equal.</returns>
+        public bool operator !=(Tile var1, Tile var2)
+        {
+            if (!(var1 == var2))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The global id property for Tiles is used to compare
+        /// Tiles for greater than and less than operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the first Tile has a lower global id than the second Tile.</returns>
+        public bool operator <(Tile var1, Tile var2)
+        {
+            if (var1.Gid < var2.Gid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The global id property for Tiles is used to compare
+        /// Tiles for greater than and less than operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the first Tile has a lower global id than the second Tile.</returns>
+        public bool operator >(Tile var1, Tile var2)
+        {
+            if (var1.Gid > var2.Gid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The global id property for Tiles is used to compare
+        /// Tiles for greater than and less than operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the first Tile has a higher global id
+        /// than the second Tile or whether they are equal.</returns>
+        public bool operator <=(Tile var1, Tile var2)
+        {
+            if ((var1.Gid < var2.Gid) || (var1.Gid == var2.Gid))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The global id property for Tiles is used to compare
+        /// Tiles for greater than and less than operations.
+        /// </summary>
+        /// <param name="var1">The first Tile object to compare.</param>
+        /// <param name="var2">The second Tile object to compare.</param>
+        /// <returns>Whether the first Tile has a lower global id
+        /// than the second Tile or whether they are equal.</returns>
+        public bool operator >=(Tile var1, Tile var2)
+        {
+            if ((var1.Gid > var2.Gid) || (var1.Gid == var2.Gid))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Overrided Equals method for Tile objects.
+        /// </summary>
+        /// <param name="var">The Tile object to compare.</param>
+        /// <returns>Whether the Tiles are equal.</returns>
+        public override bool Equals(Tile var)
+        {
+            if (var.Gid == Gid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Overrided ToString method for Tile objects.
+        /// </summary>
+        /// <returns>The string representation of Tileset objects.</returns>
+        public override string ToString()
+        {
+            return String.Format("(Global id: {0})", Gid);
         }
     }
 }

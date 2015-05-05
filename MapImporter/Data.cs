@@ -35,10 +35,9 @@ namespace MapImporter
             {
                 return TileData[i, j];
             }
-            catch (IndexOutOfRangeException)
+            catch
             {
-                Console.Write("ERROR: Class=Data --- Tried to access a value in Data index that does not exist" + "\n");
-                return 0;
+                throw new IndexOutOfRangeException("\nIndex out of Range in TileData.");
             }
         }
 
@@ -49,15 +48,15 @@ namespace MapImporter
         /// <param name="newVal">The new gid to be stored at this position</param>
         /// <param name="i">The index in the i direction</param>
         /// <param name="j">The index in the j direction</param>
-        public void ChangeTileDataAt(int newVal, int i, int j)
+        public void SetTileDataAt(int newVal, int i, int j)
         {
             try
             {
                 TileData[i, j] = newVal;
             }
-            catch (IndexOutOfRangeException)
+            catch
             {
-                Console.Write("ERROR: Class=Data --- Tried to assign a value to an index that does not exist" + "\n");
+                throw new IndexOutOfRangeException("\nIndex out of Range in TileData.");
             }
         }
 

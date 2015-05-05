@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MapImporter
 {
     /// <summary>
-    /// Tileset object that contains the tiles used in a map
+    /// Tileset object that contains the tiles used in a map.
     /// </summary>
     public class Tileset
     {
         /// <summary>
-        /// The first global tile id of this tileset
-        /// . This global id maps to the first tile in this tileset.
+        /// The first global tile id of this tileset.
+        /// This global id maps to the first tile in this tileset.
         /// </summary>
         public int Firstgid { set; get; }
         /// <summary>
@@ -98,14 +99,14 @@ namespace MapImporter
         /// <returns>The tile with the given local id</returns>
         public Tile GetTileByLocalId(int id)
         {
-            foreach (Tile t in Tiles)
+            try
             {
-                if (t.Id == id)
-                {
-                    return t;
-                }
+                return Tiles.Find(item => item.Id == id);
             }
-            return null;
+            catch
+            {
+                throw new Exception("\nCould not find Tile by local id.");
+            }
         }
 
         /// <summary>
@@ -115,14 +116,14 @@ namespace MapImporter
         /// <returns>The tile with the given global id</returns>
         public Tile GetTile(int gid)
         {
-            foreach (Tile t in Tiles)
+            try
             {
-                if (t.Gid == gid)
-                {
-                    return t;
-                }
+                return Tiles.Find(item => item.Gid == gid);
             }
-            return null;
+            catch
+            {
+                throw new Exception("\nCould not find Tile by global id.");
+            }
         }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace MapImporter
         /// </summary>
         /// <param name="propertyName">The name of the property to search for</param>
         /// <returns>The tiles with the given property</returns>
-        public List<Tile> GetTilesWithProperty(string propertyName)
+        public List<Tile> GetTile(string propertyName)
         {
             List<Tile> tilesWithProperty = new List<Tile>();
 
@@ -150,6 +151,144 @@ namespace MapImporter
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Returns true if the Tile with the given
+        /// global id is part of this Tileset object.
+        /// </summary>
+        /// <param name="gid">The global id of the Tile to find.</param>
+        /// <returns>Whether or not the Tile object is conatined in this Tileset.</returns>
+        public bool Contains(int gid)
+        {
+            if (Tiles.Find(item => item.Gid == gid) != null)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Equality operator for Tileset objects.
+        /// No Tileset should have the same first global id
+        /// properties, therefore these alone are used for
+        /// equality operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the two Tileset objects are equal.</returns>
+        public bool operator ==(Tileset var1, Tileset var2)
+        {
+            if (var1.Firstgid == var2.Firstgid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Inequality operator for Tileset objects.
+        /// No Tileset should have the same first global id
+        /// properties, therefore these alone are used for
+        /// equality operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the two Tileset objects are equal.</returns>
+        public bool operator !=(Tileset var1, Tileset var2)
+        {
+            if (!(var1.Firstgid == var2.Firstgid))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The first global id property for Tilesets is used
+        /// to compare Tilesets for greater than and less than
+        /// operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the first Tileset has a lower first
+        /// global id than the second Tileset</returns>
+        public bool operator <(Tileset var1, Tileset var2)
+        {
+            if (var1.Firstgid < var2.Firstgid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The first global id property for Tilesets is used
+        /// to compare Tilesets for greater than and less than
+        /// operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the first Tileset has a larger first
+        /// global id than the second Tileset</returns>
+        public bool operator >(Tileset var1, Tileset var2)
+        {
+            if (var1.Firstgid > var2.Firstgid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The first global id property for Tilesets is used
+        /// to compare Tilesets for greater than and less than
+        /// operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the first Tileset has a higher first global id
+        /// than the second Tileset or whether they are equal</returns>
+        public bool operator <=(Tileset var1, Tileset var2)
+        {
+            if ((var1.Firstgid < var2.Firstgid) || (var1.Firstgid == var2.Firstgid))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// The first global id property for Tilesets is used
+        /// to compare Tilesets for greater than and less than
+        /// operations.
+        /// </summary>
+        /// <param name="var1">The first Tileset object to compare.</param>
+        /// <param name="var2">The second Tileset object to compare.</param>
+        /// <returns>Whether the first Tileset has a lower first global id
+        /// than the second Tileset or whether they are equal</returns>
+        public bool operator <=(Tileset var1, Tileset var2)
+        {
+            if ((var1.Firstgid > var2.Firstgid) || (var1.Firstgid == var2.Firstgid))
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Overrided Equals method for Tileset objects.
+        /// </summary>
+        /// <param name="var">The Tileset object to compare.</param>
+        /// <returns>Whether the Tilesets are equal.</returns>
+        public override bool Equals(Tileset var)
+        {
+            if (var.Firstgid == Firstgid)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Overrided ToString method for Tileset objects.
+        /// </summary>
+        /// <returns>The string representation of Tileset objects.</returns>
+        public override string ToString()
+        {
+            return String.Format("({0}, {1}, {2})", Firstgid, Name, Source);
         }
     }
 }

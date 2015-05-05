@@ -194,7 +194,7 @@ namespace MapImporter
         /// <returns>The Tile in the Map with the given global id</returns>
         public Tile GetTile(int gid)
         {
-            Tileset t = GetTilesetWithGid(gid);
+            Tileset t = GetTileset(gid);
             return t.GetTile(gid);
         }
 
@@ -219,26 +219,14 @@ namespace MapImporter
         /// <returns>The tileset with the given name</returns>
         public Tileset GetTileset(string name)
         {
-            foreach (Tileset t in Tilesets)
+            try
             {
-                if (t.Name == name)
-                {
-                    return t;
-                }
+                return Tilesets.Find(item => item.Name == name);
             }
-            return null;
-        }
-
-        /// <summary>
-        /// Returns the tileset at the given index in the tileset list.
-        /// </summary>
-        /// <param name="val">The index of the tileset to search for</param>
-        /// <returns>The tileset at the given index</returns>
-        public Tileset GetTileset(int val)
-        {
-            if (Tilesets[val] == null)
-                throw new IndexOutOfRangeException();
-            return Tilesets[val];
+            catch
+            {
+                throw new Exception("\nCould not find Tileset.");
+            }
         }
 
         /// <summary>
@@ -246,17 +234,13 @@ namespace MapImporter
         /// </summary>
         /// <param name="gid">The global id to search for</param>
         /// <returns>The tileset that contains the tile with the given gid</returns>
-        public Tileset GetTilesetWithGid(int gid)
+        public Tileset GetTileset(int gid)
         {
             foreach (Tileset t in Tilesets)
-            {
-                if (t.GetTile(gid) != null)
-                {
+                if (t.Contains(gid))
                     return t;
-                }
-            }
-            new Exception("");
-            return null;
+
+            throw new Exception("\nCould not find Tileset.");
         }
 
         /// <summary>
@@ -277,14 +261,14 @@ namespace MapImporter
         /// <returns>The tile layer with the given name</returns>
         public TileLayer GetTileLayer(string name)
         {
-            foreach (TileLayer l in TileLayers)
+            try
             {
-                if (l.Name == name)
-                {
-                    return l;
-                }
+                return TileLayers.Find(item => item.Name == name);
             }
-            return null;
+            catch
+            {
+                throw new Exception("\nCould not find the given TileLayer.");
+            }
         }
 
         /// <summary>
@@ -306,14 +290,14 @@ namespace MapImporter
         /// <returns>The object group with the given name</returns>
         public ObjectGroup GetObjectGroup(string name)
         {
-            foreach (ObjectGroup obj in ObjectGroups)
+            try
             {
-                if (obj.Name == name)
-                {
-                    return obj;
-                }
+                return ObjectGroups.Find(item => item.Name == name);
             }
-            return null;
+            catch
+            {
+                throw new Exception("\nCould not find the given ObjectGroup.");
+            }
         }
 
         /// <summary>
@@ -335,14 +319,14 @@ namespace MapImporter
         /// <returns>The image layer with the given name</returns>
         public ImageLayer GetImageLayer(string name)
         {
-            foreach (ImageLayer l in ImageLayers)
+            try
             {
-                if (l.Name == name)
-                {
-                    return l;
-                }
+                return ImageLayers.Find(item => item.Name == name);
             }
-            return null;
+            catch
+            {
+                throw new Exception("\nCould not find the given ImageLayer.");
+            }
         }
 
         /// <summary>
@@ -622,7 +606,7 @@ namespace MapImporter
                 //If a gid of 0 occurs, it means that for this layer there is no tile placed in that location
                 if (gid != 0)
                 {
-                    Tileset tileset = GetTilesetWithGid(gid); //Find the tileset with the tile that we want to draw
+                    Tileset tileset = GetTileset(gid); //Find the tileset with the tile that we want to draw
 
                     //If the tileset has drawing offsets applied
                     if (tileset.TileOffset != null)

@@ -110,6 +110,21 @@ namespace MapImporter
         public Image Image { set; get; }
 
         /// <summary>
+        /// A Texture to be used for drawing objects.
+        /// </summary>
+        private static Texture2D pixel;
+
+        /// <summary>
+        /// Creates the pixel to use for drawing objects.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        private static void CreateThePixel(SpriteBatch spriteBatch)
+        {
+            pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            pixel.SetData(new[] { Color.White });
+        }
+
+        /// <summary>
         /// Constructor for the Object class.
         /// </summary>
         public Object()
@@ -159,9 +174,6 @@ namespace MapImporter
         /// <param name="opacity">The opacity or transparency of the Object. Determined by its ObjectGroup.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Color color, float opacity)
         {
-            Texture2D pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
-            pixel.SetData(new[] { color });
-
             switch (ObjType)
             {
                 case ObjectType.Rectangle:
@@ -180,6 +192,8 @@ namespace MapImporter
 
         private void DrawRectangle(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, Texture2D pixel, Color color, float opacity)
         {
+            if (pixel == null)
+                CreateThePixel(spriteBatch);
 
             spriteBatch.Draw(pixel, new Rectangle((int)X, (int)Y, (int)Width, (int)Height), color * opacity);
         }
