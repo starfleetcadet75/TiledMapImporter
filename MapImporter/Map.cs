@@ -88,6 +88,9 @@ namespace MapImporter
         /// <summary>
         /// Constructor for LayerData structure.
         /// </summary>
+        /// <param name="index">The Layer's index in the overall layer list.</param>
+        /// <param name="localIndex">The Layer's index in it's specific layer list.</param>
+        /// <param name="layerType">The type of this specific layer.</param>
         public LayerData(int index, int localIndex, LayerType layerType)
         {
             Index = index;
@@ -429,11 +432,10 @@ namespace MapImporter
         /// <example>
         /// If your project stores all Tileset textures inside a "tilesets" folder in your Content directory,
         /// you could alter the filepath to automatically look in that folder.
-        /// <code>foreach (Tileset t in Tilesets)
-        /// {
-        ///     t.Image.Texture = content.Load<Texture2D>("tilesets/" + t.Image.Source);
-        /// }</code>
         /// </example>
+        /// <code>
+        /// public void LoadTilesetTextures(ContentManager content);
+        /// </code>
         /// <param name="content">A ContentManager object is needed in order to load the textures.</param>
         public void LoadTilesetTextures(ContentManager content)
         {

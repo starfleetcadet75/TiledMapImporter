@@ -350,6 +350,9 @@
             <summary>
             Constructor for LayerData structure.
             </summary>
+            <param name="index">The Layer's index in the overall layer list.</param>
+            <param name="localIndex">The Layer's index in it's specific layer list.</param>
+            <param name="layerType">The type of this specific layer.</param>
         </member>
         <member name="T:MapImporter.Map">
             <summary>
@@ -489,7 +492,26 @@
             <param name="layerData">The layerData object to be moved.</param>
             <see cref="T:MapImporter.LayerData"/>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)" -->
+        <member name="M:MapImporter.Map.LoadTilesetTextures(Microsoft.Xna.Framework.Content.ContentManager)">
+            <summary>
+            Loads the Texture objects required for each Tileset.
+            </summary>
+            <remarks>
+            This method can be a common cause of NullReferenceExceptions. If the Tileset
+            textures are not properly loaded, the Map object cannot be drawn. If the files
+            cannot be located in the project, there will be a Null Reference.
+            </remarks>
+            <example>
+            If your project stores all Tileset textures inside a "tilesets" folder in your Content directory,
+            you could alter the filepath to automatically look in that folder.
+            </example>
+            
+            To call this method:
+            <code>
+            public void LoadTilesetTextures(ContentManager content);
+            </code>
+            <param name="content">A ContentManager object is needed in order to load the textures.</param>
+        </member>
         <member name="M:MapImporter.Map.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Vector2)">
             <summary>
             Draws all visible layers of the Map to the screen.

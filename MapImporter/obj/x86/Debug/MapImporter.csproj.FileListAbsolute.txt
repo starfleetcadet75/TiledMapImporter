@@ -8,4 +8,3 @@ C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Debug\MapImporte
 C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\bin\x86\Debug\MapImporter.pdb
 C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Debug\MapImporter.dll
 C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Debug\MapImporter.pdb
-C:\Users\Alex\Source\Repos\TiledMapImporter\MapImporter\obj\x86\Debug\MapImporter.csprojResolveAssemblyReference.cache
