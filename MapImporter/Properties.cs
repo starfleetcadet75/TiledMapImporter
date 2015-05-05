@@ -25,7 +25,7 @@ namespace MapImporter
         /// Finds the value with the specified name and returns it.
         /// </summary>
         /// <param name="name">The name of the property to find.</param>
-        /// <return>The value specified by the key.</return>
+        /// <returns>The value specified by the key.</returns>
         public string GetValue(string name)
         {
             if (PropertiesList.ContainsKey(name))
