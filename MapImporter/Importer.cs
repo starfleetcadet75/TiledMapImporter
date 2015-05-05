@@ -40,18 +40,16 @@ namespace MapImporter
             }
             catch (FileNotFoundException)
             {
-                Console.Write("ERROR: Class=Importer --- Map file was not found --- Value=" + filepath + "\n");
-                return null;
+                throw new FileNotFoundException("Map file was not found --- Value=" + filepath + "\n");
             }
             catch (NullReferenceException)
             {
-                Console.Write("ERROR: Class=Importer --- Null reference found ---" + "\n");
-                return null;
+                throw new NullReferenceException("Null reference found during map parsing.\n");
             }
-            /*catch
+            catch
             {
-                throw new Exception("ERROR: Class=Importer --- General exception found during Importing process ---" + "\n");
-            }*/
+                throw new Exception("General exception found during Importing process.\n");
+            }
         }
 
         /// <summary>
