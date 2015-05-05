@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Angle property" Url="html/e49bb25b-300b-b336-8c48-10e33af72482.htm" />
+  <HelpKINode Title="BackgroundColor property" Url="html/2af81dfc-fa73-225b-6a57-b799b2bded71.htm" />
+  <HelpKINode Title="Bounds property" Url="html/4b4f0623-7577-fc10-30ca-50747bd25b26.htm" />
+  <HelpKINode Title="Color property" Url="html/eaeb730f-b62d-90d2-0ab9-37f18e2f27f5.htm" />
+  <HelpKINode Title="Contains method" Url="html/bd9d91b2-5b16-d381-b353-2435f1a4b347.htm" />
+  <HelpKINode Title="Data class">
+    <HelpKINode Title="Data Class" Url="html/12c458db-abf8-5215-6dfc-504db018ed23.htm" />
+    <HelpKINode Title="about Data class" Url="html/12c458db-abf8-5215-6dfc-504db018ed23.htm" />
+    <HelpKINode Title="constructor" Url="html/c35319c9-c273-b551-1698-28637a793cb9.htm" />
+    <HelpKINode Title="methods" Url="html/e787761b-9045-a124-0a72-fc32484bb644.htm" />
+    <HelpKINode Title="properties" Url="html/ca130215-aacd-cb59-47fc-9db623d8d6f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Data property" Url="html/80f0fdc5-dd17-c05e-660d-6f41757395ac.htm" />
+  <HelpKINode Title="Data.Data constructor" Url="html/c35319c9-c273-b551-1698-28637a793cb9.htm" />
+  <HelpKINode Title="Data.GetTileData method" Url="html/97bd3d89-87b6-fa3d-af1c-2a13126dd2db.htm" />
+  <HelpKINode Title="Data.PrintData method" Url="html/d0e78fff-5a4a-ec65-e632-1d9272905276.htm" />
+  <HelpKINode Title="Data.SetTileDataAt method" Url="html/73bc83d6-c2d8-ff84-7b6c-d08d09cb9e1d.htm" />
+  <HelpKINode Title="Data.TileData property" Url="html/c76e85ed-86f4-6bbc-518e-394030dc25b1.htm" />
+  <HelpKINode Title="Draw method">
+    <HelpKINode Title="ImageLayer.Draw Method " Url="html/be6b5b9b-4548-f968-2417-8d73e87aaa33.htm" />
+    <HelpKINode Title="Map.Draw Method " Url="html/2271b4e0-17cc-97cd-5423-931e556c9f25.htm" />
+    <HelpKINode Title="Object.Draw Method " Url="html/aeb96d59-f8ef-4b3e-d9ac-3bb3d7452db5.htm" />
+    <HelpKINode Title="ObjectGroup.Draw Method " Url="html/02e0a7c6-5adb-f19d-fe0e-2712d13ec26a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DrawLayer method" Url="html/e840bcf7-97f2-b7a2-76bc-f98d22603e2f.htm" />
+  <HelpKINode Title="DrawOrder enumeration" Url="html/5fc0d049-8e9e-32d0-7b8c-274d229ea65d.htm" />
+  <HelpKINode Title="DrawOrder property" Url="html/d0c96721-c5ad-da0b-1e26-f483faa97ae4.htm" />
+  <HelpKINode Title="Ellipse enumeration member" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="End property" Url="html/c5a9c119-cc0c-8a82-d864-0ba49411dc49.htm" />
+  <HelpKINode Title="Equals method">
+    <HelpKINode Title="Tile.Equals Method " Url="html/a5812fcc-59cd-b5de-1b66-4ee29fcffaeb.htm" />
+    <HelpKINode Title="Tileset.Equals Method " Url="html/9e4d74bb-156f-bcb3-d1fc-2016e0a83f8f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Firstgid property" Url="html/631ce8ca-6f1f-1751-512f-02a371946908.htm" />
+  <HelpKINode Title="Format property" Url="html/423c7fb2-18b9-a716-5de6-1e043f1d75c2.htm" />
+  <HelpKINode Title="FromPoints method" Url="html/687efc71-fba6-da02-e6ce-3c99731177ff.htm" />
+  <HelpKINode Title="GetImageLayer method" Url="html/5c1cb79d-c5f7-2c26-4c13-39320b345390.htm" />
+  <HelpKINode Title="GetObjectGroup method" Url="html/f10fb2d0-b603-4a93-1164-4ddf29bdc68f.htm" />
+  <HelpKINode Title="GetTile method">
+    <HelpKINode Title="Map.GetTile Method " Url="html/25f1731a-c3b4-b4fe-719e-09770e4a95c3.htm" />
+    <HelpKINode Title="Tileset.GetTile Method " Url="html/5a9f8092-89b9-7685-e993-746c2fefc0c9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetTileByLocalId method" Url="html/7249cbc0-f267-c81f-4ea8-4a83717d0603.htm" />
+  <HelpKINode Title="GetTileData method" Url="html/97bd3d89-87b6-fa3d-af1c-2a13126dd2db.htm" />
+  <HelpKINode Title="GetTileLayer method" Url="html/7739ea0b-dbdd-f9e6-3f56-55fdfd108e03.htm" />
+  <HelpKINode Title="GetTileProps method" Url="html/42da6ec5-209f-4c9a-78c6-0ab415c5b5c5.htm" />
+  <HelpKINode Title="GetTileset method" Url="html/14df7fec-bfa7-7613-9934-455253ff8d2a.htm" />
+  <HelpKINode Title="GetValue method" Url="html/a099be0f-2108-7b4e-e21a-9783e9582b83.htm" />
+  <HelpKINode Title="Gid property">
+    <HelpKINode Title="Object.Gid Property " Url="html/3a699e8f-f8c7-3c77-22ec-76ade3cd08c0.htm" />
+    <HelpKINode Title="Tile.Gid Property " Url="html/804faea6-6f1b-7ef1-f436-0ec5b2b6225e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GreaterThan operator">
+    <HelpKINode Title="Tile.GreaterThan Operator " Url="html/455d35fc-0153-8bc7-8cf2-b7e1086f54dc.htm" />
+    <HelpKINode Title="Tileset.GreaterThan Operator " Url="html/34ca4fbd-777b-a8d3-ca6a-b09a5846c1bd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GreaterThanOrEqual operator">
+    <HelpKINode Title="Tile.GreaterThanOrEqual Operator " Url="html/63021a72-f4a7-6a37-dc09-ec3ae3d32f14.htm" />
+    <HelpKINode Title="Tileset.GreaterThanOrEqual Operator " Url="html/29c8c601-7410-fca5-0e57-b08e5fee1fab.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Height property">
+    <HelpKINode Title="Image.Height Property " Url="html/41e486b2-e6e6-5479-1018-1d851e0a56cf.htm" />
+    <HelpKINode Title="ImageLayer.Height Property " Url="html/d8b18d75-ab1c-eafd-7ed1-6e2a9b988bfe.htm" />
+    <HelpKINode Title="Map.Height Property " Url="html/485bee7f-17fc-4ceb-1b6b-0ca5c932b3cc.htm" />
+    <HelpKINode Title="Object.Height Property " Url="html/a6d2e10b-cf9d-0e01-9a22-64e4eaebea7e.htm" />
+    <HelpKINode Title="ObjectGroup.Height Property " Url="html/fd880b45-4bdb-f06a-809e-84f56cc422dc.htm" />
+    <HelpKINode Title="TileLayer.Height Property " Url="html/df54af5c-61ca-9852-9821-3812d71d6bec.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Id property">
+    <HelpKINode Title="Object.Id Property " Url="html/a15c22e4-9922-c479-8442-21c1fdf32bde.htm" />
+    <HelpKINode Title="Tile.Id Property " Url="html/97f62324-ac08-8fcd-d146-745b417cde7c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Image class">
+    <HelpKINode Title="Image Class" Url="html/e23b0098-c1a9-1a35-9f20-160f626e2021.htm" />
+    <HelpKINode Title="about Image class" Url="html/e23b0098-c1a9-1a35-9f20-160f626e2021.htm" />
+    <HelpKINode Title="constructor" Url="html/8a1ac677-f1b7-087f-356a-41819993b12e.htm" />
+    <HelpKINode Title="methods" Url="html/37afe8d3-ecb7-4bac-9dab-5cfd1bf477a7.htm" />
+    <HelpKINode Title="properties" Url="html/4533b9dd-b5d1-84bd-2c04-998ca5f7a808.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Image enumeration member" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="Image property">
+    <HelpKINode Title="ImageLayer.Image Property " Url="html/74b8dd4e-c455-deac-5f55-615de201f28d.htm" />
+    <HelpKINode Title="Object.Image Property " Url="html/1764d621-8368-84be-762a-0b58703da7d9.htm" />
+    <HelpKINode Title="Tileset.Image Property " Url="html/c7360120-430c-37f5-7cb4-a16cf23707f6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Image.Format property" Url="html/423c7fb2-18b9-a716-5de6-1e043f1d75c2.htm" />
+  <HelpKINode Title="Image.Height property" Url="html/41e486b2-e6e6-5479-1018-1d851e0a56cf.htm" />
+  <HelpKINode Title="Image.Image constructor" Url="html/8a1ac677-f1b7-087f-356a-41819993b12e.htm" />
+  <HelpKINode Title="Image.Source property" Url="html/c0cd570b-4314-a608-303b-1e0ad2d5df5b.htm" />
+  <HelpKINode Title="Image.Texture property" Url="html/25510c7f-e4de-c549-dff1-83a9e71b7193.htm" />
+  <HelpKINode Title="Image.Trans property" Url="html/fe32edc2-34f9-678c-1e52-00dcb659d05d.htm" />
+  <HelpKINode Title="Image.Width property" Url="html/3e856a6a-6bc8-952c-1cf0-ac25f223f590.htm" />
+  <HelpKINode Title="ImageLayer class">
+    <HelpKINode Title="ImageLayer Class" Url="html/5ff15cad-7fa0-b85d-2781-717b4f6f3f18.htm" />
+    <HelpKINode Title="about ImageLayer class" Url="html/5ff15cad-7fa0-b85d-2781-717b4f6f3f18.htm" />
+    <HelpKINode Title="constructor" Url="html/a811b98e-5744-7913-e17d-a59a559ef50a.htm" />
+    <HelpKINode Title="methods" Url="html/be2f2f35-a17f-e770-fc67-2a9bb8164e08.htm" />
+    <HelpKINode Title="properties" Url="html/2703fd09-b537-d9da-c2b2-a3efb911e217.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ImageLayer enumeration member" Url="html/74fcce2a-bf89-4c25-3fe7-5b2ee86fb473.htm" />
+  <HelpKINode Title="ImageLayer.Draw method" Url="html/be6b5b9b-4548-f968-2417-8d73e87aaa33.htm" />
+  <HelpKINode Title="ImageLayer.Height property" Url="html/d8b18d75-ab1c-eafd-7ed1-6e2a9b988bfe.htm" />
+  <HelpKINode Title="ImageLayer.Image property" Url="html/74b8dd4e-c455-deac-5f55-615de201f28d.htm" />
+  <HelpKINode Title="ImageLayer.ImageLayer constructor" Url="html/a811b98e-5744-7913-e17d-a59a559ef50a.htm" />
+  <HelpKINode Title="ImageLayer.Name property" Url="html/d4ece89c-829e-45db-6066-680107f23011.htm" />
+  <HelpKINode Title="ImageLayer.Opacity property" Url="html/ae39b56e-18cf-14ca-37a1-240d44455b2a.htm" />
+  <HelpKINode Title="ImageLayer.Props property" Url="html/785695e8-22d2-9007-7370-1c30e931dc39.htm" />
+  <HelpKINode Title="ImageLayer.Visible property" Url="html/731ba0d0-9753-05f9-be84-80d840e182ce.htm" />
+  <HelpKINode Title="ImageLayer.Width property" Url="html/9f599e38-0b4e-896c-1e2f-2d56fb939ce9.htm" />
+  <HelpKINode Title="ImageLayer.X property" Url="html/1ff0241b-6ea3-0c5c-5636-38bfbb10529a.htm" />
+  <HelpKINode Title="ImageLayer.Y property" Url="html/dc2784ab-81d3-31bd-0279-15bba14460fd.htm" />
+  <HelpKINode Title="ImageLayers property" Url="html/5fa69215-e5e1-ff75-ea24-34999cd2c62f.htm" />
+  <HelpKINode Title="Importer class">
+    <HelpKINode Title="Importer Class" Url="html/0dc46878-8759-852a-b26f-18dad65fd67a.htm" />
+    <HelpKINode Title="about Importer class" Url="html/0dc46878-8759-852a-b26f-18dad65fd67a.htm" />
+    <HelpKINode Title="constructor" Url="html/400ff484-e35a-86d2-006d-5e1a5585879e.htm" />
+    <HelpKINode Title="methods" Url="html/edaafafc-2281-2553-95bd-66ed6ba80c6b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Importer.Importer constructor" Url="html/400ff484-e35a-86d2-006d-5e1a5585879e.htm" />
+  <HelpKINode Title="Importer.ImportMap method" Url="html/1e583d0b-69c7-f110-241f-df53433c1f26.htm" />
+  <HelpKINode Title="ImportMap method" Url="html/1e583d0b-69c7-f110-241f-df53433c1f26.htm" />
+  <HelpKINode Title="Index field" Url="html/f5087640-bb74-44d7-8ea7-ce7047ffaab1.htm" />
+  <HelpKINode Title="Isometric enumeration member" Url="html/80b9903f-b7a3-e38b-be48-35ea1708c550.htm" />
+  <HelpKINode Title="LayerData structure">
+    <HelpKINode Title="LayerData Structure" Url="html/6f699ee5-994c-ccf9-9b0c-5b12ca8054fb.htm" />
+    <HelpKINode Title="about LayerData structure" Url="html/6f699ee5-994c-ccf9-9b0c-5b12ca8054fb.htm" />
+    <HelpKINode Title="constructor" Url="html/c2db7f07-d42c-61fd-2d0c-eacdd3fbb83d.htm" />
+    <HelpKINode Title="fields" Url="html/eaefaf2c-92f9-2314-2dca-465596eeb7c7.htm" />
+    <HelpKINode Title="methods" Url="html/d279c75b-88dc-18c6-e07b-43f24164a62b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LayerData.Index field" Url="html/f5087640-bb74-44d7-8ea7-ce7047ffaab1.htm" />
+  <HelpKINode Title="LayerData.LayerData constructor" Url="html/c2db7f07-d42c-61fd-2d0c-eacdd3fbb83d.htm" />
+  <HelpKINode Title="LayerData.LayerType field" Url="html/3da7b66e-7930-d871-8763-c11a2bc12437.htm" />
+  <HelpKINode Title="LayerData.LocalIndex field" Url="html/261336c6-ada2-a904-dd88-cfbbb0369cc1.htm" />
+  <HelpKINode Title="LayerDataList property" Url="html/1fd0b97e-e6d8-5514-614b-d52fde209dad.htm" />
+  <HelpKINode Title="LayerToBottom method" Url="html/c91bf54e-3c8a-25e1-454c-1ae41479f096.htm" />
+  <HelpKINode Title="LayerToTop method" Url="html/f9bc47b6-bd93-100d-041a-948b655b7cb3.htm" />
+  <HelpKINode Title="LayerType enumeration" Url="html/74fcce2a-bf89-4c25-3fe7-5b2ee86fb473.htm" />
+  <HelpKINode Title="LayerType field" Url="html/3da7b66e-7930-d871-8763-c11a2bc12437.htm" />
+  <HelpKINode Title="LeftDown enumeration member" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="LeftUp enumeration member" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="Length property" Url="html/6b52e5b4-1c50-06b6-b4af-7ece8be8fa35.htm" />
+  <HelpKINode Title="LessThan operator">
+    <HelpKINode Title="Tile.LessThan Operator " Url="html/f3f72aee-14e7-ddf2-bead-8760e925792d.htm" />
+    <HelpKINode Title="Tileset.LessThan Operator " Url="html/ffbe59fc-bcf5-415a-f613-a7cb45e23022.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LessThanOrEqual operator">
+    <HelpKINode Title="Tile.LessThanOrEqual Operator " Url="html/2021fcd5-a8b0-0179-de31-f6f0fe961302.htm" />
+    <HelpKINode Title="Tileset.LessThanOrEqual Operator " Url="html/c99f43c5-eef9-ec02-d62e-551c409565ed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Line structure">
+    <HelpKINode Title="Line Structure" Url="html/fbffa0a9-1f42-6198-5d68-77902f37b293.htm" />
+    <HelpKINode Title="about Line structure" Url="html/fbffa0a9-1f42-6198-5d68-77902f37b293.htm" />
+    <HelpKINode Title="methods" Url="html/3c9b69b5-b155-a8c5-2638-2eece29a5f7d.htm" />
+    <HelpKINode Title="properties" Url="html/fedb48db-345b-c349-59cb-6e00d2964ab2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Line.Angle property" Url="html/e49bb25b-300b-b336-8c48-10e33af72482.htm" />
+  <HelpKINode Title="Line.End property" Url="html/c5a9c119-cc0c-8a82-d864-0ba49411dc49.htm" />
+  <HelpKINode Title="Line.FromPoints method" Url="html/687efc71-fba6-da02-e6ce-3c99731177ff.htm" />
+  <HelpKINode Title="Line.Length property" Url="html/6b52e5b4-1c50-06b6-b4af-7ece8be8fa35.htm" />
+  <HelpKINode Title="Line.Start property" Url="html/9ff7ff44-dbb1-c9b4-8c22-d659e7bca4b6.htm" />
+  <HelpKINode Title="Lines property" Url="html/a6cb64f7-4316-dd2c-cbb8-ec0ec3420c4e.htm" />
+  <HelpKINode Title="LoadTilesetTextures method" Url="html/718a89ad-7a2c-e7f2-cf0b-3fae5f60fda3.htm" />
+  <HelpKINode Title="LocalIndex field" Url="html/261336c6-ada2-a904-dd88-cfbbb0369cc1.htm" />
+  <HelpKINode Title="Location property" Url="html/35cc37ae-c579-7a67-83ee-baea7e348dd7.htm" />
+  <HelpKINode Title="Manual enumeration member" Url="html/5fc0d049-8e9e-32d0-7b8c-274d229ea65d.htm" />
+  <HelpKINode Title="Map class">
+    <HelpKINode Title="Map Class" Url="html/28dea7df-2fa6-77d8-433d-d1e831947ed5.htm" />
+    <HelpKINode Title="about Map class" Url="html/28dea7df-2fa6-77d8-433d-d1e831947ed5.htm" />
+    <HelpKINode Title="constructor" Url="html/44018d78-67c1-3cb6-35aa-1ba75a093312.htm" />
+    <HelpKINode Title="methods" Url="html/442ddcc2-d830-b9e6-887e-761bace92098.htm" />
+    <HelpKINode Title="properties" Url="html/ea478069-3bdd-1f66-cd7a-e97531e1c50f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Map.BackgroundColor property" Url="html/2af81dfc-fa73-225b-6a57-b799b2bded71.htm" />
+  <HelpKINode Title="Map.Draw method" Url="html/2271b4e0-17cc-97cd-5423-931e556c9f25.htm" />
+  <HelpKINode Title="Map.DrawLayer method" Url="html/e840bcf7-97f2-b7a2-76bc-f98d22603e2f.htm" />
+  <HelpKINode Title="Map.GetImageLayer method" Url="html/5c1cb79d-c5f7-2c26-4c13-39320b345390.htm" />
+  <HelpKINode Title="Map.GetObjectGroup method" Url="html/f10fb2d0-b603-4a93-1164-4ddf29bdc68f.htm" />
+  <HelpKINode Title="Map.GetTile method" Url="html/25f1731a-c3b4-b4fe-719e-09770e4a95c3.htm" />
+  <HelpKINode Title="Map.GetTileLayer method" Url="html/7739ea0b-dbdd-f9e6-3f56-55fdfd108e03.htm" />
+  <HelpKINode Title="Map.GetTileProps method" Url="html/42da6ec5-209f-4c9a-78c6-0ab415c5b5c5.htm" />
+  <HelpKINode Title="Map.GetTileset method" Url="html/14df7fec-bfa7-7613-9934-455253ff8d2a.htm" />
+  <HelpKINode Title="Map.Height property" Url="html/485bee7f-17fc-4ceb-1b6b-0ca5c932b3cc.htm" />
+  <HelpKINode Title="Map.ImageLayers property" Url="html/5fa69215-e5e1-ff75-ea24-34999cd2c62f.htm" />
+  <HelpKINode Title="Map.LayerDataList property" Url="html/1fd0b97e-e6d8-5514-614b-d52fde209dad.htm" />
+  <HelpKINode Title="Map.LayerToBottom method" Url="html/c91bf54e-3c8a-25e1-454c-1ae41479f096.htm" />
+  <HelpKINode Title="Map.LayerToTop method" Url="html/f9bc47b6-bd93-100d-041a-948b655b7cb3.htm" />
+  <HelpKINode Title="Map.LoadTilesetTextures method" Url="html/718a89ad-7a2c-e7f2-cf0b-3fae5f60fda3.htm" />
+  <HelpKINode Title="Map.Map constructor" Url="html/44018d78-67c1-3cb6-35aa-1ba75a093312.htm" />
+  <HelpKINode Title="Map.NextObjectId property" Url="html/eef2464c-2d03-7c8a-e338-58f7151b466a.htm" />
+  <HelpKINode Title="Map.ObjectGroups property" Url="html/acc510db-8c31-7a07-8a33-da845e82f024.htm" />
+  <HelpKINode Title="Map.Orientation property" Url="html/0143e5dc-83eb-b952-1dab-87c1433c3a56.htm" />
+  <HelpKINode Title="Map.Props property" Url="html/c0a62158-1d87-f40a-22b5-e1b456962b47.htm" />
+  <HelpKINode Title="Map.RenderOrder property" Url="html/44c6c7bd-adc8-48bd-dccc-2d3dcf66c149.htm" />
+  <HelpKINode Title="Map.TileHeight property" Url="html/d9b23d7c-ee12-00be-1d08-121ba2f2a518.htm" />
+  <HelpKINode Title="Map.TileLayers property" Url="html/e41e3d36-1dc2-d5f6-9542-35949d91e449.htm" />
+  <HelpKINode Title="Map.Tilesets property" Url="html/743c9916-9753-352e-3030-d38edf6cf0d2.htm" />
+  <HelpKINode Title="Map.TileWidth property" Url="html/3686fa7d-4142-0222-cdb5-219b5ebd0dd4.htm" />
+  <HelpKINode Title="Map.TranslateScreenToMap method" Url="html/9f642fc3-0740-6874-9b7c-6677c9aecf24.htm" />
+  <HelpKINode Title="Map.Version property" Url="html/af7efa0d-5033-69f9-f387-2f40580a2424.htm" />
+  <HelpKINode Title="Map.Width property" Url="html/a45e2f11-c28a-a63b-a037-bf3b83ba2373.htm" />
+  <HelpKINode Title="MapImporter namespace" Url="html/5cf386e2-65b1-4678-0123-38af21b1cd17.htm" />
+  <HelpKINode Title="MapImporter.Data class" Url="html/12c458db-abf8-5215-6dfc-504db018ed23.htm" />
+  <HelpKINode Title="MapImporter.DrawOrder enumeration" Url="html/5fc0d049-8e9e-32d0-7b8c-274d229ea65d.htm" />
+  <HelpKINode Title="MapImporter.Image class" Url="html/e23b0098-c1a9-1a35-9f20-160f626e2021.htm" />
+  <HelpKINode Title="MapImporter.ImageLayer class" Url="html/5ff15cad-7fa0-b85d-2781-717b4f6f3f18.htm" />
+  <HelpKINode Title="MapImporter.Importer class" Url="html/0dc46878-8759-852a-b26f-18dad65fd67a.htm" />
+  <HelpKINode Title="MapImporter.LayerData structure" Url="html/6f699ee5-994c-ccf9-9b0c-5b12ca8054fb.htm" />
+  <HelpKINode Title="MapImporter.LayerType enumeration" Url="html/74fcce2a-bf89-4c25-3fe7-5b2ee86fb473.htm" />
+  <HelpKINode Title="MapImporter.Line structure" Url="html/fbffa0a9-1f42-6198-5d68-77902f37b293.htm" />
+  <HelpKINode Title="MapImporter.Map class" Url="html/28dea7df-2fa6-77d8-433d-d1e831947ed5.htm" />
+  <HelpKINode Title="MapImporter.Object class" Url="html/aa789ca3-9234-0a94-6d00-5be93edea350.htm" />
+  <HelpKINode Title="MapImporter.ObjectGroup class" Url="html/31e3e143-3b08-ce33-44a3-90da939692bd.htm" />
+  <HelpKINode Title="MapImporter.ObjectType enumeration" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="MapImporter.Orientation enumeration" Url="html/80b9903f-b7a3-e38b-be48-35ea1708c550.htm" />
+  <HelpKINode Title="MapImporter.Polygon class" Url="html/046348b3-0950-68c6-c79b-b7abe1111139.htm" />
+  <HelpKINode Title="MapImporter.Polyline class" Url="html/61dabf9a-2ad1-52cc-8398-2f660b88e4e9.htm" />
+  <HelpKINode Title="MapImporter.Properties class" Url="html/468c91a1-5f3c-6828-d5cd-ee0e0e09d775.htm" />
+  <HelpKINode Title="MapImporter.RenderOrder enumeration" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="MapImporter.Terrain class" Url="html/48b33fc1-e611-edb2-df1f-07f89ac98c08.htm" />
+  <HelpKINode Title="MapImporter.TerrainTypes class" Url="html/8ebf01a7-1ac6-835a-48d7-f43f89d7aaca.htm" />
+  <HelpKINode Title="MapImporter.Tile class" Url="html/7119c672-c48e-4120-a391-22b6eafa71a7.htm" />
+  <HelpKINode Title="MapImporter.TileLayer class" Url="html/ce242fd3-c973-857c-8ec1-99dc4880aae2.htm" />
+  <HelpKINode Title="MapImporter.TileOffset class" Url="html/50b8dcb2-3a4a-13a0-ada7-a29b7ca94877.htm" />
+  <HelpKINode Title="MapImporter.Tileset class" Url="html/74418e86-e068-8efe-24bc-4caf8ee55a84.htm" />
+  <HelpKINode Title="Margin property" Url="html/ed2cffcd-9066-105b-5fc8-de686184c4c0.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="ImageLayer.Name Property " Url="html/d4ece89c-829e-45db-6066-680107f23011.htm" />
+    <HelpKINode Title="Object.Name Property " Url="html/be7966cf-daaf-d58a-e881-a9ec4e8c0e47.htm" />
+    <HelpKINode Title="ObjectGroup.Name Property " Url="html/28dbc79e-a36b-51a1-5060-0cf305ddf846.htm" />
+    <HelpKINode Title="Terrain.Name Property " Url="html/9e2693b9-3e44-4270-8cdf-bfe216a4e6c5.htm" />
+    <HelpKINode Title="TileLayer.Name Property " Url="html/744d5a35-6a96-219e-9b8a-ea1909ae1178.htm" />
+    <HelpKINode Title="Tileset.Name Property " Url="html/4082f822-61ae-e23e-464a-b68ff2f559a4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NextObjectId property" Url="html/eef2464c-2d03-7c8a-e338-58f7151b466a.htm" />
+  <HelpKINode Title="Object class">
+    <HelpKINode Title="Object Class" Url="html/aa789ca3-9234-0a94-6d00-5be93edea350.htm" />
+    <HelpKINode Title="about Object class" Url="html/aa789ca3-9234-0a94-6d00-5be93edea350.htm" />
+    <HelpKINode Title="constructor" Url="html/ed129a01-b40d-c7b6-55e0-b3d6ce29aa82.htm" />
+    <HelpKINode Title="methods" Url="html/35ee6ea6-db72-f90a-fbc6-b043a89c5a38.htm" />
+    <HelpKINode Title="properties" Url="html/e8ef6d6f-2a74-a31f-a4f6-d3b01b31d4d7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Object.Draw method" Url="html/aeb96d59-f8ef-4b3e-d9ac-3bb3d7452db5.htm" />
+  <HelpKINode Title="Object.Gid property" Url="html/3a699e8f-f8c7-3c77-22ec-76ade3cd08c0.htm" />
+  <HelpKINode Title="Object.Height property" Url="html/a6d2e10b-cf9d-0e01-9a22-64e4eaebea7e.htm" />
+  <HelpKINode Title="Object.Id property" Url="html/a15c22e4-9922-c479-8442-21c1fdf32bde.htm" />
+  <HelpKINode Title="Object.Image property" Url="html/1764d621-8368-84be-762a-0b58703da7d9.htm" />
+  <HelpKINode Title="Object.Name property" Url="html/be7966cf-daaf-d58a-e881-a9ec4e8c0e47.htm" />
+  <HelpKINode Title="Object.Object constructor" Url="html/ed129a01-b40d-c7b6-55e0-b3d6ce29aa82.htm" />
+  <HelpKINode Title="Object.ObjType property" Url="html/03f505fd-bbb2-6e09-9ffa-f6e23433c8be.htm" />
+  <HelpKINode Title="Object.Polygon property" Url="html/1af0fd73-fa78-0083-f7f1-5f58819a6c1c.htm" />
+  <HelpKINode Title="Object.Polyline property" Url="html/bf00b9bd-a545-cea3-2547-3bb43c0d5960.htm" />
+  <HelpKINode Title="Object.Props property" Url="html/badf68f3-b87d-ee94-ee69-7377d6f6bf0d.htm" />
+  <HelpKINode Title="Object.Rotation property" Url="html/4f6a5086-189b-96b2-5282-0c9a90a07a7d.htm" />
+  <HelpKINode Title="Object.Type property" Url="html/3362a81b-f04c-a123-fd97-fcd5cb53267d.htm" />
+  <HelpKINode Title="Object.Visible property" Url="html/8d052042-c1e4-51dc-e8cc-6a1eeeb93d0b.htm" />
+  <HelpKINode Title="Object.Width property" Url="html/7da34185-a5eb-0efe-d805-da36217add47.htm" />
+  <HelpKINode Title="Object.X property" Url="html/da06c09e-b4e4-b8e5-6d4e-16306aeaeda8.htm" />
+  <HelpKINode Title="Object.Y property" Url="html/a696e2ba-c2fc-f5e3-5df5-887ae07fe9f1.htm" />
+  <HelpKINode Title="ObjectGroup class">
+    <HelpKINode Title="ObjectGroup Class" Url="html/31e3e143-3b08-ce33-44a3-90da939692bd.htm" />
+    <HelpKINode Title="about ObjectGroup class" Url="html/31e3e143-3b08-ce33-44a3-90da939692bd.htm" />
+    <HelpKINode Title="constructor" Url="html/013512e3-a720-fe99-7101-ad3e05609152.htm" />
+    <HelpKINode Title="methods" Url="html/d4f5e173-353e-6457-35de-9a4534814da8.htm" />
+    <HelpKINode Title="properties" Url="html/2e50ba25-3e64-d1c9-6495-8b1b9bd2a040.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ObjectGroup enumeration member" Url="html/74fcce2a-bf89-4c25-3fe7-5b2ee86fb473.htm" />
+  <HelpKINode Title="ObjectGroup property" Url="html/fc80f7a1-0417-cc3d-7218-b7e36851d311.htm" />
+  <HelpKINode Title="ObjectGroup.Color property" Url="html/eaeb730f-b62d-90d2-0ab9-37f18e2f27f5.htm" />
+  <HelpKINode Title="ObjectGroup.Draw method" Url="html/02e0a7c6-5adb-f19d-fe0e-2712d13ec26a.htm" />
+  <HelpKINode Title="ObjectGroup.DrawOrder property" Url="html/d0c96721-c5ad-da0b-1e26-f483faa97ae4.htm" />
+  <HelpKINode Title="ObjectGroup.Height property" Url="html/fd880b45-4bdb-f06a-809e-84f56cc422dc.htm" />
+  <HelpKINode Title="ObjectGroup.Name property" Url="html/28dbc79e-a36b-51a1-5060-0cf305ddf846.htm" />
+  <HelpKINode Title="ObjectGroup.ObjectGroup constructor" Url="html/013512e3-a720-fe99-7101-ad3e05609152.htm" />
+  <HelpKINode Title="ObjectGroup.Objects property" Url="html/e6cf90f6-ed80-cca2-a47b-827eb6bd3ff5.htm" />
+  <HelpKINode Title="ObjectGroup.Opacity property" Url="html/5995fd31-8d8c-fc94-a6ef-0aaa6c376347.htm" />
+  <HelpKINode Title="ObjectGroup.Props property" Url="html/d6845958-330b-159e-d970-77994c0c7560.htm" />
+  <HelpKINode Title="ObjectGroup.Visible property" Url="html/4eedf5bf-d6ea-ae61-cf56-fe55a287fe63.htm" />
+  <HelpKINode Title="ObjectGroup.Width property" Url="html/4fa72998-cea3-1b8c-8206-e905b4e1038e.htm" />
+  <HelpKINode Title="ObjectGroup.X property" Url="html/198d8fb4-cf31-0d96-d96f-cb6a862f04f7.htm" />
+  <HelpKINode Title="ObjectGroup.Y property" Url="html/bd992029-0b7e-e02f-ca56-6d9d1d6aaca3.htm" />
+  <HelpKINode Title="ObjectGroups property" Url="html/acc510db-8c31-7a07-8a33-da845e82f024.htm" />
+  <HelpKINode Title="Objects property" Url="html/e6cf90f6-ed80-cca2-a47b-827eb6bd3ff5.htm" />
+  <HelpKINode Title="ObjectType enumeration" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="ObjType property" Url="html/03f505fd-bbb2-6e09-9ffa-f6e23433c8be.htm" />
+  <HelpKINode Title="Opacity property">
+    <HelpKINode Title="ImageLayer.Opacity Property " Url="html/ae39b56e-18cf-14ca-37a1-240d44455b2a.htm" />
+    <HelpKINode Title="ObjectGroup.Opacity Property " Url="html/5995fd31-8d8c-fc94-a6ef-0aaa6c376347.htm" />
+    <HelpKINode Title="TileLayer.Opacity Property " Url="html/433bcbe1-7582-38b1-c077-e4553dd93a54.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Orientation enumeration" Url="html/80b9903f-b7a3-e38b-be48-35ea1708c550.htm" />
+  <HelpKINode Title="Orientation property" Url="html/0143e5dc-83eb-b952-1dab-87c1433c3a56.htm" />
+  <HelpKINode Title="Orthogonal enumeration member" Url="html/80b9903f-b7a3-e38b-be48-35ea1708c550.htm" />
+  <HelpKINode Title="Points property">
+    <HelpKINode Title="Polygon.Points Property " Url="html/47afa7e2-bf95-5d04-38c2-34cb9ebafcf4.htm" />
+    <HelpKINode Title="Polyline.Points Property " Url="html/ef457bd8-db07-6497-4173-4e285b067b04.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Polygon class">
+    <HelpKINode Title="Polygon Class" Url="html/046348b3-0950-68c6-c79b-b7abe1111139.htm" />
+    <HelpKINode Title="about Polygon class" Url="html/046348b3-0950-68c6-c79b-b7abe1111139.htm" />
+    <HelpKINode Title="constructor" Url="html/c7fce3e8-78b4-09d7-0be2-563b6c666d9f.htm" />
+    <HelpKINode Title="methods" Url="html/9cdae9f6-11a5-2f2b-b8bc-0585dc959dcb.htm" />
+    <HelpKINode Title="properties" Url="html/0fa4d3b7-0e9e-a5e5-78b0-ef226771dee5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Polygon enumeration member" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="Polygon property" Url="html/1af0fd73-fa78-0083-f7f1-5f58819a6c1c.htm" />
+  <HelpKINode Title="Polygon.Points property" Url="html/47afa7e2-bf95-5d04-38c2-34cb9ebafcf4.htm" />
+  <HelpKINode Title="Polygon.Polygon constructor" Url="html/c7fce3e8-78b4-09d7-0be2-563b6c666d9f.htm" />
+  <HelpKINode Title="Polyline class">
+    <HelpKINode Title="Polyline Class" Url="html/61dabf9a-2ad1-52cc-8398-2f660b88e4e9.htm" />
+    <HelpKINode Title="about Polyline class" Url="html/61dabf9a-2ad1-52cc-8398-2f660b88e4e9.htm" />
+    <HelpKINode Title="constructor" Url="html/dc7a6551-7579-38e5-55d7-52fdf1dcc2aa.htm" />
+    <HelpKINode Title="methods" Url="html/8f214ae7-4394-73b0-8402-04c9590c77c9.htm" />
+    <HelpKINode Title="properties" Url="html/e16cd394-ec41-4794-e225-15c84ce3151f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Polyline enumeration member" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="Polyline property" Url="html/bf00b9bd-a545-cea3-2547-3bb43c0d5960.htm" />
+  <HelpKINode Title="Polyline.Bounds property" Url="html/4b4f0623-7577-fc10-30ca-50747bd25b26.htm" />
+  <HelpKINode Title="Polyline.Lines property" Url="html/a6cb64f7-4316-dd2c-cbb8-ec0ec3420c4e.htm" />
+  <HelpKINode Title="Polyline.Points property" Url="html/ef457bd8-db07-6497-4173-4e285b067b04.htm" />
+  <HelpKINode Title="Polyline.Polyline constructor" Url="html/dc7a6551-7579-38e5-55d7-52fdf1dcc2aa.htm" />
+  <HelpKINode Title="PrintData method" Url="html/d0e78fff-5a4a-ec65-e632-1d9272905276.htm" />
+  <HelpKINode Title="Probability property" Url="html/56ffa323-1b66-10a0-f784-b6b76f5453dd.htm" />
+  <HelpKINode Title="Properties class">
+    <HelpKINode Title="Properties Class" Url="html/468c91a1-5f3c-6828-d5cd-ee0e0e09d775.htm" />
+    <HelpKINode Title="about Properties class" Url="html/468c91a1-5f3c-6828-d5cd-ee0e0e09d775.htm" />
+    <HelpKINode Title="constructor" Url="html/7c9962ba-396e-4844-aff1-bad0e7be4aa3.htm" />
+    <HelpKINode Title="fields" Url="html/b4dd4332-2d93-a5e3-416c-d098ea4c2dac.htm" />
+    <HelpKINode Title="methods" Url="html/dc6b6f96-dd54-3052-c2ad-6d222150fdc1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Properties.GetValue method" Url="html/a099be0f-2108-7b4e-e21a-9783e9582b83.htm" />
+  <HelpKINode Title="Properties.Properties constructor" Url="html/7c9962ba-396e-4844-aff1-bad0e7be4aa3.htm" />
+  <HelpKINode Title="Properties.PropertiesList field" Url="html/097a938a-52af-4f36-baf6-fb77ce1e5978.htm" />
+  <HelpKINode Title="PropertiesList field" Url="html/097a938a-52af-4f36-baf6-fb77ce1e5978.htm" />
+  <HelpKINode Title="Props property">
+    <HelpKINode Title="ImageLayer.Props Property " Url="html/785695e8-22d2-9007-7370-1c30e931dc39.htm" />
+    <HelpKINode Title="Map.Props Property " Url="html/c0a62158-1d87-f40a-22b5-e1b456962b47.htm" />
+    <HelpKINode Title="Object.Props Property " Url="html/badf68f3-b87d-ee94-ee69-7377d6f6bf0d.htm" />
+    <HelpKINode Title="ObjectGroup.Props Property " Url="html/d6845958-330b-159e-d970-77994c0c7560.htm" />
+    <HelpKINode Title="Terrain.Props Property " Url="html/53120cbe-5937-dc8f-9433-ce340a4360ef.htm" />
+    <HelpKINode Title="Tile.Props Property " Url="html/ed393818-899c-2920-3b38-02c58997f704.htm" />
+    <HelpKINode Title="TileLayer.Props Property " Url="html/081adcb7-ff1b-4983-0462-f6202b2cd568.htm" />
+    <HelpKINode Title="Tileset.Props Property " Url="html/40ca9b50-ac72-62ab-1a1b-e0af841bea42.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Rectangle enumeration member" Url="html/24a7bbcb-09c4-f77a-cf22-8e904eb0c52d.htm" />
+  <HelpKINode Title="RenderOrder enumeration" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="RenderOrder property" Url="html/44c6c7bd-adc8-48bd-dccc-2d3dcf66c149.htm" />
+  <HelpKINode Title="RightDown enumeration member" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="RightUp enumeration member" Url="html/6fc094fd-6d68-f44b-d1dd-ffb50cb8199d.htm" />
+  <HelpKINode Title="Rotation property" Url="html/4f6a5086-189b-96b2-5282-0c9a90a07a7d.htm" />
+  <HelpKINode Title="SetTileDataAt method" Url="html/73bc83d6-c2d8-ff84-7b6c-d08d09cb9e1d.htm" />
+  <HelpKINode Title="Source property">
+    <HelpKINode Title="Image.Source Property " Url="html/c0cd570b-4314-a608-303b-1e0ad2d5df5b.htm" />
+    <HelpKINode Title="Tileset.Source Property " Url="html/b0d5148e-5387-dee6-2848-5076cae6d42d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Spacing property" Url="html/ad59d58b-012d-0f73-db5b-5311c3e4d6e0.htm" />
+  <HelpKINode Title="Staggered enumeration member" Url="html/80b9903f-b7a3-e38b-be48-35ea1708c550.htm" />
+  <HelpKINode Title="Start property" Url="html/9ff7ff44-dbb1-c9b4-8c22-d659e7bca4b6.htm" />
+  <HelpKINode Title="Terrain class">
+    <HelpKINode Title="Terrain Class" Url="html/48b33fc1-e611-edb2-df1f-07f89ac98c08.htm" />
+    <HelpKINode Title="about Terrain class" Url="html/48b33fc1-e611-edb2-df1f-07f89ac98c08.htm" />
+    <HelpKINode Title="constructor" Url="html/9eff5d68-729f-da2c-4b18-1cd98b03db0c.htm" />
+    <HelpKINode Title="methods" Url="html/cf786a95-11d7-f0d4-22ab-482977ec7b57.htm" />
+    <HelpKINode Title="properties" Url="html/cac20611-dff0-05f5-e67c-f40e99b05ffb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Terrain property" Url="html/0532a0e4-9521-3033-9e4c-e337ea7de75e.htm" />
+  <HelpKINode Title="Terrain.Name property" Url="html/9e2693b9-3e44-4270-8cdf-bfe216a4e6c5.htm" />
+  <HelpKINode Title="Terrain.Props property" Url="html/53120cbe-5937-dc8f-9433-ce340a4360ef.htm" />
+  <HelpKINode Title="Terrain.Terrain constructor" Url="html/9eff5d68-729f-da2c-4b18-1cd98b03db0c.htm" />
+  <HelpKINode Title="Terrain.Tile property" Url="html/7c82029b-c8b5-5709-73a9-9c582a7357f2.htm" />
+  <HelpKINode Title="Terrains property" Url="html/02f790a7-76e2-d6e8-9595-ab0b5f165b65.htm" />
+  <HelpKINode Title="TerrainTypes class">
+    <HelpKINode Title="TerrainTypes Class" Url="html/8ebf01a7-1ac6-835a-48d7-f43f89d7aaca.htm" />
+    <HelpKINode Title="about TerrainTypes class" Url="html/8ebf01a7-1ac6-835a-48d7-f43f89d7aaca.htm" />
+    <HelpKINode Title="constructor" Url="html/3c3fd535-f6dc-036b-c20b-e128067a2780.htm" />
+    <HelpKINode Title="methods" Url="html/227578a7-64ea-1a5e-b541-73e9a52d2199.htm" />
+    <HelpKINode Title="properties" Url="html/be5f6864-c8a6-7a3c-4af8-678eb0ae9116.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TerrainTypes property" Url="html/e9b507cf-0e4c-7397-8138-e85d2092d867.htm" />
+  <HelpKINode Title="TerrainTypes.Terrains property" Url="html/02f790a7-76e2-d6e8-9595-ab0b5f165b65.htm" />
+  <HelpKINode Title="TerrainTypes.TerrainTypes constructor" Url="html/3c3fd535-f6dc-036b-c20b-e128067a2780.htm" />
+  <HelpKINode Title="Texture property" Url="html/25510c7f-e4de-c549-dff1-83a9e71b7193.htm" />
+  <HelpKINode Title="Tile class">
+    <HelpKINode Title="Tile Class" Url="html/7119c672-c48e-4120-a391-22b6eafa71a7.htm" />
+    <HelpKINode Title="about Tile class" Url="html/7119c672-c48e-4120-a391-22b6eafa71a7.htm" />
+    <HelpKINode Title="constructor" Url="html/d0509d68-457d-e71a-7129-03cbcc76d863.htm" />
+    <HelpKINode Title="methods" Url="html/1cc63176-9596-4b06-3668-99f62acbd03b.htm" />
+    <HelpKINode Title="operators" Url="html/1265015a-034d-b8e4-8ed5-fb6e09b9f542.htm" />
+    <HelpKINode Title="properties" Url="html/cf99a232-2051-99e9-40c1-36b2c65311d9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Tile property" Url="html/7c82029b-c8b5-5709-73a9-9c582a7357f2.htm" />
+  <HelpKINode Title="Tile.Equals method" Url="html/a5812fcc-59cd-b5de-1b66-4ee29fcffaeb.htm" />
+  <HelpKINode Title="Tile.Gid property" Url="html/804faea6-6f1b-7ef1-f436-0ec5b2b6225e.htm" />
+  <HelpKINode Title="Tile.GreaterThan operator" Url="html/455d35fc-0153-8bc7-8cf2-b7e1086f54dc.htm" />
+  <HelpKINode Title="Tile.GreaterThanOrEqual operator" Url="html/63021a72-f4a7-6a37-dc09-ec3ae3d32f14.htm" />
+  <HelpKINode Title="Tile.Id property" Url="html/97f62324-ac08-8fcd-d146-745b417cde7c.htm" />
+  <HelpKINode Title="Tile.LessThan operator" Url="html/f3f72aee-14e7-ddf2-bead-8760e925792d.htm" />
+  <HelpKINode Title="Tile.LessThanOrEqual operator" Url="html/2021fcd5-a8b0-0179-de31-f6f0fe961302.htm" />
+  <HelpKINode Title="Tile.Location property" Url="html/35cc37ae-c579-7a67-83ee-baea7e348dd7.htm" />
+  <HelpKINode Title="Tile.ObjectGroup property" Url="html/fc80f7a1-0417-cc3d-7218-b7e36851d311.htm" />
+  <HelpKINode Title="Tile.Probability property" Url="html/56ffa323-1b66-10a0-f784-b6b76f5453dd.htm" />
+  <HelpKINode Title="Tile.Props property" Url="html/ed393818-899c-2920-3b38-02c58997f704.htm" />
+  <HelpKINode Title="Tile.Terrain property" Url="html/0532a0e4-9521-3033-9e4c-e337ea7de75e.htm" />
+  <HelpKINode Title="Tile.Tile constructor" Url="html/d0509d68-457d-e71a-7129-03cbcc76d863.htm" />
+  <HelpKINode Title="Tile.ToString method" Url="html/79bd0acc-2471-7b4e-bf18-12c3d5a167b2.htm" />
+  <HelpKINode Title="TileData property" Url="html/c76e85ed-86f4-6bbc-518e-394030dc25b1.htm" />
+  <HelpKINode Title="TileHeight property">
+    <HelpKINode Title="Map.TileHeight Property " Url="html/d9b23d7c-ee12-00be-1d08-121ba2f2a518.htm" />
+    <HelpKINode Title="Tileset.TileHeight Property " Url="html/1a70d36b-840d-2b4a-b8a5-750604e36c83.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TileLayer class">
+    <HelpKINode Title="TileLayer Class" Url="html/ce242fd3-c973-857c-8ec1-99dc4880aae2.htm" />
+    <HelpKINode Title="about TileLayer class" Url="html/ce242fd3-c973-857c-8ec1-99dc4880aae2.htm" />
+    <HelpKINode Title="constructor" Url="html/e7f8ec0c-43ab-8432-ff4d-573fcbe9d3a1.htm" />
+    <HelpKINode Title="methods" Url="html/ccb04cb0-b869-8fcb-3e0b-9d87f411569d.htm" />
+    <HelpKINode Title="properties" Url="html/a9cc2ea3-bc09-d102-7f81-fd1f218410ba.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TileLayer enumeration member" Url="html/74fcce2a-bf89-4c25-3fe7-5b2ee86fb473.htm" />
+  <HelpKINode Title="TileLayer.Data property" Url="html/80f0fdc5-dd17-c05e-660d-6f41757395ac.htm" />
+  <HelpKINode Title="TileLayer.Height property" Url="html/df54af5c-61ca-9852-9821-3812d71d6bec.htm" />
+  <HelpKINode Title="TileLayer.Name property" Url="html/744d5a35-6a96-219e-9b8a-ea1909ae1178.htm" />
+  <HelpKINode Title="TileLayer.Opacity property" Url="html/433bcbe1-7582-38b1-c077-e4553dd93a54.htm" />
+  <HelpKINode Title="TileLayer.Props property" Url="html/081adcb7-ff1b-4983-0462-f6202b2cd568.htm" />
+  <HelpKINode Title="TileLayer.TileLayer constructor" Url="html/e7f8ec0c-43ab-8432-ff4d-573fcbe9d3a1.htm" />
+  <HelpKINode Title="TileLayer.Visible property" Url="html/61f37d6a-1577-1857-15cf-83ad224d67ed.htm" />
+  <HelpKINode Title="TileLayer.Width property" Url="html/54fdd8b6-41c9-7545-9f15-0f2e4c3b4b56.htm" />
+  <HelpKINode Title="TileLayer.X property" Url="html/6d9c59b8-29e5-dc2e-5bc2-03f7c3a0708e.htm" />
+  <HelpKINode Title="TileLayer.Y property" Url="html/16a0df00-8eac-d073-fa8f-90e5e45539df.htm" />
+  <HelpKINode Title="TileLayers property" Url="html/e41e3d36-1dc2-d5f6-9542-35949d91e449.htm" />
+  <HelpKINode Title="TileOffset class">
+    <HelpKINode Title="TileOffset Class" Url="html/50b8dcb2-3a4a-13a0-ada7-a29b7ca94877.htm" />
+    <HelpKINode Title="about TileOffset class" Url="html/50b8dcb2-3a4a-13a0-ada7-a29b7ca94877.htm" />
+    <HelpKINode Title="constructor" Url="html/885c2016-3872-9647-eec1-a6852c3f2b27.htm" />
+    <HelpKINode Title="methods" Url="html/7813fb2a-1675-be10-0f7e-5e8b20b4509a.htm" />
+    <HelpKINode Title="properties" Url="html/e6529020-b8e5-ef8a-eca8-24a4bf3f1435.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TileOffset property" Url="html/7998b0ac-b445-edfc-1e7d-ffb3cae79cc9.htm" />
+  <HelpKINode Title="TileOffset.TileOffset constructor" Url="html/885c2016-3872-9647-eec1-a6852c3f2b27.htm" />
+  <HelpKINode Title="TileOffset.X property" Url="html/62eda856-f6b5-85ef-baf7-903ca71958be.htm" />
+  <HelpKINode Title="TileOffset.Y property" Url="html/c4412e40-8403-897f-d21e-b0f6f82293f1.htm" />
+  <HelpKINode Title="Tiles property" Url="html/314b57d4-5488-ccc1-e161-0c451dbab767.htm" />
+  <HelpKINode Title="Tileset class">
+    <HelpKINode Title="Tileset Class" Url="html/74418e86-e068-8efe-24bc-4caf8ee55a84.htm" />
+    <HelpKINode Title="about Tileset class" Url="html/74418e86-e068-8efe-24bc-4caf8ee55a84.htm" />
+    <HelpKINode Title="constructor" Url="html/2f89bc71-01e5-09d6-07d7-68e4ec6f3ded.htm" />
+    <HelpKINode Title="methods" Url="html/e4417f2c-9609-bc83-8726-74eb31953794.htm" />
+    <HelpKINode Title="operators" Url="html/f4c2d2e2-91e2-b37c-1e67-14fe290e0e3c.htm" />
+    <HelpKINode Title="properties" Url="html/21818122-11d8-8521-dc45-36d83b650fd2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Tileset.Contains method" Url="html/bd9d91b2-5b16-d381-b353-2435f1a4b347.htm" />
+  <HelpKINode Title="Tileset.Equals method" Url="html/9e4d74bb-156f-bcb3-d1fc-2016e0a83f8f.htm" />
+  <HelpKINode Title="Tileset.Firstgid property" Url="html/631ce8ca-6f1f-1751-512f-02a371946908.htm" />
+  <HelpKINode Title="Tileset.GetTile method" Url="html/5a9f8092-89b9-7685-e993-746c2fefc0c9.htm" />
+  <HelpKINode Title="Tileset.GetTileByLocalId method" Url="html/7249cbc0-f267-c81f-4ea8-4a83717d0603.htm" />
+  <HelpKINode Title="Tileset.GreaterThan operator" Url="html/34ca4fbd-777b-a8d3-ca6a-b09a5846c1bd.htm" />
+  <HelpKINode Title="Tileset.GreaterThanOrEqual operator" Url="html/29c8c601-7410-fca5-0e57-b08e5fee1fab.htm" />
+  <HelpKINode Title="Tileset.Image property" Url="html/c7360120-430c-37f5-7cb4-a16cf23707f6.htm" />
+  <HelpKINode Title="Tileset.LessThan operator" Url="html/ffbe59fc-bcf5-415a-f613-a7cb45e23022.htm" />
+  <HelpKINode Title="Tileset.LessThanOrEqual operator" Url="html/c99f43c5-eef9-ec02-d62e-551c409565ed.htm" />
+  <HelpKINode Title="Tileset.Margin property" Url="html/ed2cffcd-9066-105b-5fc8-de686184c4c0.htm" />
+  <HelpKINode Title="Tileset.Name property" Url="html/4082f822-61ae-e23e-464a-b68ff2f559a4.htm" />
+  <HelpKINode Title="Tileset.Props property" Url="html/40ca9b50-ac72-62ab-1a1b-e0af841bea42.htm" />
+  <HelpKINode Title="Tileset.Source property" Url="html/b0d5148e-5387-dee6-2848-5076cae6d42d.htm" />
+  <HelpKINode Title="Tileset.Spacing property" Url="html/ad59d58b-012d-0f73-db5b-5311c3e4d6e0.htm" />
+  <HelpKINode Title="Tileset.TerrainTypes property" Url="html/e9b507cf-0e4c-7397-8138-e85d2092d867.htm" />
+  <HelpKINode Title="Tileset.TileHeight property" Url="html/1a70d36b-840d-2b4a-b8a5-750604e36c83.htm" />
+  <HelpKINode Title="Tileset.TileOffset property" Url="html/7998b0ac-b445-edfc-1e7d-ffb3cae79cc9.htm" />
+  <HelpKINode Title="Tileset.Tiles property" Url="html/314b57d4-5488-ccc1-e161-0c451dbab767.htm" />
+  <HelpKINode Title="Tileset.Tileset constructor" Url="html/2f89bc71-01e5-09d6-07d7-68e4ec6f3ded.htm" />
+  <HelpKINode Title="Tileset.TileWidth property" Url="html/49ce2f44-995d-b35b-d847-579df583095d.htm" />
+  <HelpKINode Title="Tileset.ToString method" Url="html/e3126060-41a2-68bd-8050-c4a0310e323a.htm" />
+  <HelpKINode Title="Tilesets property" Url="html/743c9916-9753-352e-3030-d38edf6cf0d2.htm" />
+  <HelpKINode Title="TileWidth property">
+    <HelpKINode Title="Map.TileWidth Property " Url="html/3686fa7d-4142-0222-cdb5-219b5ebd0dd4.htm" />
+    <HelpKINode Title="Tileset.TileWidth Property " Url="html/49ce2f44-995d-b35b-d847-579df583095d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TopDown enumeration member" Url="html/5fc0d049-8e9e-32d0-7b8c-274d229ea65d.htm" />
+  <HelpKINode Title="ToString method">
+    <HelpKINode Title="Tile.ToString Method " Url="html/79bd0acc-2471-7b4e-bf18-12c3d5a167b2.htm" />
+    <HelpKINode Title="Tileset.ToString Method " Url="html/e3126060-41a2-68bd-8050-c4a0310e323a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Trans property" Url="html/fe32edc2-34f9-678c-1e52-00dcb659d05d.htm" />
+  <HelpKINode Title="TranslateScreenToMap method" Url="html/9f642fc3-0740-6874-9b7c-6677c9aecf24.htm" />
+  <HelpKINode Title="Type property" Url="html/3362a81b-f04c-a123-fd97-fcd5cb53267d.htm" />
+  <HelpKINode Title="Version property" Url="html/af7efa0d-5033-69f9-f387-2f40580a2424.htm" />
+  <HelpKINode Title="Visible property">
+    <HelpKINode Title="ImageLayer.Visible Property " Url="html/731ba0d0-9753-05f9-be84-80d840e182ce.htm" />
+    <HelpKINode Title="Object.Visible Property " Url="html/8d052042-c1e4-51dc-e8cc-6a1eeeb93d0b.htm" />
+    <HelpKINode Title="ObjectGroup.Visible Property " Url="html/4eedf5bf-d6ea-ae61-cf56-fe55a287fe63.htm" />
+    <HelpKINode Title="TileLayer.Visible Property " Url="html/61f37d6a-1577-1857-15cf-83ad224d67ed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Width property">
+    <HelpKINode Title="Image.Width Property " Url="html/3e856a6a-6bc8-952c-1cf0-ac25f223f590.htm" />
+    <HelpKINode Title="ImageLayer.Width Property " Url="html/9f599e38-0b4e-896c-1e2f-2d56fb939ce9.htm" />
+    <HelpKINode Title="Map.Width Property " Url="html/a45e2f11-c28a-a63b-a037-bf3b83ba2373.htm" />
+    <HelpKINode Title="Object.Width Property " Url="html/7da34185-a5eb-0efe-d805-da36217add47.htm" />
+    <HelpKINode Title="ObjectGroup.Width Property " Url="html/4fa72998-cea3-1b8c-8206-e905b4e1038e.htm" />
+    <HelpKINode Title="TileLayer.Width Property " Url="html/54fdd8b6-41c9-7545-9f15-0f2e4c3b4b56.htm" />
+  </HelpKINode>
+  <HelpKINode Title="X property">
+    <HelpKINode Title="ImageLayer.X Property " Url="html/1ff0241b-6ea3-0c5c-5636-38bfbb10529a.htm" />
+    <HelpKINode Title="Object.X Property " Url="html/da06c09e-b4e4-b8e5-6d4e-16306aeaeda8.htm" />
+    <HelpKINode Title="ObjectGroup.X Property " Url="html/198d8fb4-cf31-0d96-d96f-cb6a862f04f7.htm" />
+    <HelpKINode Title="TileLayer.X Property " Url="html/6d9c59b8-29e5-dc2e-5bc2-03f7c3a0708e.htm" />
+    <HelpKINode Title="TileOffset.X Property " Url="html/62eda856-f6b5-85ef-baf7-903ca71958be.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Y property">
+    <HelpKINode Title="ImageLayer.Y Property " Url="html/dc2784ab-81d3-31bd-0279-15bba14460fd.htm" />
+    <HelpKINode Title="Object.Y Property " Url="html/a696e2ba-c2fc-f5e3-5df5-887ae07fe9f1.htm" />
+    <HelpKINode Title="ObjectGroup.Y Property " Url="html/bd992029-0b7e-e02f-ca56-6d9d1d6aaca3.htm" />
+    <HelpKINode Title="TileLayer.Y Property " Url="html/16a0df00-8eac-d073-fa8f-90e5e45539df.htm" />
+    <HelpKINode Title="TileOffset.Y Property " Url="html/c4412e40-8403-897f-d21e-b0f6f82293f1.htm" />
+  </HelpKINode>
+</HelpKI>
