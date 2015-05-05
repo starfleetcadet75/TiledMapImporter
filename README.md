@@ -2,6 +2,8 @@
 A C# library for using custom maps made with the Tiled Map Editor (http://www.mapeditor.org/) in MonoGame/Xna.
 ------------
 
+###Note: All documentation has been moved to http://starfleetcadet75.github.io/TiledMapImporter/
+
 Introduction
 ------------
 This project developed out of my own need to import maps made using Tiled into my MonoGame projects. I originally tried using some of the libraries already out there but none seem to work well enough. I therefore created my own.
