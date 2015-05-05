@@ -32,59 +32,47 @@
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background</h3>
 
 <p>This project developed out of my own need to import maps made using Tiled into
-  my MonoGame projects. I originally tried using some of the libraries already out there but none seem to work well enough. I therefore created my own.</p>
-<p>The Tiled Map Editor is a great piece of free software that you can find here, <a href="http://www.mapeditor.org/">mapeditor.org</a>. In order to parse maps saved in JSON format, I use JSON.net which can be found
-  here <a href="http://www.newtonsoft.com/json">newtonsoft.com</a>. This project is written in C# and is designed to be used in <a href="http://www.monogame.net/">MonoGame</a>. While it has been discontinued, Microsoft's XNA 4.0 should also work well with it.</p>
-
-<p>To download:</p>
-
-<pre>
-  <code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code>
-</pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+  my MonoGame projects. I originally tried using some of the libraries already out there but none seem to work well enough. Therefore, I created my own.</p>
+<p>The Tiled Map Editor is a great piece of free software that you can find <a href="http://www.mapeditor.org/">here</a>. In order to parse maps saved in JSON format, I use JSON.net which can be found
+  <a href="http://www.newtonsoft.com/json">here</a>. This project is written in C# and is designed to be used in <a href="http://www.monogame.net/">MonoGame</a>. While it has been discontinued, Microsoft's XNA 4.0 should also work well with it.</p>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true">
   <span class="octicon octicon-link"></span>
   </a>Quick Start</h3>
 
-<p>To use this library in MonoGame, head over to the Release page and download
-  the latest MapImporter.dll file. This is the entire library compiled into a
-  more useful format. Simply put it somewhere safe and then add a reference to
-  it inside your project. Or you can download the zip file and try running the
-  DemoGame project.</p>
-
-  <ul>
-    <li>1) Use NuGet to download the latest version of Newtonsoft.Json into your project. (Forgetting this step will lead to null reference exceptions!)</li>
-    <li>2) Add a using statement:<br>
+<p>You can download the zip file which includes a DemoGame project that demonstrates the library's capabilities.</p>
+<p>If you want to add the library to your project, you can download the MapImporter.dll file from the release page, add a reference to it in your project, then follow these steps:</p>
+  <ol type="1">
+    <li>Use NuGet to download the latest version of Newtonsoft.Json into your project. (Forgetting this step will lead to null reference exceptions!)</li>
+    <br>
+    <li>Add a using statement:<br>
       <pre><code>using MapImporter</code></pre></li>
-    <li>3) Create a new Map object by calling this line:<br>
+    <br>
+    <li>Create a new Map object by calling this line:<br>
         <pre><code>Map map = Importer.ImportMap(@"Content/NewBarkTown.json")</code></pre></li>
-    <li>4) Because the tileset images (which should be in XNB format somewhere inside your content folder) must be loaded as Texture2D objects, you have to call this line directly after creating a new map object:<br>
+    <br>
+    <li>Because the tileset images (which should be in XNB format somewhere inside your content folder) must be loaded as Texture2D objects, you have to call this line directly after creating a new map object:<br>
         <pre><code>map.LoadTilesetTextures(Content)</code></pre></li>
-    <li>5) Finally, draw the Tiled map in your game by calling the following inside your Draw method:<br>
+    <br>
+    <li>Finally, draw the Tiled map in your game by calling the following inside your Draw method:<br>
         <pre><code>map.Draw(spriteBatch, graphics.GraphicsDevice.Viewport.Bounds, new Vector(0, 0))</code></pre></li>
-  </ul>
+  </ol>
 
-  <p>Keep in mind this is the quick start. I have added tons of other useful methods and tricks which I will soon have documented in the project wiki.</p>
+  <p>Keep in mind this is the quick start. There are tons of other features that are documented in the Documentation pages.</p>
   <p>For use in XNA Game Studio 4.0: Download the latest release of the build specifically for XNA. The MonoGame build depends on some references that MonoGame uses which are not available in the same way inside XNA. The code is exactly the same.</p>
-
-<h3>
-<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h3>
 
-<p>Having trouble with the Importer? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:starfleetcadet75@gmail.com">starfleetcadet75@gmail.com</a>.</p>
+<p>Having trouble with the Importer? Contact the project author at <a href="mailto:starfleetcadet75@gmail.com">starfleetcadet75@gmail.com</a>.</p>
         </section>
 
         <aside id="sidebar">
+          <a href="https://github.com/starfleetcadet75/TiledMapImporter/releases" class="button">
+            <small>Download</small>
+            Releases
+          </a>
           <a href="https://github.com/starfleetcadet75/TiledMapImporter/zipball/master" class="button">
             <small>Download</small>
             .zip file
