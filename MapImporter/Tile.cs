@@ -12,8 +12,10 @@ namespace MapImporter
     {
         /// <summary>
         /// The local tile id that identifys this Tile inside of its own tileset.
-        /// <remarks>While this property is accessible, it would be inefficient to reference
-        /// an individual Tile by its local id.</remarks>
+        /// <remarks>
+        /// While this property is accessible, it would be inefficient to reference
+        /// an individual Tile by its local id.
+        /// </remarks>
         /// </summary>
         public int Id { set; get; }
         /// <summary>
@@ -58,6 +60,10 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the Tile class.
         /// </summary>
+        /// <param name="id">The local tile id that identifys this Tile inside of its own tileset.</param>
+        /// <param name="gid">The global tile id of this Tile object. Every Tile has a unique id property
+        /// to identify it across all tilesets.</param>
+        /// <param name="location">The location of the Tile inside its Tileset.</param>
         public Tile(int id, int gid, Rectangle location)
         {
             Id = id;

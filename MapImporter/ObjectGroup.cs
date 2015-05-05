@@ -28,7 +28,7 @@ namespace MapImporter
     public class ObjectGroup
     {
         /// <summary>
-        /// The name of the object group.
+        /// The name of the ObjectGroup.
         /// </summary>
         public string Name { set; get; }
         /// <summary>
@@ -87,6 +87,12 @@ namespace MapImporter
         /// <summary>
         /// Constructor for the ObjectGroup class.
         /// </summary>
+        /// <param name="name">The name of the ObjectGroup.</param>
+        /// <param name="x">The x coordinate of the object group in tiles.</param>
+        /// <param name="y">The y coordinate of the object group in tiles.</param>
+        /// <param name="width">The width of the object group in tiles.</param>
+        /// <param name="height">The height of the object group in tiles.</param>
+        /// <param name="opacity">The opacity of the layer as a value from 0 to 1.</param>
         public ObjectGroup(string name, int x, int y, int width, int height, float opacity)
         {
             Name = name;
@@ -103,9 +109,9 @@ namespace MapImporter
         /// <summary>
         /// Draws all Objects that are part of this ObjectGroup.
         /// </summary>
-        /// <param name="spriteBatch"></param>
-        /// <param name="location"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="location">The location to draw the layers.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex)
         {
             foreach (Object obj in Objects)
@@ -117,10 +123,10 @@ namespace MapImporter
         /// <summary>
         /// Draws all Objects of the specified ObjectType that are part of this ObjectGroup.
         /// </summary>
-        /// <param name="spriteBatch"></param>
-        /// <param name="location"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="type"></param>
+        /// <param name="spriteBatch">A spritebatch object for drawing.</param>
+        /// <param name="location">The location to draw the layers.</param>
+        /// <param name="startIndex">The i and j indices of the first tile to draw.</param>
+        /// <param name="type">The type of objects to draw from this ObjectGroup.</param>
         public void Draw(SpriteBatch spriteBatch, Rectangle location, Vector2 startIndex, ObjectType type)
         {
             foreach (Object obj in Objects)
