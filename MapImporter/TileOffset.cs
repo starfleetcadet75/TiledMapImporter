@@ -1,5 +1,4 @@
-﻿
-namespace MapImporter
+﻿namespace MapImporter
 {
     /// <summary>
     /// This element is used to specify an offset in pixels, to be applied
@@ -23,6 +22,8 @@ namespace MapImporter
         /// </summary>
         public TileOffset()
         {
+            X = 0;
+            Y = 0;
         }
 
         /// <summary>

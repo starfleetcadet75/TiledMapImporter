@@ -2,40 +2,61 @@
 
 namespace MapImporter
 {
-    /// <summary>
-    /// Wraps any number of custom properties. Can be used as a child of the map,
-    /// tile (when part of a tileset), layer, objectgroup, and object elements.
-    /// </summary>
-    public class Properties
+    public class MapProperties
     {
-        /// <summary>
-        /// Dictionary of individual properties inside the properties class.
-        /// </summary>
-        public Dictionary<string, string> PropertiesList;
+        private Dictionary<string, object> properties;
 
-        /// <summary>
-        /// Constructor for Properties class.
-        /// </summary>
-        public Properties()
+        public MapProperties()
         {
-            PropertiesList = new Dictionary<string, string>();
+            properties = new Dictionary<string, object>();
         }
 
-        /// <summary>
-        /// Finds the value with the specified name and returns it.
-        /// </summary>
-        /// <param name="name">The name of the property to find.</param>
-        /// <returns>The value specified by the key.</returns>
-        public string GetValue(string name)
+        public MapProperties(Dictionary<string, object> properties)
         {
-            if (PropertiesList.ContainsKey(name))
+            this.properties = properties;
+        }
+
+        public bool ContainsKey(string key)
+        {
+            return properties.ContainsKey(key);
+        }
+
+        public object GetValue(string key)
+        {
+            return properties[key];
+        }
+
+        public object GetValue(string key, object defaultValue)
+        {
+            object value = properties[key];
+            if (value != null)
             {
-                return PropertiesList[name];
+                return value;
             }
             else
             {
-                return null;
+                return defaultValue;
             }
+        }
+
+        public void AddProperty(string key, object value)
+        {
+            properties.Add(key, value);
+        }
+
+        public void Remove(string key)
+        {
+            properties.Remove(key);
+        }
+
+        public void Clear()
+        {
+            properties.Clear();
+        }
+
+        public int Count()
+        {
+            return properties.Count;
         }
     }
 }
