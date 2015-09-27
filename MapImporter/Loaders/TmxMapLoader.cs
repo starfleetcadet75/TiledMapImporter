@@ -1,19 +1,18 @@
 ﻿namespace MapImporter.Loaders
 {
-    public class TmxMapLoader : IMapLoader
+    /// <summary>
+    /// Responsible for loading Tiled maps saved in TMX format.
+    /// </summary>
+    public class TmxMapLoader : MapLoader
     {
-        private string filename;
-        private Map map;
-
         public TmxMapLoader(string filename)
+            : base(filename)
         {
-            this.filename = filename;
-            this.map = new Map();
         }
 
-        public Map Load()
+        public override Map Load()
         {
             return map;
         }
-   }
+    }
 }

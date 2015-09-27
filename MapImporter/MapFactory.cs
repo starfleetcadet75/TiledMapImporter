@@ -42,6 +42,10 @@ namespace MapImporter
             {
                 Console.WriteLine(ex.Message);
             }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);

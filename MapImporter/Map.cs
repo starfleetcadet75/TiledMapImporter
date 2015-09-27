@@ -55,7 +55,7 @@ namespace MapImporter
         /// <summary>
         /// Container object to store all of the map's Layers.
         /// </summary>
-        public Layers layers { set; get; }
+        public Layers Layers { set; get; }
         /// <summary>
         /// The id of the next object in the map.
         /// </summary>
@@ -67,7 +67,7 @@ namespace MapImporter
         public Map()
         {
             Properties = new MapProperties();
-            layers = new Layers();
+            Layers = new Layers();
             Tilesets = new Tilesets();
         }
     }

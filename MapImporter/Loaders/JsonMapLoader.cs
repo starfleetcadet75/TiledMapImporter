@@ -1,4 +1,6 @@
 ﻿using MapImporter.Enums;
+using MapImporter.Objects;
+using MapImporter.Utils;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -8,19 +10,19 @@ using System.IO;
 
 namespace MapImporter.Loaders
 {
-    public class JsonMapLoader
+    /// <summary>
+    /// Responsible for loading Tiled maps saved in Json format.
+    /// </summary>
+    public class JsonMapLoader : MapLoader
     {
-        private string filename;
-        private Map map;
         private int gid = 1;  // Keeps track of the global ids for all tiles
 
         public JsonMapLoader(string filename)
+            : base(filename)
         {
-            this.filename = filename;
-            this.map = new Map();
         }
 
-        public Map Load()
+        public override Map Load()
         {
             string fileText = File.ReadAllText(@filename);
             JObject mapJson = JObject.Parse(fileText);
@@ -35,47 +37,49 @@ namespace MapImporter.Loaders
                     ParseTilesets(tilesetJsonArray);
                 }
 
-
+                foreach (JObject layerJson in mapJson["layers"])
+                {
+                    map.Layers.AddLayer(ParseLayer(layerJson));
+                }
             }
 
             return map;
         }
 
-        private void ParseMapValues(JObject mapJSON)
+        private void ParseMapValues(JObject mapJson)
         {
-            map.Version = mapJSON["version"].ToString();
+            map.Version = mapJson["version"].ToString();
 
-            if (mapJSON["orientation"].ToString() == "orthogonal")
+            if (mapJson["orientation"].ToString() == "orthogonal")
                 map.Orientation = Orientation.Orthogonal;
             else throw new UnsupportedOrientationException();
 
-            map.Width = (int)mapJSON["width"];
-            map.Height = (int)mapJSON["height"];
-            map.TileWidth = (int)mapJSON["tilewidth"];
-            map.TileHeight = (int)mapJSON["tileheight"];
+            map.Width = (int)mapJson["width"];
+            map.Height = (int)mapJson["height"];
+            map.TileWidth = (int)mapJson["tilewidth"];
+            map.TileHeight = (int)mapJson["tileheight"];
 
-            if (mapJSON["backgroundcolor"] != null)
-                map.BackgroundColor = ConvertToColor(mapJSON["backgroundcolor"].ToString());
+            if (mapJson["backgroundcolor"] != null)
+                map.BackgroundColor = ValueConverter.ConvertToColor(mapJson["backgroundcolor"].ToString());
 
-            if (mapJSON["renderorder"].ToString() == "right-down")
+            if (mapJson["renderorder"].ToString() == "right-down")
                 map.RenderOrder = RenderOrder.RightDown;
-            else if (mapJSON["renderorder"].ToString() == "right-up")
+            else if (mapJson["renderorder"].ToString() == "right-up")
                 map.RenderOrder = RenderOrder.RightUp;
-            else if (mapJSON["renderorder"].ToString() == "left-down")
+            else if (mapJson["renderorder"].ToString() == "left-down")
                 map.RenderOrder = RenderOrder.LeftDown;
-            else if (mapJSON["renderorder"].ToString() == "left-up")
+            else if (mapJson["renderorder"].ToString() == "left-up")
                 map.RenderOrder = RenderOrder.LeftUp;
 
-            if (mapJSON["properties"] != null)
+            if (mapJson["properties"] != null)
             {
-                Dictionary<string, object> properties = JsonConvert.DeserializeObject<Dictionary<string, object>>(mapJSON["properties"].ToString());
-                map.Properties = new MapProperties(properties);
+                map.Properties = new MapProperties(JsonConvert.DeserializeObject<Dictionary<string, object>>(mapJson["properties"].ToString()));
             }
 
-            if (mapJSON["nextobjectid"] != null)
+            if (mapJson["nextobjectid"] != null)
             {
                 int num;
-                int.TryParse(mapJSON["nextobjectid"].ToString(), out num);
+                int.TryParse(mapJson["nextobjectid"].ToString(), out num);
                 map.NextObjectId = num;
             }
         }
@@ -103,8 +107,7 @@ namespace MapImporter.Loaders
 
             if (tilesetJson["properties"] != null)
             {
-                Dictionary<string, object> properties = JsonConvert.DeserializeObject<Dictionary<string, object>>(tilesets["properties"].ToString());
-                tileset.Properties = new MapProperties(properties);
+                tileset.Properties = new MapProperties(JsonConvert.DeserializeObject<Dictionary<string, object>>(tilesetJson["properties"].ToString()));
             }
 
             ParseTilesetTerrain(tilesetJson, tileset);
@@ -137,7 +140,7 @@ namespace MapImporter.Loaders
                 tileset.Image.Format = Path.GetExtension(tileset.Image.Source);
 
                 if (tilesetJson["trans"] != null)
-                    tileset.Image.Trans = ConvertToColor(tilesetJson["trans"].ToString());
+                    tileset.Image.Trans = ValueConverter.ConvertToColor(tilesetJson["trans"].ToString());
 
                 if (tilesetJson["imagewidth"] != null)
                     tileset.Image.Width = (int)tilesetJson["imagewidth"];
@@ -213,6 +216,125 @@ namespace MapImporter.Loaders
                     }
                 }
             }
+        }
+
+        private Layer ParseLayer(JObject layerJson)
+        {
+            if (layerJson["type"].ToString() == "tilelayer")
+            {
+                return ParseTileLayer(layerJson);
+            }
+            else if (layerJson["type"].ToString() == "objectgroup")
+            {
+                return ParseObjectGroup(layerJson);
+            }
+            else if (layerJson["type"].ToString() == "imagelayer")
+            {
+                return ParseImageLayer(layerJson);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private Layer ParseTileLayer(JObject layerJson)
+        {
+            string name = layerJson["name"].ToString();
+            float opacity = (float)layerJson["opacity"];
+
+            bool isVisible = true;
+            if (layerJson["visible"].ToString() == "false")
+                isVisible = false;
+
+            int x = (int)layerJson["x"];
+            int y = (int)layerJson["y"];
+            int width = (int)layerJson["width"];
+            int height = (int)layerJson["height"];
+
+            MapProperties properties = null;
+            if (layerJson["properties"] != null)
+            {
+                properties = new MapProperties(JsonConvert.DeserializeObject<Dictionary<string, object>>(layerJson["properties"].ToString()));
+            }
+
+            TileLayer tileLayer = new TileLayer(name, opacity, isVisible, properties, x, y, width, height);
+            ParseTileLayerCells(tileLayer, (JArray)layerJson["data"]);
+            
+            return tileLayer;
+        }
+
+        private void ParseTileLayerCells(TileLayer tileLayer, JArray cellJson)
+        {
+            List<int> values = new List<int>();
+            foreach (int v in cellJson)
+            {
+                values.Add(v);
+            }
+
+            int k = 0;
+            for (int j = 0; j < tileLayer.Height; j++)
+            {
+                for (int i = 0; i < tileLayer.Width; i++)
+                {
+                    int gid = values[k];
+                    Cell cell = new Cell(map.Tilesets.GetTile(gid));
+                    tileLayer.SetCell(cell, i, j);
+                    k++;
+                }
+            }
+        }
+
+        private Layer ParseObjectGroup(JObject layerJson)
+        {
+            string name = layerJson["name"].ToString();
+            float opacity = (float)layerJson["opacity"];
+
+            bool isVisible = true;
+            if (layerJson["visible"].ToString() == "false")
+                isVisible = false;
+
+            int x = (int)layerJson["x"];
+            int y = (int)layerJson["y"];
+            int width = (int)layerJson["width"];
+            int height = (int)layerJson["height"];
+
+            // TODO: Do ObjectGroups have properties as a whole?
+            ObjectGroup objGroup = new ObjectGroup(name, opacity, isVisible, null, x, y, width, height);
+
+            if (layerJson["color"] != null)
+            {
+                objGroup.Color = ValueConverter.ConvertToColor(layerJson["color"].ToString());
+            }
+
+            string strDrawOrder = layerJson["draworder"].ToString();
+            if (strDrawOrder.Equals("topdown"))
+            {
+                objGroup.DrawOrder = DrawOrder.TopDown;
+            }
+            else
+            {
+                objGroup.DrawOrder = DrawOrder.TopDown;
+            }
+
+            ParseObjects(objGroup, layerJson);
+            return objGroup;
+        }
+
+        private void ParseObjects(ObjectGroup objGroup, JObject layerJson)
+        {
+            JArray objectJson = (JArray)layerJson["objects"];
+            foreach (JObject objJson in objectJson)
+            {
+                MapObject obj = new MapObject();
+
+
+            }
+        }
+
+        private Layer ParseImageLayer(JObject layerJson)
+        {
+            throw new NotImplementedException();
         }
     }
 }

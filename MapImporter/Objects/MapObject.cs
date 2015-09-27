@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MapImporter.Interfaces
+namespace MapImporter.Objects
 {
-    interface MapLoader
+    public class MapObject
     {
+
     }
 }

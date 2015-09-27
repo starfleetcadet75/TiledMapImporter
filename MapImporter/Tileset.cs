@@ -81,8 +81,7 @@ namespace MapImporter
         public Tile GetTile(int gid)
         {
             Tile tile = Tiles.Find(item => item.Gid == gid);
-
-            return (tile != null) tile ? null;
+            return tile != null ? tile : null;
         }
 
         /// <summary>
@@ -156,7 +155,7 @@ namespace MapImporter
         /// <returns>The string representation of Tileset object.</returns>
         public override string ToString()
         {
-            return String.Format("({0}, {1}, {2})", FirstGid, Name, Source);
+            return String.Format("Tileset({0}, {1}, {2})", FirstGid, Name, Source);
         }
     }
 }
